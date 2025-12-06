@@ -18,19 +18,17 @@ The codebase is structured, testable, and built around clean separation of conce
 
 ### Recommended: Run the Project via Docker
 
-> The easiest and fully reproducible way to run the ETL pipeline is through the
-> provided **Docker setup**.  
->  
-> Running `docker compose up` will automatically:
-> - install all dependencies  
-> - run Alembic migrations  
-> - create the SQLite database (`fiindo_challenge.db`)  
-> - create the `logs/` directory with timestamped log files  
-> - execute the full ETL pipeline  
->
-> No database or log files are included in the repository on purpose
-> (they are created dynamically at runtime).  
-> Just ensure your `.env` is filled in before starting Docker.
+The easiest and fully reproducible way to run the ETL pipeline is through the
+provided **Docker setup**.    
+Running `docker compose up` will automatically:
+- install all dependencies  
+- run Alembic migrations  
+- create the SQLite database (`fiindo_challenge.db`)  
+- create the `logs/` directory with timestamped log files  
+- execute the full ETL pipeline  
+No database or log files are included in the repository on purpose
+(they are created dynamically at runtime).  
+Just ensure your `.env` is filled in before starting Docker.
 
 
 ---
