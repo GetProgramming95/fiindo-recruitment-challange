@@ -390,9 +390,9 @@ A valid example looks like this:
     FIINDO_API_TIMEOUT=90
     FIINDO_RETRY_STATUS_CODES=429,500
 
-
 The default values in .env.example are optimized for local execution.
 When using Docker, lower worker values are recommended to avoid API rate limits.
+
 ---
 
 ### Rebuilding after code changes
