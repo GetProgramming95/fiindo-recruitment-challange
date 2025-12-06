@@ -1,2 +1,5 @@
-SQLAlchemy>=2.0.0
-alembic>=1.12.0
+SQLAlchemy>=2.0
+alembic>=1.12
+requests
+python-dotenv
+pytest
