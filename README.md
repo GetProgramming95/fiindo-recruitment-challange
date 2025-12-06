@@ -448,16 +448,6 @@ Ensure BIOS virtualization is enabled (`SVM`, `IOMMU`, Hyper-V).
 
 ---
 
-### Docker Summary
-
-- Fully self-contained Docker execution  
-- Automatic migrations  
-- Automatic environment loading  
-- Persistent logs + database  
-- Clean and reproducible ETL environment  
-
----
-
 ### Summary
 
 This project provides:
