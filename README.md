@@ -36,40 +36,55 @@ Running `docker compose up` will automatically:
 > When running via Docker, these files will be automatically updated or overwritten.
 > Just ensure your `.env` file is filled in before starting Docker.
 
-
 ---
 
 ### Project Structure
 
-```text
-.
-├─ src/
-│  ├─ main.py              # ETL orchestration
-│  ├─ api_client.py        # Fiindo API wrapper (auth, retries, error handling)
-│  ├─ fetcher.py           # Fetch symbols & filter industries
-│  ├─ calculations.py      # Compute per-ticker metrics
-│  ├─ db_writer.py         # Save ticker + industry results into SQLite
-│  ├─ models.py            # SQLAlchemy models
-│  ├─ logging_setup.py     # Unified logging configuration
-│  ├─ check_db.py          # CLI tool to inspect DB contents
-│  └─ analyze_logs.py      # Summaries of ETL log output
-│
-├─ fiindo_challenge.db
-├─ tests/
-│  ├─ conftest.py
-│  ├─ test_calculations.py
-│  └─ test_db_writer.py
-│
-├─ alembic/
-├─ logs/
-│  └─ etl_*.log              # ETL log file (created at runtime)
-├─ alembic.ini
-├─ Dockerfile
-├─ docker-compose.yml
-├─ requirements.txt
-├─ .env.example
-└─ README.md
-```
+    .
+    ├─ src/
+    │  ├─ main.py                  # ETL orchestration (entry point)
+    │  ├─ api_client.py            # Fiindo API wrapper (auth, retries, speedboost, error handling)
+    │  ├─ fetcher.py               # Fetch symbols & filter industries
+    │  ├─ calculations.py          # Compute per-ticker metrics
+    │  ├─ db_writer.py             # Save ticker + industry results into SQLite
+    │  ├─ models.py                # SQLAlchemy models
+    │  ├─ logging_setup.py         # Unified logging configuration
+    │  ├─ check_db.py              # CLI tool to inspect DB contents
+    │  ├─ analyze_logs.py          # Summaries of ETL log output
+    │  └─ debug_missing_tickers.py # Helper to inspect tickers without metrics via /debug
+    │
+    ├─ fiindo_challenge.db         # SQLite database (example ETL output)
+    ├─ tests/
+    │  ├─ conftest.py
+    │  ├─ test_calculations.py
+    │  └─ test_db_writer.py
+    │
+    ├─ alembic/
+    ├─ logs/
+    │  └─ etl_*.log                # ETL log files (timestamped)
+    ├─ alembic.ini
+    ├─ Dockerfile
+    ├─ docker-compose.yml
+    ├─ requirements.txt
+    ├─ .env.example
+    └─ README.md
+
+
+
+
+               +----------------+
+               |   Fiindo API   |
+               +--------+-------+
+                        |
+                        v
++------------+    +------------+    +--------------+
+|  fetcher   | -> | calculator | -> |  db_writer   |
++------------+    +------------+    +--------------+
+        \                |                 |
+         \               |                 |
+          +----------------------------------------+
+                           Database
+
 
 ---
 
@@ -83,7 +98,8 @@ Running `docker compose up` will automatically:
 
 ### ETL Overview
 
-### 1. Extract
+#### 1. Extract
+
 The pipeline calls Fiindo endpoints:
 
 - `/symbols`
@@ -102,31 +118,27 @@ Ticker master data is stored in the `tickers` table.
 
 ---
 
-### 2. Transform (Calculations)
+#### 2. Transform (Calculations)
 
 The pipeline computes:
 
 **PE Ratio**
-```text
-latest_price / last_quarter_eps
-```
+
+    latest_price / last_quarter_eps
 
 **Revenue Growth (QoQ)**
-```text
-(Q1_revenue - Q2_revenue) / Q2_revenue
-```
+
+    (Q1_revenue - Q2_revenue) / Q2_revenue
 
 **NetIncomeTTM**
-```text
-sum of netIncome for the last four quarters
-```
+
+    sum of netIncome for the last four quarters
 
 **Debt Ratio**
-```text
-totalDebt / totalEquity
-```
 
-**Latest Revenue**
+    totalDebt / totalEquity
+
+**Latest Revenue**  
 Used for industry-level total revenue aggregation.
 
 Parallel processing is implemented via `ThreadPoolExecutor`.  
@@ -134,7 +146,7 @@ Thread counts are configurable via `.env`.
 
 ---
 
-### 3. Load (SQLite)
+#### 3. Load (SQLite)
 
 Snapshot vs. history tables:
 
@@ -165,49 +177,50 @@ Results are written to snapshot and history tables.
 
 ### Installation
 
-### 1. Install dependencies
+#### 1. Install dependencies
 
-```bash
-pip install -r requirements.txt
-```
+    pip install -r requirements.txt
 
-### 2. Create `.env`
+#### 2. Create `.env`
 
-```bash
-cp .env.example .env
-```
+    cp .env.example .env
 
 Fill it:
 
-```env
-# Authentication for Fiindo API
-FIRST_NAME=YourFirstName
-LAST_NAME=YourLastName
+    # Authentication for Fiindo API
+    FIRST_NAME=YourFirstName
+    LAST_NAME=YourLastName
 
-# Optional performance tuning (thread pool sizes)
-# Threads calculating ticker metrics
-MAX_WORKERS=5
+    # Optional performance tuning (thread pool sizes)
+    # Threads calculating ticker metrics
+    MAX_WORKERS=5
 
-# Threads fetching ticker / general info
-MAX_FETCH_WORKERS=10
+    # Threads fetching ticker / general info
+    MAX_FETCH_WORKERS=5
 
-# Optional: Override API base URL (default: https://api.test.fiindo.com/api/v1)
-FIINDO_API_BASE_URL=https://api.test.fiindo.com/api/v1
+    # Optional: Override API base URL (default: https://api.test.fiindo.com/api/v1)
+    FIINDO_API_BASE_URL=https://api.test.fiindo.com/api/v1
 
-# Retry / timeout configuration for FiindoAPI
-# Maximum retry attempts for retryable HTTP errors
-FIINDO_MAX_RETRIES=3
+    # Optional: Enable Fiindo Speedboost (recommended during development)
+    FIINDO_ENABLE_SPEEDBOOST=true
 
-# Seconds to wait between retries (backoff)
-FIINDO_RETRY_BACKOFF=30
+    # Optional override for the speedboost URL
+    # If empty → automatically derived from FIINDO_API_BASE_URL
+    # Fallback → https://api.test.fiindo.com/api/v1/speedboost
+    FIINDO_SPEEDBOOST_URL=https://api.test.fiindo.com/api/v1/speedboost
 
-# Per-request timeout in seconds (recommended: 60–90 seconds)
-FIINDO_API_TIMEOUT=90
+    # Retry / timeout configuration for FiindoAPI
+    # Maximum retry attempts for retryable HTTP errors
+    FIINDO_MAX_RETRIES=3
 
-# Comma-separated HTTP status codes that should trigger a retry
-FIINDO_RETRY_STATUS_CODES=429,500
+    # Seconds to wait between retries (backoff)
+    FIINDO_RETRY_BACKOFF=30
 
-```
+    # Per-request timeout in seconds (recommended: 60–90 seconds)
+    FIINDO_API_TIMEOUT=90
+
+    # Comma-separated HTTP status codes that should trigger a retry
+    FIINDO_RETRY_STATUS_CODES=429,500
 
 > **Spec Note**  
 > The original challenge text contains a typo in the HTTP header name  
@@ -219,36 +232,63 @@ FIINDO_RETRY_STATUS_CODES=429,500
 > ETL pipeline can successfully communicate with the actual API, while still
 > acknowledging the typo in the challenge description.
 
-
 ---
 
 ### Environment Variables: API Base URL & Retry / Timeout Settings
 
-In addition to basic worker settings, the Fiindo API client supports configurable  
-**API base URL**, **HTTP timeout**, and **retry behavior** for handling unstable  
-or slow endpoints.
+In addition to worker settings, the Fiindo API client supports configurable  
+**API base URL**, **HTTP timeout**, **retry behavior**, and **speedboost control**.
 
-### API Base URL
+#### API Base URL
 
 Default:
-```env
-FIINDO_API_BASE_URL=https://api.test.fiindo.com/api/v1
-```
+
+    FIINDO_API_BASE_URL=https://api.test.fiindo.com/api/v1
 
 Can be overridden for testing, mocks, or staging environments.
 
+#### Retry / Timeout Settings
+
+| Variable                  | Default   | Description                                           |
+|---------------------------|-----------|-------------------------------------------------------|
+| `FIINDO_MAX_RETRIES`      | `3`       | Max retry attempts for retryable HTTP errors         |
+| `FIINDO_RETRY_BACKOFF`    | `30`      | Seconds to wait between retries                      |
+| `FIINDO_API_TIMEOUT`      | `90`      | Per-request HTTP timeout in seconds                  |
+| `FIINDO_RETRY_STATUS_CODES` | `429,500` | Status codes that should trigger retries           |
+
+These values aim for a balance between robustness and API-friendliness.
+
 ---
 
-### Retry / Timeout Settings
+### Speedboost (Hidden Fiindo Feature)
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| **FIINDO_MAX_RETRIES** | `3` | Maximum number of retry attempts for retryable HTTP errors |
-| **FIINDO_RETRY_BACKOFF** | `30` | Seconds to wait between retry attempts |
-| **FIINDO_API_TIMEOUT** | `90` | Per-request HTTP timeout in seconds |
-| **FIINDO_RETRY_STATUS_CODES** | `429,500` | Comma-separated HTTP status codes that trigger retries |
+The Fiindo API exposes a hidden endpoint that can temporarily speed up responses:
 
-These values ensure robust stability with slow or rate-limited API endpoints.
+    POST https://api.test.fiindo.com/api/v1/speedboost
+    Body: { "first_name": FIRST_NAME, "last_name": LAST_NAME }
+
+This project supports that endpoint directly from `api_client.py`.
+
+Control via `.env`:
+
+    FIINDO_ENABLE_SPEEDBOOST=true
+
+Optional custom URL (otherwise auto-generated from `FIINDO_API_BASE_URL`):
+
+    FIINDO_SPEEDBOOST_URL=https://api.test.fiindo.com/api/v1/speedboost
+
+How it works internally:
+
+- At ETL startup, `enable_speedboost()` is called from `main.py`
+- If `FIINDO_ENABLE_SPEEDBOOST` is true:
+  - the client sends the POST request with `FIRST_NAME` / `LAST_NAME`
+  - success or failure is logged
+  - the ETL **always continues**, even if speedboost fails
+
+This improves:
+- latency
+- stability under parallel load
+- behavior when using higher worker counts
 
 ---
 
@@ -256,155 +296,112 @@ These values ensure robust stability with slow or rate-limited API endpoints.
 
 Initialize / upgrade the schema:
 
-```bash
-alembic upgrade head
-```
+    alembic upgrade head
 
-Alternative: Create tables directly from models (without Alembic)
-If you prefer to create the database schema directly from the SQLAlchemy models  
-(e.g. for a quick local test), you can run:
+Alternative: create tables directly from SQLAlchemy models (without Alembic):
 
-```bash
-python -m src.models
-```
+    python -m src.models
 
 This creates or updates `fiindo_challenge.db`.
 
 ---
 
-## Running the ETL
+### Running the ETL
 
-```bash
-python -m src.main
-```
+    python -m src.main
 
 Logs are written to:
 
-- timestamped log files in `logs/etl_YYYYMMDD_HHMMSS.log` (one file per run)
+- `logs/etl_YYYYMMDD_HHMMSS.log` (one file per run)
 
 ---
 
-## Running Helper Scripts
+### Running Helper Scripts
 
-### 1. Database overview
+#### 1. Database overview
 
-```bash
-python -m src.check_db
-```
+    python -m src.check_db
 
 Outputs:
 - Row counts  
 - Sample rows  
 - Duplicate checks  
 - Validation of required industries  
+- Extra checks to ensure no duplicate ticker symbols in the master table  
 
----
+#### 2. Log analysis
 
-### 2. Log analysis
-
-```bash
-python -m src.analyze_logs
-```
+    python -m src.analyze_logs
 
 Shows:
 - Error log lines  
 - HTTP failures (401, 404, 429, 500, …)  
 - Tickers missing metrics  
+- Uses the **latest** `logs/etl_*.log` automatically  
+
+#### 3. Debug missing tickers
+
+    python -m src.debug_missing_tickers
+
+This helper:
+
+- finds all symbols that exist in `Ticker` but have **no row** in `TickerStats`
+- calls `/debug/{symbol}` for each of them
+- prints `is_valid` and the message from the debug response
+
+This is useful to show that “problematic” tickers are valid, but the underlying
+financial endpoints may still return missing data or repeated 500 errors.
 
 ---
 
 ### Tests
 
 Run all tests:
-```bash
-pytest
-```
 
-### Included Tests
+    pytest
 
-`test_calculations.py`
-- Validates:
-  - revenue growth  
-  - PE ratio  
-  - debt ratio  
-  - net income TTM  
-  - latest revenue  
-- Uses a mock API client with deterministic data  
+Included tests:
 
-`test_db_writer.py`
-- In-memory SQLite  
-- Validates:
-  - correct industry aggregation  
-  - averages & sums  
+- `test_calculations.py`  
+  - validates revenue growth, PE ratio, debt ratio, net income TTM, latest revenue  
+  - uses deterministic fake data  
 
-`conftest.py`
-- Ensures reliable imports during testing  
+- `test_db_writer.py`  
+  - runs against in-memory SQLite  
+  - validates industry aggregation, averages, sums  
+
+- `conftest.py`  
+  - ensures `src/` is importable and test setup is reliable  
 
 ---
 
 ### Docker (Optional)
 
-This project includes a fully working Docker setup that allows running the entire
-ETL pipeline inside an isolated, reproducible environment.  
-The Docker container installs all dependencies, loads environment variables,
-runs Alembic migrations, executes the ETL pipeline, and keeps logs and database files persistent.
+This project includes a full Docker setup to run the ETL in an isolated environment.
 
+#### Build
 
-### Build:
+    docker compose build
 
-```bash
-docker compose build
-```
+#### Run
 
-### Run:
+    docker compose up
 
-```bash
-docker compose up
-```
+The container performs:
 
-The container performs the following steps automatically:
-1. Installs all Python dependencies from `requirements.txt`
-2. Loads and exports values from `.env`
-3. Runs Alembic migrations (`alembic upgrade head`)
-4. Executes the ETL pipeline (`python -m src.main`)
-5. Writes timestamped log files into `logs/`
-6. Writes the SQLite database `fiindo_challenge.db` into the project directory
-7. Keeps logs and database persistent through Docker bind-mount volumes
+1. Install dependencies from `requirements.txt`  
+2. Load `.env`  
+3. Run Alembic migrations (`alembic upgrade head`)  
+4. Optionally request Fiindo speedboost (if enabled)  
+5. Execute ETL (`python -m src.main`)  
+6. Write timestamped logs into `logs/`  
+7. Write `fiindo_challenge.db` next to the code  
 
-The container stops after the ETL completes.
-
----
-
-### Required `.env` file
-
-Docker automatically reads your `.env`.  
-A valid example looks like this:
-
-    # Authentication for Fiindo API
-    FIRST_NAME=YourFirstName
-    LAST_NAME=YourLastName
-
-    # Worker configuration
-    MAX_WORKERS=3
-    MAX_FETCH_WORKERS=5
-
-    # API base configuration
-    FIINDO_API_BASE_URL=https://api.test.fiindo.com/api/v1
-
-    # Retry logic
-    FIINDO_MAX_RETRIES=3
-    FIINDO_RETRY_BACKOFF=30
-    FIINDO_API_TIMEOUT=90
-    FIINDO_RETRY_STATUS_CODES=429,500
-
-The default values in .env.example are optimized for local execution.
-When using Docker, lower worker values are recommended to avoid API rate limits.
+It runs **once** and then exits. You can restart it any time.
 
 ---
 
 ### Rebuilding after code changes
-
-If you modify Python files, requirements, or migrations, use:
 
     docker compose down
     docker compose build
@@ -414,40 +411,30 @@ If you modify Python files, requirements, or migrations, use:
 
 ### Where logs and the database go
 
-- Logs are written to:  
+- Logs:  
   `logs/etl_YYYYMMDD_HHMMSS.log`
-- SQLite database is written to:  
+
+- SQLite database:  
   `fiindo_challenge.db`
 
-Both persist thanks to the mounted project directory.
-
----
-
-### Notes & Behavior
-
-- The container runs the ETL **exactly once** and then exits  
-- You can start it again anytime via `docker compose up`
-- Runs fully offline aside from API requests  
-- Works with Docker Desktop (Windows/macOS) and native Docker on Linux
-- Verified working with Docker Desktop on Windows after enabling virtualization
+Both are persisted via bind mounts of the project directory.
 
 ---
 
 ### Troubleshooting
 
-**1. Too many API requests → 429 errors**  
-Reduce worker counts inside `.env`:
+**Too many API requests → 429 errors**
 
-    MAX_WORKERS=2
-    MAX_FETCH_WORKERS=2
+- Lower workers in `.env`:
 
-**2. Permissions issues**  
-Ensure the project folder is not read-only.
+      MAX_WORKERS=2
+      MAX_FETCH_WORKERS=2
 
-**3. Docker cannot start on Windows**  
-Ensure BIOS virtualization is enabled (`SVM`, `IOMMU`, Hyper-V).
+**Docker cannot start (Windows)**
 
-**4. Restart with clean state**  
+- Ensure virtualization is enabled in BIOS (SVM / IOMMU / Hyper-V).
+
+**Full reset**
 
     docker compose down -v
     docker compose build
@@ -458,20 +445,18 @@ Ensure BIOS virtualization is enabled (`SVM`, `IOMMU`, Hyper-V).
 ### Summary
 
 This project provides:
-- A clean and modular ETL architecture  
+
+- Clean, modular ETL architecture  
 - Parallel computation with configurable worker pools  
 - Strong retry and error-handling mechanisms  
-- Snapshot + history database structure using SQLite  
+- Snapshot + history schema in SQLite  
 - Automatic Alembic migrations  
-- Comprehensive unit testing for all core logic  
-- Detailed timestamped logging and helper scripts for DB/log inspection  
-- An optional Docker environment offering:  
-  - fully self-contained execution  
-  - reproducible ETL runs  
-  - automatic environment loading  
-  - persistent logs and database files  
-  - complete isolation from the host system  
+- Unit-tested calculation and aggregation logic  
+- Detailed timestamped logs with analysis helpers  
+- Support for Fiindo’s hidden speedboost endpoint  
+- Docker setup for fully reproducible runs  
 
-Together, these components form a reliable, maintainable, and production-ready ETL workflow suitable for further scaling or integration.
+Together, these components form a robust, maintainable ETL workflow that can be
+extended or integrated into larger systems.
 
 **Ready for review and discussion.**

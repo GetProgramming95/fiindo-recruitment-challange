@@ -1,10 +1,11 @@
 """
 Entry point for the Fiindo ETL pipeline.
 High-level steps:
-1) Fetch and filter symbols for the three target industries
-2) Compute ticker-level metrics in parallel
-3) Persist metrics to SQLite
-4) Aggregate industry-level metrics
+1) Enable optional speed boost
+2) Fetch and filter symbols for the three target industries
+3) Compute ticker-level metrics in parallel
+4) Persist metrics to SQLite
+5) Aggregate industry-level metrics
 """
 import logging
 import os
@@ -15,12 +16,12 @@ from src.fetcher import SymbolFetcher
 from src.calculations import Calculator
 from src.db_writer import DBWriter
 from src.logging_setup import setup_logging
+from src.api_client import enable_speedboost
+
 
 load_dotenv()
-
 logger = logging.getLogger(__name__)
 DEFAULT_MAX_WORKERS = 3
-
 
 def _int_from_env(env_name: str, default: int) -> int:
     """Helper: read an integer from environment with a safe fallback."""
@@ -41,12 +42,16 @@ MAX_WORKERS = _int_from_env("MAX_WORKERS", DEFAULT_MAX_WORKERS)
 def run_etl() -> None:
     """
     Run the full ETL pipeline once.
-
     Console output:
     - Only high-level progress messages (WARNING level and above)
-    Detailed information is still written to the log file via logging_setup.
+    Detailed steps + errors still go into the log files.
     """
     setup_logging()
+
+    logger.warning("Initializing ETL run...")
+
+    # Step 0: Optional Speed Boost activation
+    enable_speedboost()
 
     logger.warning("STARTING ETL PIPELINE")
 
@@ -56,30 +61,27 @@ def run_etl() -> None:
     # Step 1: Clear current snapshot tables
     logger.warning("Step 1: Clearing current snapshot tables...")
     writer.clear_current_tables()
-    logger.warning("Step 1 completed: snapshot tables cleared.")
+    logger.warning("Step 1 completed.")
 
-    # Step 2: Fetch & filter symbols (three target industries)
-    logger.warning("Step 2: Fetching and filtering symbols for target industries...")
+    # Step 2: Fetch & filter symbols
+    logger.warning("Step 2: Fetching and filtering symbols...")
     symbols: List[Dict] = fetcher.fetch_and_filter_symbols()
-    logger.warning("Step 2 completed: %d relevant symbols found.", len(symbols))
+    logger.warning("Step 2 completed: %d symbols match the target industries.", len(symbols))
 
     if not symbols:
-        logger.error("No relevant symbols found – aborting ETL run.")
-        logger.warning("ETL PIPELINE ABORTED (no symbols).")
+        logger.error("No relevant symbols found — aborting ETL run.")
+        logger.warning("ETL PIPELINE ABORTED.")
         return
 
-    # Step 3: Calculate metrics in parallel
+    # Step 3: Parallel calculations
     logger.warning(
-        "Step 3: Starting calculations for %d symbols with up to %d worker(s)...",
+        "Step 3: Starting calculations for %d symbols using up to %d worker threads...",
         len(symbols),
         MAX_WORKERS,
     )
 
     def process_symbol(entry: Dict) -> Tuple[str, Dict]:
-        """
-        Worker function for calculations.
-        Each thread uses its own Calculator / API session.
-        """
+        """Worker function executed by each thread."""
         symbol = entry["symbol"]
         calculator = Calculator()
         stats = calculator.calculate_all(symbol)
@@ -98,37 +100,38 @@ def run_etl() -> None:
             except Exception as exc:
                 logger.exception("Error while calculating stats for a symbol: %s", exc)
                 continue
+
             if not stats:
                 logger.warning("No metrics could be calculated for %s", symbol)
                 continue
+
             results.append((symbol, stats))
 
     logger.warning(
-        "Step 3 completed: metrics successfully calculated for %d ticker(s).",
+        "Step 3 completed: %d/%d tickers calculated successfully.",
         len(results),
+        len(symbols),
     )
 
     if not results:
-        logger.error("No metrics were successfully calculated – nothing to persist.")
-        logger.warning("ETL PIPELINE ABORTED (no results).")
+        logger.error("No metrics successfully calculated — aborting.")
+        logger.warning("ETL PIPELINE ABORTED.")
         return
 
-    # Step 4: Persist results (single thread, single DB session)
-    logger.warning("Step 4: Persisting ticker metrics to the database...")
+    # Step 4: Persist calculations
+    logger.warning("Step 4: Persisting ticker metrics to SQLite...")
     for symbol, stats in results:
         writer.save_ticker_stats(symbol, stats)
-    logger.warning(
-        "Step 4 completed: persisted metrics for %d ticker(s).",
-        len(results),
-    )
+    logger.warning("Step 4 completed: %d rows saved.", len(results))
 
     # Step 5: Industry aggregation
     logger.warning("Step 5: Aggregating industry-level metrics...")
     writer.aggregate_industries()
-    logger.warning("Step 5 completed: industry metrics aggregation finished.")
+    logger.warning("Step 5 completed.")
 
+    # FINISHED
     logger.warning(
-        "ETL PIPELINE COMPLETED (symbols=%d, successful_tickers=%d).",
+        "ETL PIPELINE COMPLETED (symbols=%d, successful calculations=%d)",
         len(symbols),
         len(results),
     )

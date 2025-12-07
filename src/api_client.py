@@ -9,7 +9,6 @@ import os
 import time
 import logging
 from typing import Any, Dict, Optional, Set
-
 import requests
 from dotenv import load_dotenv
 
@@ -26,7 +25,6 @@ BASE_URL = os.getenv("FIINDO_API_BASE_URL", "https://api.test.fiindo.com/api/v1"
 # "Authorization" header so that it can talk to the real API.
 AUTH_HEADER_NAME = "Authorization"
 
-
 FIRST_NAME = os.getenv("FIRST_NAME")
 LAST_NAME = os.getenv("LAST_NAME")
 
@@ -36,7 +34,6 @@ if not FIRST_NAME or not LAST_NAME:
 HEADERS = {
     AUTH_HEADER_NAME: f"Bearer {FIRST_NAME}.{LAST_NAME}",
 }
-
 
 # Retry / timeout configuration from environment
 
@@ -49,7 +46,6 @@ BACKOFF_SECONDS_DEFAULT = float(os.getenv("FIINDO_RETRY_BACKOFF", "30"))
 # Per-request timeout in seconds
 API_TIMEOUT_DEFAULT = float(os.getenv("FIINDO_API_TIMEOUT", "90"))
 
-
 # Comma-separated list of HTTP status codes that should be retried
 _retry_codes_raw = os.getenv("FIINDO_RETRY_STATUS_CODES", "429,500")
 RETRY_STATUS_CODES_DEFAULT: Set[int] = {
@@ -58,6 +54,21 @@ RETRY_STATUS_CODES_DEFAULT: Set[int] = {
     if code.strip()
 }
 
+
+# Speedboost configuration
+
+# Optional: enable / disable speedboost via environment
+# e.g. FIINDO_ENABLE_SPEEDBOOST=true
+FIINDO_ENABLE_SPEEDBOOST = os.getenv("FIINDO_ENABLE_SPEEDBOOST", "false").lower() in {
+    "1",
+    "true",
+    "yes",
+}
+
+# Optional override for the speedboost URL.
+# If not set, it will be auto-generated from FIINDO_API_BASE_URL,
+# with a final fallback to the official Fiindo speedboost endpoint.
+FIINDO_SPEEDBOOST_URL = os.getenv("FIINDO_SPEEDBOOST_URL", "").strip()
 
 class FiindoAPI:
     """Small helper client wrapping requests.Session for the Fiindo API."""
@@ -195,8 +206,70 @@ class FiindoAPI:
         """Fetch end-of-day price data for a symbol."""
         return self._get(f"eod/{symbol}")
 
+    def get_debug(self, symbol: str) -> Optional[Dict[str, Any]]:
+        """Fetch debug information for a symbol from /debug/{symbol}."""
+        return self._get(f"debug/{symbol}")
 
-if __name__ == "__main__":  # simple manual test
+
+def enable_speedboost() -> None:
+    """
+    Enables Fiindo's 'speed boost' mode.
+    Resolution logic for the speedboost URL:
+    1) If FIINDO_SPEEDBOOST_URL is set → use that.
+    2) Else auto-build: BASE_URL + '/speedboost'
+    3) If auto-building fails → fallback to:
+         https://api.test.fiindo.com/api/v1/speedboost
+    This function NEVER stops the ETL. All errors are logged only.
+    """
+    if not FIINDO_ENABLE_SPEEDBOOST:
+        logger.info("Speed boost disabled (FIINDO_ENABLE_SPEEDBOOST is not true).")
+        return
+
+    # 1) ENV override?
+    url = None
+    if FIINDO_SPEEDBOOST_URL:
+        url = FIINDO_SPEEDBOOST_URL
+        logger.info("Speedboost URL (from env): %s", url)
+    else:
+        # 2) Attempt auto-generation from BASE_URL
+        try:
+            auto_url = BASE_URL.rstrip("/") + "/speedboost"
+            url = auto_url
+            logger.info("Speedboost URL (auto-generated): %s", url)
+        except Exception:
+            url = None
+
+    # 3) Final fallback
+    if not url:
+        url = "https://api.test.fiindo.com/api/v1/speedboost"
+        logger.warning(
+            "Falling back to default Speedboost URL: %s",
+            url,
+        )
+
+    payload = {"first_name": FIRST_NAME, "last_name": LAST_NAME}
+    try:
+        logger.warning("Requesting Fiindo speed boost for this account…")
+        resp = requests.post(
+            url,
+            json=payload,
+            headers=HEADERS,
+            timeout=API_TIMEOUT_DEFAULT,
+        )
+
+        if resp.status_code == 200:
+            logger.warning("Speed boost successfully enabled")
+        else:
+            logger.warning(
+                "Speedboost request failed (status %s): %s",
+                resp.status_code,
+                resp.text,
+            )
+    except Exception as exc:
+        logger.warning("Speedboost request failed due to exception: %s", exc)
+
+
+if __name__ == "__main__":  
     logging.basicConfig(level=logging.INFO)
     api = FiindoAPI()
     symbols = api.get_symbols()
