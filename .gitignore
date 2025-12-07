@@ -15,13 +15,5 @@ venv/
 # Local config
 .env
 
-# Logs
-logs/
-*.log
-
-# SQLite databases
-*.db
-*.sqlite3
-
 # Pytest cache
 .pytest_cache/

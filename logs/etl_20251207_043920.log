@@ -1,0 +1,1698 @@
+2025-12-07 04:39:20,640 [WARNING] root - Logging to file: logs/etl_20251207_043920.log
+2025-12-07 04:39:20,640 [WARNING] __main__ - STARTING ETL PIPELINE
+2025-12-07 04:39:20,641 [WARNING] __main__ - Step 1: Clearing current snapshot tables...
+2025-12-07 04:39:20,641 [INFO] src.db_writer - Clearing current snapshot tables (TickerStats & IndustryStats)...
+2025-12-07 04:39:20,664 [INFO] src.db_writer - Successfully cleared TickerStats & IndustryStats.
+2025-12-07 04:39:20,665 [WARNING] __main__ - Step 1 completed: snapshot tables cleared.
+2025-12-07 04:39:20,666 [WARNING] __main__ - Step 2: Fetching and filtering symbols for target industries...
+2025-12-07 04:39:24,458 [INFO] src.fetcher - Fetched 894 symbols from /symbols
+2025-12-07 04:39:24,458 [INFO] src.fetcher - Starting parallel /general fetch with 5 worker(s)...
+2025-12-07 04:41:46,122 [INFO] src.fetcher - Symbol HSBA.L is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:47,908 [INFO] src.fetcher - Symbol BNC.L is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:48,400 [INFO] src.fetcher - Symbol NWG.L is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:48,412 [INFO] src.fetcher - Symbol BARC.L is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:49,585 [INFO] src.fetcher - Symbol JPM.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:50,576 [INFO] src.fetcher - Symbol STAN.L is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:51,636 [INFO] src.fetcher - Symbol SAN.WA is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:51,809 [INFO] src.fetcher - Symbol BAC.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:52,264 [INFO] src.fetcher - Symbol CMC.DE is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:53,432 [INFO] src.fetcher - Symbol NCB.DE is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:54,878 [INFO] src.fetcher - Symbol 0Q1F.L is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:55,238 [INFO] src.fetcher - Symbol WFC.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:55,955 [INFO] src.fetcher - Symbol SHB-A.ST is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:56,784 [INFO] src.fetcher - Symbol ICK.VI is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:58,587 [INFO] src.fetcher - Symbol NWT.DE is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:59,174 [INFO] src.fetcher - Symbol SHB-B.ST is relevant (industry=Banks - Diversified)
+2025-12-07 04:41:59,245 [INFO] src.fetcher - Symbol EK7.VI is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:00,323 [INFO] src.fetcher - Symbol BAC.SW is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:01,279 [INFO] src.fetcher - Symbol HSBC.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:03,971 [INFO] src.fetcher - Symbol HBC1.DE is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:04,589 [INFO] src.fetcher - Symbol BOCN.VI is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:04,680 [INFO] src.fetcher - Symbol CNCB.VI is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:05,802 [INFO] src.fetcher - Symbol WFC.SW is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:07,039 [INFO] src.fetcher - Symbol RY.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:08,587 [INFO] src.fetcher - Symbol 0QKU.L is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:08,603 [INFO] src.fetcher - Symbol C.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:08,902 [INFO] src.fetcher - Symbol TRVC.DE is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:09,633 [INFO] src.fetcher - Symbol MUFG.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:12,317 [INFO] src.fetcher - Symbol UBS.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:12,618 [INFO] src.fetcher - Symbol TD.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:13,369 [INFO] src.fetcher - Symbol 0R01.L is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:13,537 [INFO] src.fetcher - Symbol RY-PT.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:13,577 [INFO] src.fetcher - Symbol UBSG.SW is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:15,585 [INFO] src.fetcher - Symbol SMFG.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:16,672 [INFO] src.fetcher - Symbol SAN.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:16,885 [INFO] src.fetcher - Symbol SAN.MC is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:16,996 [INFO] src.fetcher - Symbol CBA.SW is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:17,732 [INFO] src.fetcher - Symbol BSD2.DE is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:18,675 [INFO] src.fetcher - Symbol BMO.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:20,659 [INFO] src.fetcher - Symbol BOY.DE is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:21,178 [INFO] src.fetcher - Symbol BBVA.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:22,074 [INFO] src.fetcher - Symbol BBVA.MC is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:22,455 [INFO] src.fetcher - Symbol BVA.L is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:23,016 [INFO] src.fetcher - Symbol NU.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:25,218 [INFO] src.fetcher - Symbol BNS.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:25,354 [INFO] src.fetcher - Symbol 0R3T.L is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:27,021 [INFO] src.fetcher - Symbol SANTA.BR is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:27,394 [INFO] src.fetcher - Symbol BCS.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:27,463 [INFO] src.fetcher - Symbol CM.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:29,489 [INFO] src.fetcher - Symbol ING.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:29,843 [INFO] src.fetcher - Symbol X5Z.F is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:32,028 [INFO] src.fetcher - Symbol INGA.AS is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:32,220 [INFO] src.fetcher - Symbol BCY.DE is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:33,366 [INFO] src.fetcher - Symbol INN1.DE is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:33,874 [INFO] src.fetcher - Symbol INGA.SW is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:35,590 [INFO] src.fetcher - Symbol BBV.BR is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:37,201 [INFO] src.fetcher - Symbol ABN.AS is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:37,546 [INFO] src.fetcher - Symbol NWG.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:37,808 [INFO] src.fetcher - Symbol CABP.L is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:38,700 [INFO] src.fetcher - Symbol EWBC.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:40,463 [INFO] src.fetcher - Symbol SAB.MC is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:40,964 [INFO] src.fetcher - Symbol EFGN.SW is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:41,590 [INFO] src.fetcher - Symbol ALR.WA is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:42,470 [INFO] src.fetcher - Symbol CSGN.SW is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:42,510 [INFO] src.fetcher - Symbol CS.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:42:43,860 [INFO] src.fetcher - Symbol NTB.US is relevant (industry=Banks - Diversified)
+2025-12-07 04:44:48,772 [INFO] src.fetcher - Symbol GOOGL.SW is relevant (industry=Software - Application)
+2025-12-07 04:44:49,106 [INFO] src.fetcher - Symbol SGE.L is relevant (industry=Software - Application)
+2025-12-07 04:44:49,745 [INFO] src.fetcher - Symbol SAP.DE is relevant (industry=Software - Application)
+2025-12-07 04:44:50,212 [INFO] src.fetcher - Symbol SAP.US is relevant (industry=Software - Application)
+2025-12-07 04:44:51,478 [INFO] src.fetcher - Symbol CRM.US is relevant (industry=Software - Application)
+2025-12-07 04:44:52,892 [INFO] src.fetcher - Symbol FOO.DE is relevant (industry=Software - Application)
+2025-12-07 04:44:53,156 [INFO] src.fetcher - Symbol FOO.F is relevant (industry=Software - Application)
+2025-12-07 04:44:54,272 [INFO] src.fetcher - Symbol ADBE.SW is relevant (industry=Software - Application)
+2025-12-07 04:44:54,344 [INFO] src.fetcher - Symbol NOW.US is relevant (industry=Software - Application)
+2025-12-07 04:44:56,475 [INFO] src.fetcher - Symbol UBER.US is relevant (industry=Software - Application)
+2025-12-07 04:44:57,014 [INFO] src.fetcher - Symbol INTU.US is relevant (industry=Software - Application)
+2025-12-07 04:44:57,724 [INFO] src.fetcher - Symbol 307.F is relevant (industry=Software - Application)
+2025-12-07 04:44:58,135 [INFO] src.fetcher - Symbol SHOP.US is relevant (industry=Software - Application)
+2025-12-07 04:44:58,176 [INFO] src.fetcher - Symbol ITU.DE is relevant (industry=Software - Application)
+2025-12-07 04:45:00,299 [INFO] src.fetcher - Symbol APP.US is relevant (industry=Software - Application)
+2025-12-07 04:45:00,473 [INFO] src.fetcher - Symbol TRST.L is relevant (industry=Software - Application)
+2025-12-07 04:45:01,253 [INFO] src.fetcher - Symbol KNOS.L is relevant (industry=Software - Application)
+2025-12-07 04:45:02,889 [INFO] src.fetcher - Symbol UBER.SW is relevant (industry=Software - Application)
+2025-12-07 04:45:03,072 [INFO] src.fetcher - Symbol GBG.L is relevant (industry=Software - Application)
+2025-12-07 04:45:03,508 [INFO] src.fetcher - Symbol MSTR.US is relevant (industry=Software - Application)
+2025-12-07 04:45:04,553 [INFO] src.fetcher - Symbol TEAM.US is relevant (industry=Software - Application)
+2025-12-07 04:45:05,649 [INFO] src.fetcher - Symbol 0A7O.L is relevant (industry=Software - Application)
+2025-12-07 04:45:06,506 [INFO] src.fetcher - Symbol CDNS.US is relevant (industry=Software - Application)
+2025-12-07 04:45:06,697 [INFO] src.fetcher - Symbol LTG.L is relevant (industry=Software - Application)
+2025-12-07 04:45:08,184 [INFO] src.fetcher - Symbol ATG.L is relevant (industry=Software - Application)
+2025-12-07 04:45:09,940 [INFO] src.fetcher - Symbol ALFA.L is relevant (industry=Software - Application)
+2025-12-07 04:45:10,789 [INFO] src.fetcher - Symbol WDAY.US is relevant (industry=Software - Application)
+2025-12-07 04:45:11,622 [INFO] src.fetcher - Symbol ADSK.US is relevant (industry=Software - Application)
+2025-12-07 04:45:12,214 [INFO] src.fetcher - Symbol SNOW.US is relevant (industry=Software - Application)
+2025-12-07 04:45:13,806 [INFO] src.fetcher - Symbol AUD.DE is relevant (industry=Software - Application)
+2025-12-07 04:45:14,179 [INFO] src.fetcher - Symbol DSY.PA is relevant (industry=Software - Application)
+2025-12-07 04:45:14,283 [INFO] src.fetcher - Symbol TTD.US is relevant (industry=Software - Application)
+2025-12-07 04:45:15,389 [INFO] src.fetcher - Symbol 0A3O.L is relevant (industry=Software - Application)
+2025-12-07 04:45:16,251 [INFO] src.fetcher - Symbol DEV.L is relevant (industry=Software - Application)
+2025-12-07 04:45:18,007 [INFO] src.fetcher - Symbol CER.L is relevant (industry=Software - Application)
+2025-12-07 04:45:18,311 [INFO] src.fetcher - Symbol DDOG.US is relevant (industry=Software - Application)
+2025-12-07 04:45:18,849 [INFO] src.fetcher - Symbol NCC.L is relevant (industry=Software - Application)
+2025-12-07 04:45:18,907 [INFO] src.fetcher - Symbol CDS.DE is relevant (industry=Software - Application)
+2025-12-07 04:45:20,768 [INFO] src.fetcher - Symbol FNOX.ST is relevant (industry=Software - Application)
+2025-12-07 04:45:21,332 [INFO] src.fetcher - Symbol FICO.US is relevant (industry=Software - Application)
+2025-12-07 04:45:21,708 [INFO] src.fetcher - Symbol HUBS.US is relevant (industry=Software - Application)
+2025-12-07 04:45:22,360 [INFO] src.fetcher - Symbol BIG.L is relevant (industry=Software - Application)
+2025-12-07 04:45:23,712 [INFO] src.fetcher - Symbol PBEE.L is relevant (industry=Software - Application)
+2025-12-07 04:45:24,761 [INFO] src.fetcher - Symbol BIDU.SW is relevant (industry=Software - Application)
+2025-12-07 04:45:25,475 [INFO] src.fetcher - Symbol ANSS.US is relevant (industry=Software - Application)
+2025-12-07 04:45:25,602 [INFO] src.fetcher - Symbol IQG.L is relevant (industry=Software - Application)
+2025-12-07 04:45:26,093 [INFO] src.fetcher - Symbol SIM.CO is relevant (industry=Software - Application)
+2025-12-07 04:45:28,364 [INFO] src.fetcher - Symbol DOTD.L is relevant (industry=Software - Application)
+2025-12-07 04:45:28,826 [INFO] src.fetcher - Symbol TYL.US is relevant (industry=Software - Application)
+2025-12-07 04:45:29,223 [INFO] src.fetcher - Symbol IDOX.L is relevant (industry=Software - Application)
+2025-12-07 04:45:30,066 [INFO] src.fetcher - Symbol ZM.US is relevant (industry=Software - Application)
+2025-12-07 04:45:30,554 [INFO] src.fetcher - Symbol VIT-B.ST is relevant (industry=Software - Application)
+2025-12-07 04:45:33,942 [INFO] src.fetcher - Symbol 5ZM.F is relevant (industry=Software - Application)
+2025-12-07 04:45:34,713 [INFO] src.fetcher - Symbol SSNC.US is relevant (industry=Software - Application)
+2025-12-07 04:45:35,813 [INFO] src.fetcher - Symbol WDI.SW is relevant (industry=Software - Application)
+2025-12-07 04:45:36,044 [INFO] src.fetcher - Symbol PTC.US is relevant (industry=Software - Application)
+2025-12-07 04:45:36,713 [INFO] src.fetcher - Symbol TRUE-B.ST is relevant (industry=Software - Application)
+2025-12-07 04:45:40,484 [INFO] src.fetcher - Symbol GRAB.US is relevant (industry=Software - Application)
+2025-12-07 04:45:40,698 [INFO] src.fetcher - Symbol ACSO.L is relevant (industry=Software - Application)
+2025-12-07 04:45:41,769 [INFO] src.fetcher - Symbol NET.L is relevant (industry=Software - Application)
+2025-12-07 04:45:42,367 [INFO] src.fetcher - Symbol APTD.L is relevant (industry=Software - Application)
+2025-12-07 04:45:42,813 [INFO] src.fetcher - Symbol DT.US is relevant (industry=Software - Application)
+2025-12-07 04:45:44,203 [INFO] src.fetcher - Symbol GWRE.US is relevant (industry=Software - Application)
+2025-12-07 04:45:44,826 [INFO] src.fetcher - Symbol DOCU.US is relevant (industry=Software - Application)
+2025-12-07 04:45:46,425 [INFO] src.fetcher - Symbol DUOL.US is relevant (industry=Software - Application)
+2025-12-07 04:45:46,590 [INFO] src.fetcher - Symbol FFV.DE is relevant (industry=Software - Application)
+2025-12-07 04:45:46,895 [INFO] src.fetcher - Symbol 0IL6.L is relevant (industry=Software - Application)
+2025-12-07 04:45:48,049 [INFO] src.fetcher - Symbol AZPN.US is relevant (industry=Software - Application)
+2025-12-07 04:45:48,415 [INFO] src.fetcher - Symbol KAHOT.OL is relevant (industry=Software - Application)
+2025-12-07 04:45:49,738 [INFO] src.fetcher - Symbol MNDY.US is relevant (industry=Software - Application)
+2025-12-07 04:45:49,810 [INFO] src.fetcher - Symbol E3G1.SG is relevant (industry=Software - Application)
+2025-12-07 04:45:50,137 [INFO] src.fetcher - Symbol NEM.DE is relevant (industry=Software - Application)
+2025-12-07 04:45:51,721 [INFO] src.fetcher - Symbol GHT.L is relevant (industry=Software - Application)
+2025-12-07 04:45:52,744 [INFO] src.fetcher - Symbol CTX.DE is relevant (industry=Software - Application)
+2025-12-07 04:45:54,245 [INFO] src.fetcher - Symbol SAAS.L is relevant (industry=Software - Application)
+2025-12-07 04:45:54,368 [INFO] src.fetcher - Symbol BSY.US is relevant (industry=Software - Application)
+2025-12-07 04:45:54,427 [INFO] src.fetcher - Symbol YMM.US is relevant (industry=Software - Application)
+2025-12-07 04:45:55,293 [INFO] src.fetcher - Symbol ESTC.US is relevant (industry=Software - Application)
+2025-12-07 04:45:56,885 [INFO] src.fetcher - Symbol ELCO.L is relevant (industry=Software - Application)
+2025-12-07 04:45:58,561 [INFO] src.fetcher - Symbol PAYC.US is relevant (industry=Software - Application)
+2025-12-07 04:45:58,699 [INFO] src.fetcher - Symbol PCTY.US is relevant (industry=Software - Application)
+2025-12-07 04:45:59,266 [INFO] src.fetcher - Symbol BKI.US is relevant (industry=Software - Application)
+2025-12-07 04:46:00,128 [INFO] src.fetcher - Symbol TRCS.L is relevant (industry=Software - Application)
+2025-12-07 04:46:00,284 [INFO] src.fetcher - Symbol GTLB.US is relevant (industry=Software - Application)
+2025-12-07 04:46:02,137 [INFO] src.fetcher - Symbol PCOR.US is relevant (industry=Software - Application)
+2025-12-07 04:46:03,444 [INFO] src.fetcher - Symbol MANH.US is relevant (industry=Software - Application)
+2025-12-07 04:46:04,131 [INFO] src.fetcher - Symbol XM.US is relevant (industry=Software - Application)
+2025-12-07 04:46:04,181 [INFO] src.fetcher - Symbol EYE.L is relevant (industry=Software - Application)
+2025-12-07 04:46:04,371 [INFO] src.fetcher - Symbol CDAY.US is relevant (industry=Software - Application)
+2025-12-07 04:46:06,477 [INFO] src.fetcher - Symbol NICE.US is relevant (industry=Software - Application)
+2025-12-07 04:46:06,818 [INFO] src.fetcher - Symbol SPE.L is relevant (industry=Software - Application)
+2025-12-07 04:46:07,409 [INFO] src.fetcher - Symbol IGP.L is relevant (industry=Software - Application)
+2025-12-07 04:46:08,750 [INFO] src.fetcher - Symbol SPSY.L is relevant (industry=Software - Application)
+2025-12-07 04:46:10,052 [INFO] src.fetcher - Symbol SPSC.L is relevant (industry=Software - Application)
+2025-12-07 04:46:11,250 [INFO] src.fetcher - Symbol DAY.US is relevant (industry=Software - Application)
+2025-12-07 04:46:11,851 [INFO] src.fetcher - Symbol TRB.L is relevant (industry=Software - Application)
+2025-12-07 04:46:12,739 [INFO] src.fetcher - Symbol DSGX.US is relevant (industry=Software - Application)
+2025-12-07 04:46:14,170 [INFO] src.fetcher - Symbol ACP.WA is relevant (industry=Software - Application)
+2025-12-07 04:46:14,430 [INFO] src.fetcher - Symbol PEGA.US is relevant (industry=Software - Application)
+2025-12-07 04:46:14,561 [INFO] src.fetcher - Symbol RM.L is relevant (industry=Software - Application)
+2025-12-07 04:46:15,010 [INFO] src.fetcher - Symbol TTAN.US is relevant (industry=Software - Application)
+2025-12-07 04:46:15,962 [INFO] src.fetcher - Symbol CLBS.L is relevant (industry=Software - Application)
+2025-12-07 04:46:18,451 [INFO] src.fetcher - Symbol CVLT.US is relevant (industry=Software - Application)
+2025-12-07 04:46:18,604 [INFO] src.fetcher - Symbol NATI.US is relevant (industry=Software - Application)
+2025-12-07 04:46:19,076 [INFO] src.fetcher - Symbol SMAR.US is relevant (industry=Software - Application)
+2025-12-07 04:46:19,132 [INFO] src.fetcher - Symbol VERX.US is relevant (industry=Software - Application)
+2025-12-07 04:46:19,919 [INFO] src.fetcher - Symbol U.US is relevant (industry=Software - Application)
+2025-12-07 04:46:22,380 [INFO] src.fetcher - Symbol OTEX.US is relevant (industry=Software - Application)
+2025-12-07 04:46:22,425 [INFO] src.fetcher - Symbol ACC.L is relevant (industry=Software - Application)
+2025-12-07 04:46:22,447 [INFO] src.fetcher - Symbol APPF.US is relevant (industry=Software - Application)
+2025-12-07 04:46:23,835 [INFO] src.fetcher - Symbol WAND.L is relevant (industry=Software - Application)
+2025-12-07 04:46:24,642 [INFO] src.fetcher - Symbol AOM.L is relevant (industry=Software - Application)
+2025-12-07 04:46:26,719 [INFO] src.fetcher - Symbol SPA.L is relevant (industry=Software - Application)
+2025-12-07 04:46:27,046 [INFO] src.fetcher - Symbol D4T4.L is relevant (industry=Software - Application)
+2025-12-07 04:46:27,244 [INFO] src.fetcher - Symbol OMG.L is relevant (industry=Software - Application)
+2025-12-07 04:46:27,847 [INFO] src.fetcher - Symbol CWAN.US is relevant (industry=Software - Application)
+2025-12-07 04:46:28,584 [INFO] src.fetcher - Symbol BETCO.ST is relevant (industry=Software - Application)
+2025-12-07 04:46:29,918 [INFO] src.fetcher - Symbol NEMA.SW is relevant (industry=Software - Application)
+2025-12-07 04:46:30,653 [INFO] src.fetcher - Symbol SRAD.US is relevant (industry=Software - Application)
+2025-12-07 04:46:31,994 [INFO] src.fetcher - Symbol PULS.L is relevant (industry=Software - Application)
+2025-12-07 04:46:32,169 [INFO] src.fetcher - Symbol RUM.US is relevant (industry=Software - Application)
+2025-12-07 04:46:32,440 [INFO] src.fetcher - Symbol BILL.US is relevant (industry=Software - Application)
+2025-12-07 04:46:33,941 [INFO] src.fetcher - Symbol COUP.US is relevant (industry=Software - Application)
+2025-12-07 04:46:33,947 [INFO] src.fetcher - Symbol VOLUE.OL is relevant (industry=Software - Application)
+2025-12-07 04:46:36,209 [INFO] src.fetcher - Symbol TEMN.SW is relevant (industry=Software - Application)
+2025-12-07 04:46:36,363 [INFO] src.fetcher - Symbol INTA.US is relevant (industry=Software - Application)
+2025-12-07 04:46:36,419 [INFO] src.fetcher - Symbol QTWO.US is relevant (industry=Software - Application)
+2025-12-07 04:46:37,773 [INFO] src.fetcher - Symbol QXO.US is relevant (industry=Software - Application)
+2025-12-07 04:46:38,562 [INFO] src.fetcher - Symbol SOUN.US is relevant (industry=Software - Application)
+2025-12-07 04:46:41,094 [INFO] src.fetcher - Symbol FRSH.US is relevant (industry=Software - Application)
+2025-12-07 04:46:42,168 [INFO] src.fetcher - Symbol 0U3Q.L is relevant (industry=Software - Application)
+2025-12-07 04:46:42,303 [INFO] src.fetcher - Symbol IDCC.US is relevant (industry=Software - Application)
+2025-12-07 04:46:43,680 [INFO] src.fetcher - Symbol LYFT.US is relevant (industry=Software - Application)
+2025-12-07 04:46:44,430 [INFO] src.fetcher - Symbol ASAN.US is relevant (industry=Software - Application)
+2025-12-07 04:46:45,900 [INFO] src.fetcher - Symbol ZETA.US is relevant (industry=Software - Application)
+2025-12-07 04:46:46,710 [INFO] src.fetcher - Symbol LIME.ST is relevant (industry=Software - Application)
+2025-12-07 04:46:47,055 [INFO] src.fetcher - Symbol WK.US is relevant (industry=Software - Application)
+2025-12-07 04:46:48,610 [INFO] src.fetcher - Symbol ALTTU.PA is relevant (industry=Software - Application)
+2025-12-07 04:46:49,387 [INFO] src.fetcher - Symbol PEXIP.OL is relevant (industry=Software - Application)
+2025-12-07 04:46:50,992 [INFO] src.fetcher - Symbol SMCRT.OL is relevant (industry=Software - Application)
+2025-12-07 04:46:51,148 [INFO] src.fetcher - Symbol KC.US is relevant (industry=Software - Application)
+2025-12-07 04:46:51,228 [INFO] src.fetcher - Symbol BRZE.US is relevant (industry=Software - Application)
+2025-12-07 04:46:52,963 [INFO] src.fetcher - Symbol CVT.US is relevant (industry=Software - Application)
+2025-12-07 04:46:53,144 [INFO] src.fetcher - Symbol GBTG.US is relevant (industry=Software - Application)
+2025-12-07 04:46:54,860 [INFO] src.fetcher - Symbol PYCR.US is relevant (industry=Software - Application)
+2025-12-07 04:46:55,276 [INFO] src.fetcher - Symbol COMP.US is relevant (industry=Software - Application)
+2025-12-07 04:46:56,036 [INFO] src.fetcher - Symbol FROG.US is relevant (industry=Software - Application)
+2025-12-07 04:46:57,126 [INFO] src.fetcher - Symbol NCNO.US is relevant (industry=Software - Application)
+2025-12-07 04:46:57,292 [INFO] src.fetcher - Symbol BLKB.US is relevant (industry=Software - Application)
+2025-12-07 04:46:58,824 [INFO] src.fetcher - Symbol DV.US is relevant (industry=Software - Application)
+2025-12-07 04:47:00,547 [INFO] src.fetcher - Symbol LVC.WA is relevant (industry=Software - Application)
+2025-12-07 04:47:01,120 [INFO] src.fetcher - Symbol CBRAIN.CO is relevant (industry=Software - Application)
+2025-12-07 04:47:01,880 [INFO] src.fetcher - Symbol PWSC.US is relevant (industry=Software - Application)
+2025-12-07 04:47:03,457 [INFO] src.fetcher - Symbol 0DWV.L is relevant (industry=Software - Application)
+2025-12-07 04:47:04,828 [INFO] src.fetcher - Symbol UTDI.SW is relevant (industry=Software - Application)
+2025-12-07 04:47:05,358 [INFO] src.fetcher - Symbol SKL.L is relevant (industry=Software - Application)
+2025-12-07 04:47:05,953 [INFO] src.fetcher - Symbol ZI.US is relevant (industry=Software - Application)
+2025-12-07 04:47:06,213 [INFO] src.fetcher - Symbol ALIT.US is relevant (industry=Software - Application)
+2025-12-07 04:47:08,536 [INFO] src.fetcher - Symbol ENV.US is relevant (industry=Software - Application)
+2025-12-07 04:47:08,617 [INFO] src.fetcher - Symbol AYX.US is relevant (industry=Software - Application)
+2025-12-07 04:47:09,199 [INFO] src.fetcher - Symbol INST.US is relevant (industry=Software - Application)
+2025-12-07 04:47:09,781 [INFO] src.fetcher - Symbol ALKT.US is relevant (industry=Software - Application)
+2025-12-07 04:47:09,956 [INFO] src.fetcher - Symbol US44891N2080.SG is relevant (industry=Software - Application)
+2025-12-07 04:47:12,608 [INFO] src.fetcher - Symbol GRND.US is relevant (industry=Software - Application)
+2025-12-07 04:47:13,944 [INFO] src.fetcher - Symbol CHSS.L is relevant (industry=Software - Application)
+2025-12-07 04:47:14,895 [INFO] src.fetcher - Symbol BL.US is relevant (industry=Software - Application)
+2025-12-07 04:47:15,456 [INFO] src.fetcher - Symbol RNG.US is relevant (industry=Software - Application)
+2025-12-07 04:47:15,461 [INFO] src.fetcher - Symbol BTDR.US is relevant (industry=Software - Application)
+2025-12-07 04:47:16,830 [INFO] src.fetcher - Symbol ALRM.US is relevant (industry=Software - Application)
+2025-12-07 04:47:18,884 [INFO] src.fetcher - Symbol CLSK.US is relevant (industry=Software - Application)
+2025-12-07 04:47:19,700 [INFO] src.fetcher - Symbol M8G.ST is relevant (industry=Software - Application)
+2025-12-07 04:47:19,811 [INFO] src.fetcher - Symbol GETB.L is relevant (industry=Software - Application)
+2025-12-07 04:47:19,894 [INFO] src.fetcher - Symbol ZOO.L is relevant (industry=Software - Application)
+2025-12-07 04:47:20,338 [INFO] src.fetcher - Symbol CALX.US is relevant (industry=Software - Application)
+2025-12-07 04:47:23,334 [INFO] src.fetcher - Symbol 0OA4.L is relevant (industry=Software - Application)
+2025-12-07 04:47:23,670 [INFO] src.fetcher - Symbol VU.PA is relevant (industry=Software - Application)
+2025-12-07 04:47:23,740 [INFO] src.fetcher - Symbol ASE.WA is relevant (industry=Software - Application)
+2025-12-07 04:47:24,432 [INFO] src.fetcher - Symbol SMRT.L is relevant (industry=Software - Application)
+2025-12-07 04:47:24,484 [INFO] src.fetcher - Symbol SEMR.US is relevant (industry=Software - Application)
+2025-12-07 04:47:26,821 [INFO] src.fetcher - Symbol VRC.WA is relevant (industry=Software - Application)
+2025-12-07 04:47:28,056 [INFO] src.fetcher - Symbol CRTA.L is relevant (industry=Software - Application)
+2025-12-07 04:47:28,182 [INFO] src.fetcher - Symbol DCT.US is relevant (industry=Software - Application)
+2025-12-07 04:47:28,594 [INFO] src.fetcher - Symbol ESYS.L is relevant (industry=Software - Application)
+2025-12-07 04:47:28,785 [INFO] src.fetcher - Symbol PRGS.US is relevant (industry=Software - Application)
+2025-12-07 04:47:30,210 [INFO] src.fetcher - Symbol PAR.US is relevant (industry=Software - Application)
+2025-12-07 04:47:31,867 [INFO] src.fetcher - Symbol SIGNUP.ST is relevant (industry=Software - Application)
+2025-12-07 04:47:32,403 [INFO] src.fetcher - Symbol CXM.US is relevant (industry=Software - Application)
+2025-12-07 04:47:32,616 [INFO] src.fetcher - Symbol AGYS.US is relevant (industry=Software - Application)
+2025-12-07 04:47:33,939 [INFO] src.fetcher - Symbol YOU.US is relevant (industry=Software - Application)
+2025-12-07 04:47:35,540 [INFO] src.fetcher - Symbol QTCOM.HE is relevant (industry=Software - Application)
+2025-12-07 04:47:38,459 [INFO] src.fetcher - Symbol LSPD.US is relevant (industry=Software - Application)
+2025-12-07 04:47:38,742 [INFO] src.fetcher - Symbol ABS.WA is relevant (industry=Software - Application)
+2025-12-07 04:47:39,760 [INFO] src.fetcher - Symbol NATL.US is relevant (industry=Software - Application)
+2025-12-07 04:47:40,211 [INFO] src.fetcher - Symbol JAMF.US is relevant (industry=Software - Application)
+2025-12-07 04:47:40,481 [INFO] src.fetcher - Symbol PLNW.PA is relevant (industry=Software - Application)
+2025-12-07 04:47:44,272 [INFO] src.fetcher - Symbol IBTA.US is relevant (industry=Software - Application)
+2025-12-07 04:47:44,323 [INFO] src.fetcher - Symbol TEK.L is relevant (industry=Software - Application)
+2025-12-07 04:47:45,293 [INFO] src.fetcher - Symbol TMV.DE is relevant (industry=Software - Application)
+2025-12-07 04:47:46,217 [INFO] src.fetcher - Symbol ENEA.ST is relevant (industry=Software - Application)
+2025-12-07 04:47:46,828 [INFO] src.fetcher - Symbol SPT.US is relevant (industry=Software - Application)
+2025-12-07 04:47:48,742 [INFO] src.fetcher - Symbol BIRD.L is relevant (industry=Software - Application)
+2025-12-07 04:47:49,412 [INFO] src.fetcher - Symbol ALT.L is relevant (industry=Software - Application)
+2025-12-07 04:47:49,965 [INFO] src.fetcher - Symbol AOF.DE is relevant (industry=Software - Application)
+2025-12-07 04:47:50,879 [INFO] src.fetcher - Symbol IAR-B.ST is relevant (industry=Software - Application)
+2025-12-07 04:47:51,889 [INFO] src.fetcher - Symbol PLUS.US is relevant (industry=Software - Application)
+2025-12-07 04:47:52,849 [INFO] src.fetcher - Symbol DBD.US is relevant (industry=Software - Application)
+2025-12-07 04:47:53,511 [INFO] src.fetcher - Symbol CINT.ST is relevant (industry=Software - Application)
+2025-12-07 04:47:54,232 [INFO] src.fetcher - Symbol PD.US is relevant (industry=Software - Application)
+2025-12-07 04:47:55,108 [INFO] src.fetcher - Symbol SEYE.ST is relevant (industry=Software - Application)
+2025-12-07 04:47:56,970 [INFO] src.fetcher - Symbol UPBD.US is relevant (industry=Software - Application)
+2025-12-07 04:47:57,186 [INFO] src.fetcher - Symbol MTTR.US is relevant (industry=Software - Application)
+2025-12-07 04:47:58,321 [INFO] src.fetcher - Symbol CKT.L is relevant (industry=Software - Application)
+2025-12-07 04:47:58,367 [INFO] src.fetcher - Symbol ALESK.PA is relevant (industry=Software - Application)
+2025-12-07 04:48:00,140 [INFO] src.fetcher - Symbol AMPL.US is relevant (industry=Software - Application)
+2025-12-07 04:48:00,296 [INFO] src.fetcher - Symbol TXT.WA is relevant (industry=Software - Application)
+2025-12-07 04:48:00,394 [INFO] src.fetcher - Symbol CRDL.L is relevant (industry=Software - Application)
+2025-12-07 04:48:01,777 [INFO] src.fetcher - Symbol SPNS.US is relevant (industry=Software - Application)
+2025-12-07 04:48:02,962 [INFO] src.fetcher - Symbol KARO.US is relevant (industry=Software - Application)
+2025-12-07 04:48:03,902 [INFO] src.fetcher - Symbol ARC.L is relevant (industry=Software - Application)
+2025-12-07 04:48:04,151 [INFO] src.fetcher - Symbol EVBG.US is relevant (industry=Software - Application)
+2025-12-07 04:48:05,124 [INFO] src.fetcher - Symbol MLNK.US is relevant (industry=Software - Application)
+2025-12-07 04:48:06,759 [INFO] src.fetcher - Symbol MNTV.US is relevant (industry=Software - Application)
+2025-12-07 04:48:07,482 [INFO] src.fetcher - Symbol FSLY.US is relevant (industry=Software - Application)
+2025-12-07 04:48:08,002 [INFO] src.fetcher - Symbol WBTN.US is relevant (industry=Software - Application)
+2025-12-07 04:48:08,301 [INFO] src.fetcher - Symbol DAVE.US is relevant (industry=Software - Application)
+2025-12-07 04:48:10,087 [INFO] src.fetcher - Symbol ADEA.US is relevant (industry=Software - Application)
+2025-12-07 04:48:10,974 [INFO] src.fetcher - Symbol 0M2A.L is relevant (industry=Software - Application)
+2025-12-07 04:48:11,308 [INFO] src.fetcher - Symbol WKME.US is relevant (industry=Software - Application)
+2025-12-07 04:48:12,647 [INFO] src.fetcher - Symbol ITIM.L is relevant (industry=Software - Application)
+2025-12-07 04:48:14,168 [INFO] src.fetcher - Symbol PRO.US is relevant (industry=Software - Application)
+2025-12-07 04:48:15,558 [INFO] src.fetcher - Symbol WEAV.US is relevant (industry=Software - Application)
+2025-12-07 04:48:16,015 [INFO] src.fetcher - Symbol FPIP.ST is relevant (industry=Software - Application)
+2025-12-07 04:48:16,785 [INFO] src.fetcher - Symbol DCBO.US is relevant (industry=Software - Application)
+2025-12-07 04:48:16,958 [INFO] src.fetcher - Symbol OPFI.US is relevant (industry=Software - Application)
+2025-12-07 04:48:18,766 [INFO] src.fetcher - Symbol RKET.HM is relevant (industry=Software - Application)
+2025-12-07 04:48:19,848 [INFO] src.fetcher - Symbol PEN.L is relevant (industry=Software - Application)
+2025-12-07 04:48:20,411 [INFO] src.fetcher - Symbol MODN.US is relevant (industry=Software - Application)
+2025-12-07 04:48:20,524 [INFO] src.fetcher - Symbol VTEX.US is relevant (industry=Software - Application)
+2025-12-07 04:48:20,667 [INFO] src.fetcher - Symbol OLO.US is relevant (industry=Software - Application)
+2025-12-07 04:48:22,485 [INFO] src.fetcher - Symbol SHO.WA is relevant (industry=Software - Application)
+2025-12-07 04:48:24,285 [INFO] src.fetcher - Symbol 4GBL.L is relevant (industry=Software - Application)
+2025-12-07 04:48:24,817 [INFO] src.fetcher - Symbol VMEO.US is relevant (industry=Software - Application)
+2025-12-07 04:48:25,055 [INFO] src.fetcher - Symbol PDFS.US is relevant (industry=Software - Application)
+2025-12-07 04:48:25,406 [INFO] src.fetcher - Symbol LSS.PA is relevant (industry=Software - Application)
+2025-12-07 04:48:25,913 [INFO] src.fetcher - Symbol ENFN.US is relevant (industry=Software - Application)
+2025-12-07 04:48:28,371 [INFO] src.fetcher - Symbol MSAB-B.ST is relevant (industry=Software - Application)
+2025-12-07 04:51:30,072 [INFO] src.fetcher - Symbol AAPL.US is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:30,853 [INFO] src.fetcher - Symbol 0QYR.L is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:32,424 [INFO] src.fetcher - Symbol APC.F is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:32,989 [INFO] src.fetcher - Symbol APC.DE is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:34,344 [INFO] src.fetcher - Symbol SMSD.L is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:34,455 [INFO] src.fetcher - Symbol BC94.L is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:34,568 [INFO] src.fetcher - Symbol SMSN.L is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:38,705 [INFO] src.fetcher - Symbol SSUN.VI is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:38,708 [INFO] src.fetcher - Symbol SSUN.F is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:39,862 [INFO] src.fetcher - Symbol SSU.VI is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:39,949 [INFO] src.fetcher - Symbol SONY.US is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:40,321 [INFO] src.fetcher - Symbol 3CP.F is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:42,939 [INFO] src.fetcher - Symbol RWL.DE is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:43,247 [INFO] src.fetcher - Symbol EMR.SW is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:44,691 [INFO] src.fetcher - Symbol WIN.SW is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:44,839 [INFO] src.fetcher - Symbol VID.L is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:44,870 [INFO] src.fetcher - Symbol LPL.US is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:46,652 [INFO] src.fetcher - Symbol VZIO.US is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:48,289 [INFO] src.fetcher - Symbol BO.CO is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:48,366 [INFO] src.fetcher - Symbol HTJ.F is relevant (industry=Consumer Electronics)
+2025-12-07 04:51:49,252 [INFO] src.fetcher - Symbol SONO.US is relevant (industry=Consumer Electronics)
+2025-12-07 04:52:35,942 [INFO] src.fetcher - Found 333 relevant symbols after industry filter
+2025-12-07 04:52:35,954 [INFO] src.fetcher - Inserted new ticker: HSBA.L (Banks - Diversified)
+2025-12-07 04:52:35,955 [INFO] src.fetcher - Inserted new ticker: BNC.L (Banks - Diversified)
+2025-12-07 04:52:35,956 [INFO] src.fetcher - Inserted new ticker: NWG.L (Banks - Diversified)
+2025-12-07 04:52:35,958 [INFO] src.fetcher - Inserted new ticker: BARC.L (Banks - Diversified)
+2025-12-07 04:52:35,959 [INFO] src.fetcher - Inserted new ticker: JPM.US (Banks - Diversified)
+2025-12-07 04:52:35,960 [INFO] src.fetcher - Inserted new ticker: STAN.L (Banks - Diversified)
+2025-12-07 04:52:35,962 [INFO] src.fetcher - Inserted new ticker: SAN.WA (Banks - Diversified)
+2025-12-07 04:52:35,963 [INFO] src.fetcher - Inserted new ticker: BAC.US (Banks - Diversified)
+2025-12-07 04:52:35,964 [INFO] src.fetcher - Inserted new ticker: CMC.DE (Banks - Diversified)
+2025-12-07 04:52:35,965 [INFO] src.fetcher - Inserted new ticker: NCB.DE (Banks - Diversified)
+2025-12-07 04:52:35,967 [INFO] src.fetcher - Inserted new ticker: 0Q1F.L (Banks - Diversified)
+2025-12-07 04:52:35,969 [INFO] src.fetcher - Inserted new ticker: WFC.US (Banks - Diversified)
+2025-12-07 04:52:35,971 [INFO] src.fetcher - Inserted new ticker: SHB-A.ST (Banks - Diversified)
+2025-12-07 04:52:35,973 [INFO] src.fetcher - Inserted new ticker: ICK.VI (Banks - Diversified)
+2025-12-07 04:52:35,974 [INFO] src.fetcher - Inserted new ticker: NWT.DE (Banks - Diversified)
+2025-12-07 04:52:35,975 [INFO] src.fetcher - Inserted new ticker: SHB-B.ST (Banks - Diversified)
+2025-12-07 04:52:35,977 [INFO] src.fetcher - Inserted new ticker: EK7.VI (Banks - Diversified)
+2025-12-07 04:52:35,978 [INFO] src.fetcher - Inserted new ticker: BAC.SW (Banks - Diversified)
+2025-12-07 04:52:35,980 [INFO] src.fetcher - Inserted new ticker: HSBC.US (Banks - Diversified)
+2025-12-07 04:52:35,982 [INFO] src.fetcher - Inserted new ticker: HBC1.DE (Banks - Diversified)
+2025-12-07 04:52:35,983 [INFO] src.fetcher - Inserted new ticker: BOCN.VI (Banks - Diversified)
+2025-12-07 04:52:35,985 [INFO] src.fetcher - Inserted new ticker: CNCB.VI (Banks - Diversified)
+2025-12-07 04:52:35,987 [INFO] src.fetcher - Inserted new ticker: WFC.SW (Banks - Diversified)
+2025-12-07 04:52:35,989 [INFO] src.fetcher - Inserted new ticker: RY.US (Banks - Diversified)
+2025-12-07 04:52:35,990 [INFO] src.fetcher - Inserted new ticker: 0QKU.L (Banks - Diversified)
+2025-12-07 04:52:35,992 [INFO] src.fetcher - Inserted new ticker: C.US (Banks - Diversified)
+2025-12-07 04:52:35,993 [INFO] src.fetcher - Inserted new ticker: TRVC.DE (Banks - Diversified)
+2025-12-07 04:52:35,995 [INFO] src.fetcher - Inserted new ticker: MUFG.US (Banks - Diversified)
+2025-12-07 04:52:35,997 [INFO] src.fetcher - Inserted new ticker: UBS.US (Banks - Diversified)
+2025-12-07 04:52:35,999 [INFO] src.fetcher - Inserted new ticker: TD.US (Banks - Diversified)
+2025-12-07 04:52:36,000 [INFO] src.fetcher - Inserted new ticker: 0R01.L (Banks - Diversified)
+2025-12-07 04:52:36,001 [INFO] src.fetcher - Inserted new ticker: RY-PT.US (Banks - Diversified)
+2025-12-07 04:52:36,003 [INFO] src.fetcher - Inserted new ticker: UBSG.SW (Banks - Diversified)
+2025-12-07 04:52:36,004 [INFO] src.fetcher - Inserted new ticker: SMFG.US (Banks - Diversified)
+2025-12-07 04:52:36,005 [INFO] src.fetcher - Inserted new ticker: SAN.US (Banks - Diversified)
+2025-12-07 04:52:36,007 [INFO] src.fetcher - Inserted new ticker: SAN.MC (Banks - Diversified)
+2025-12-07 04:52:36,008 [INFO] src.fetcher - Inserted new ticker: CBA.SW (Banks - Diversified)
+2025-12-07 04:52:36,009 [INFO] src.fetcher - Inserted new ticker: BSD2.DE (Banks - Diversified)
+2025-12-07 04:52:36,010 [INFO] src.fetcher - Inserted new ticker: BMO.US (Banks - Diversified)
+2025-12-07 04:52:36,011 [INFO] src.fetcher - Inserted new ticker: BOY.DE (Banks - Diversified)
+2025-12-07 04:52:36,013 [INFO] src.fetcher - Inserted new ticker: BBVA.US (Banks - Diversified)
+2025-12-07 04:52:36,014 [INFO] src.fetcher - Inserted new ticker: BBVA.MC (Banks - Diversified)
+2025-12-07 04:52:36,015 [INFO] src.fetcher - Inserted new ticker: BVA.L (Banks - Diversified)
+2025-12-07 04:52:36,016 [INFO] src.fetcher - Inserted new ticker: NU.US (Banks - Diversified)
+2025-12-07 04:52:36,018 [INFO] src.fetcher - Inserted new ticker: BNS.US (Banks - Diversified)
+2025-12-07 04:52:36,019 [INFO] src.fetcher - Inserted new ticker: 0R3T.L (Banks - Diversified)
+2025-12-07 04:52:36,020 [INFO] src.fetcher - Inserted new ticker: SANTA.BR (Banks - Diversified)
+2025-12-07 04:52:36,021 [INFO] src.fetcher - Inserted new ticker: BCS.US (Banks - Diversified)
+2025-12-07 04:52:36,022 [INFO] src.fetcher - Inserted new ticker: CM.US (Banks - Diversified)
+2025-12-07 04:52:36,024 [INFO] src.fetcher - Inserted new ticker: ING.US (Banks - Diversified)
+2025-12-07 04:52:36,026 [INFO] src.fetcher - Inserted new ticker: X5Z.F (Banks - Diversified)
+2025-12-07 04:52:36,028 [INFO] src.fetcher - Inserted new ticker: INGA.AS (Banks - Diversified)
+2025-12-07 04:52:36,030 [INFO] src.fetcher - Inserted new ticker: BCY.DE (Banks - Diversified)
+2025-12-07 04:52:36,032 [INFO] src.fetcher - Inserted new ticker: INN1.DE (Banks - Diversified)
+2025-12-07 04:52:36,033 [INFO] src.fetcher - Inserted new ticker: INGA.SW (Banks - Diversified)
+2025-12-07 04:52:36,035 [INFO] src.fetcher - Inserted new ticker: BBV.BR (Banks - Diversified)
+2025-12-07 04:52:36,036 [INFO] src.fetcher - Inserted new ticker: ABN.AS (Banks - Diversified)
+2025-12-07 04:52:36,037 [INFO] src.fetcher - Inserted new ticker: NWG.US (Banks - Diversified)
+2025-12-07 04:52:36,038 [INFO] src.fetcher - Inserted new ticker: CABP.L (Banks - Diversified)
+2025-12-07 04:52:36,039 [INFO] src.fetcher - Inserted new ticker: EWBC.US (Banks - Diversified)
+2025-12-07 04:52:36,041 [INFO] src.fetcher - Inserted new ticker: SAB.MC (Banks - Diversified)
+2025-12-07 04:52:36,042 [INFO] src.fetcher - Inserted new ticker: EFGN.SW (Banks - Diversified)
+2025-12-07 04:52:36,043 [INFO] src.fetcher - Inserted new ticker: ALR.WA (Banks - Diversified)
+2025-12-07 04:52:36,045 [INFO] src.fetcher - Inserted new ticker: CSGN.SW (Banks - Diversified)
+2025-12-07 04:52:36,046 [INFO] src.fetcher - Inserted new ticker: CS.US (Banks - Diversified)
+2025-12-07 04:52:36,047 [INFO] src.fetcher - Inserted new ticker: NTB.US (Banks - Diversified)
+2025-12-07 04:52:36,048 [INFO] src.fetcher - Inserted new ticker: GOOGL.SW (Software - Application)
+2025-12-07 04:52:36,050 [INFO] src.fetcher - Inserted new ticker: SGE.L (Software - Application)
+2025-12-07 04:52:36,051 [INFO] src.fetcher - Inserted new ticker: SAP.DE (Software - Application)
+2025-12-07 04:52:36,052 [INFO] src.fetcher - Inserted new ticker: SAP.US (Software - Application)
+2025-12-07 04:52:36,053 [INFO] src.fetcher - Inserted new ticker: CRM.US (Software - Application)
+2025-12-07 04:52:36,055 [INFO] src.fetcher - Inserted new ticker: FOO.DE (Software - Application)
+2025-12-07 04:52:36,056 [INFO] src.fetcher - Inserted new ticker: FOO.F (Software - Application)
+2025-12-07 04:52:36,058 [INFO] src.fetcher - Inserted new ticker: ADBE.SW (Software - Application)
+2025-12-07 04:52:36,059 [INFO] src.fetcher - Inserted new ticker: NOW.US (Software - Application)
+2025-12-07 04:52:36,061 [INFO] src.fetcher - Inserted new ticker: UBER.US (Software - Application)
+2025-12-07 04:52:36,062 [INFO] src.fetcher - Inserted new ticker: INTU.US (Software - Application)
+2025-12-07 04:52:36,063 [INFO] src.fetcher - Inserted new ticker: 307.F (Software - Application)
+2025-12-07 04:52:36,065 [INFO] src.fetcher - Inserted new ticker: SHOP.US (Software - Application)
+2025-12-07 04:52:36,067 [INFO] src.fetcher - Inserted new ticker: ITU.DE (Software - Application)
+2025-12-07 04:52:36,068 [INFO] src.fetcher - Inserted new ticker: APP.US (Software - Application)
+2025-12-07 04:52:36,069 [INFO] src.fetcher - Inserted new ticker: TRST.L (Software - Application)
+2025-12-07 04:52:36,070 [INFO] src.fetcher - Inserted new ticker: KNOS.L (Software - Application)
+2025-12-07 04:52:36,072 [INFO] src.fetcher - Inserted new ticker: UBER.SW (Software - Application)
+2025-12-07 04:52:36,074 [INFO] src.fetcher - Inserted new ticker: GBG.L (Software - Application)
+2025-12-07 04:52:36,076 [INFO] src.fetcher - Inserted new ticker: MSTR.US (Software - Application)
+2025-12-07 04:52:36,077 [INFO] src.fetcher - Inserted new ticker: TEAM.US (Software - Application)
+2025-12-07 04:52:36,079 [INFO] src.fetcher - Inserted new ticker: 0A7O.L (Software - Application)
+2025-12-07 04:52:36,080 [INFO] src.fetcher - Inserted new ticker: CDNS.US (Software - Application)
+2025-12-07 04:52:36,081 [INFO] src.fetcher - Inserted new ticker: LTG.L (Software - Application)
+2025-12-07 04:52:36,083 [INFO] src.fetcher - Inserted new ticker: ATG.L (Software - Application)
+2025-12-07 04:52:36,084 [INFO] src.fetcher - Inserted new ticker: ALFA.L (Software - Application)
+2025-12-07 04:52:36,085 [INFO] src.fetcher - Inserted new ticker: WDAY.US (Software - Application)
+2025-12-07 04:52:36,087 [INFO] src.fetcher - Inserted new ticker: ADSK.US (Software - Application)
+2025-12-07 04:52:36,090 [INFO] src.fetcher - Inserted new ticker: SNOW.US (Software - Application)
+2025-12-07 04:52:36,092 [INFO] src.fetcher - Inserted new ticker: AUD.DE (Software - Application)
+2025-12-07 04:52:36,095 [INFO] src.fetcher - Inserted new ticker: DSY.PA (Software - Application)
+2025-12-07 04:52:36,097 [INFO] src.fetcher - Inserted new ticker: TTD.US (Software - Application)
+2025-12-07 04:52:36,099 [INFO] src.fetcher - Inserted new ticker: 0A3O.L (Software - Application)
+2025-12-07 04:52:36,101 [INFO] src.fetcher - Inserted new ticker: DEV.L (Software - Application)
+2025-12-07 04:52:36,103 [INFO] src.fetcher - Inserted new ticker: CER.L (Software - Application)
+2025-12-07 04:52:36,105 [INFO] src.fetcher - Inserted new ticker: DDOG.US (Software - Application)
+2025-12-07 04:52:36,107 [INFO] src.fetcher - Inserted new ticker: NCC.L (Software - Application)
+2025-12-07 04:52:36,108 [INFO] src.fetcher - Inserted new ticker: CDS.DE (Software - Application)
+2025-12-07 04:52:36,110 [INFO] src.fetcher - Inserted new ticker: FNOX.ST (Software - Application)
+2025-12-07 04:52:36,111 [INFO] src.fetcher - Inserted new ticker: FICO.US (Software - Application)
+2025-12-07 04:52:36,113 [INFO] src.fetcher - Inserted new ticker: HUBS.US (Software - Application)
+2025-12-07 04:52:36,114 [INFO] src.fetcher - Inserted new ticker: BIG.L (Software - Application)
+2025-12-07 04:52:36,116 [INFO] src.fetcher - Inserted new ticker: PBEE.L (Software - Application)
+2025-12-07 04:52:36,118 [INFO] src.fetcher - Inserted new ticker: BIDU.SW (Software - Application)
+2025-12-07 04:52:36,119 [INFO] src.fetcher - Inserted new ticker: ANSS.US (Software - Application)
+2025-12-07 04:52:36,121 [INFO] src.fetcher - Inserted new ticker: IQG.L (Software - Application)
+2025-12-07 04:52:36,122 [INFO] src.fetcher - Inserted new ticker: SIM.CO (Software - Application)
+2025-12-07 04:52:36,123 [INFO] src.fetcher - Inserted new ticker: DOTD.L (Software - Application)
+2025-12-07 04:52:36,124 [INFO] src.fetcher - Inserted new ticker: TYL.US (Software - Application)
+2025-12-07 04:52:36,126 [INFO] src.fetcher - Inserted new ticker: IDOX.L (Software - Application)
+2025-12-07 04:52:36,127 [INFO] src.fetcher - Inserted new ticker: ZM.US (Software - Application)
+2025-12-07 04:52:36,128 [INFO] src.fetcher - Inserted new ticker: VIT-B.ST (Software - Application)
+2025-12-07 04:52:36,130 [INFO] src.fetcher - Inserted new ticker: 5ZM.F (Software - Application)
+2025-12-07 04:52:36,131 [INFO] src.fetcher - Inserted new ticker: SSNC.US (Software - Application)
+2025-12-07 04:52:36,133 [INFO] src.fetcher - Inserted new ticker: WDI.SW (Software - Application)
+2025-12-07 04:52:36,135 [INFO] src.fetcher - Inserted new ticker: PTC.US (Software - Application)
+2025-12-07 04:52:36,136 [INFO] src.fetcher - Inserted new ticker: TRUE-B.ST (Software - Application)
+2025-12-07 04:52:36,138 [INFO] src.fetcher - Inserted new ticker: GRAB.US (Software - Application)
+2025-12-07 04:52:36,139 [INFO] src.fetcher - Inserted new ticker: ACSO.L (Software - Application)
+2025-12-07 04:52:36,140 [INFO] src.fetcher - Inserted new ticker: NET.L (Software - Application)
+2025-12-07 04:52:36,141 [INFO] src.fetcher - Inserted new ticker: APTD.L (Software - Application)
+2025-12-07 04:52:36,144 [INFO] src.fetcher - Inserted new ticker: DT.US (Software - Application)
+2025-12-07 04:52:36,146 [INFO] src.fetcher - Inserted new ticker: GWRE.US (Software - Application)
+2025-12-07 04:52:36,148 [INFO] src.fetcher - Inserted new ticker: DOCU.US (Software - Application)
+2025-12-07 04:52:36,151 [INFO] src.fetcher - Inserted new ticker: DUOL.US (Software - Application)
+2025-12-07 04:52:36,153 [INFO] src.fetcher - Inserted new ticker: FFV.DE (Software - Application)
+2025-12-07 04:52:36,155 [INFO] src.fetcher - Inserted new ticker: 0IL6.L (Software - Application)
+2025-12-07 04:52:36,157 [INFO] src.fetcher - Inserted new ticker: AZPN.US (Software - Application)
+2025-12-07 04:52:36,159 [INFO] src.fetcher - Inserted new ticker: KAHOT.OL (Software - Application)
+2025-12-07 04:52:36,161 [INFO] src.fetcher - Inserted new ticker: MNDY.US (Software - Application)
+2025-12-07 04:52:36,163 [INFO] src.fetcher - Inserted new ticker: E3G1.SG (Software - Application)
+2025-12-07 04:52:36,165 [INFO] src.fetcher - Inserted new ticker: NEM.DE (Software - Application)
+2025-12-07 04:52:36,166 [INFO] src.fetcher - Inserted new ticker: GHT.L (Software - Application)
+2025-12-07 04:52:36,168 [INFO] src.fetcher - Inserted new ticker: CTX.DE (Software - Application)
+2025-12-07 04:52:36,170 [INFO] src.fetcher - Inserted new ticker: SAAS.L (Software - Application)
+2025-12-07 04:52:36,172 [INFO] src.fetcher - Inserted new ticker: BSY.US (Software - Application)
+2025-12-07 04:52:36,173 [INFO] src.fetcher - Inserted new ticker: YMM.US (Software - Application)
+2025-12-07 04:52:36,175 [INFO] src.fetcher - Inserted new ticker: ESTC.US (Software - Application)
+2025-12-07 04:52:36,178 [INFO] src.fetcher - Inserted new ticker: ELCO.L (Software - Application)
+2025-12-07 04:52:36,180 [INFO] src.fetcher - Inserted new ticker: PAYC.US (Software - Application)
+2025-12-07 04:52:36,182 [INFO] src.fetcher - Inserted new ticker: PCTY.US (Software - Application)
+2025-12-07 04:52:36,184 [INFO] src.fetcher - Inserted new ticker: BKI.US (Software - Application)
+2025-12-07 04:52:36,186 [INFO] src.fetcher - Inserted new ticker: TRCS.L (Software - Application)
+2025-12-07 04:52:36,187 [INFO] src.fetcher - Inserted new ticker: GTLB.US (Software - Application)
+2025-12-07 04:52:36,189 [INFO] src.fetcher - Inserted new ticker: PCOR.US (Software - Application)
+2025-12-07 04:52:36,190 [INFO] src.fetcher - Inserted new ticker: MANH.US (Software - Application)
+2025-12-07 04:52:36,192 [INFO] src.fetcher - Inserted new ticker: XM.US (Software - Application)
+2025-12-07 04:52:36,194 [INFO] src.fetcher - Inserted new ticker: EYE.L (Software - Application)
+2025-12-07 04:52:36,196 [INFO] src.fetcher - Inserted new ticker: CDAY.US (Software - Application)
+2025-12-07 04:52:36,198 [INFO] src.fetcher - Inserted new ticker: NICE.US (Software - Application)
+2025-12-07 04:52:36,199 [INFO] src.fetcher - Inserted new ticker: SPE.L (Software - Application)
+2025-12-07 04:52:36,201 [INFO] src.fetcher - Inserted new ticker: IGP.L (Software - Application)
+2025-12-07 04:52:36,202 [INFO] src.fetcher - Inserted new ticker: SPSY.L (Software - Application)
+2025-12-07 04:52:36,204 [INFO] src.fetcher - Inserted new ticker: SPSC.L (Software - Application)
+2025-12-07 04:52:36,206 [INFO] src.fetcher - Inserted new ticker: DAY.US (Software - Application)
+2025-12-07 04:52:36,207 [INFO] src.fetcher - Inserted new ticker: TRB.L (Software - Application)
+2025-12-07 04:52:36,209 [INFO] src.fetcher - Inserted new ticker: DSGX.US (Software - Application)
+2025-12-07 04:52:36,211 [INFO] src.fetcher - Inserted new ticker: ACP.WA (Software - Application)
+2025-12-07 04:52:36,212 [INFO] src.fetcher - Inserted new ticker: PEGA.US (Software - Application)
+2025-12-07 04:52:36,213 [INFO] src.fetcher - Inserted new ticker: RM.L (Software - Application)
+2025-12-07 04:52:36,215 [INFO] src.fetcher - Inserted new ticker: TTAN.US (Software - Application)
+2025-12-07 04:52:36,216 [INFO] src.fetcher - Inserted new ticker: CLBS.L (Software - Application)
+2025-12-07 04:52:36,217 [INFO] src.fetcher - Inserted new ticker: CVLT.US (Software - Application)
+2025-12-07 04:52:36,219 [INFO] src.fetcher - Inserted new ticker: NATI.US (Software - Application)
+2025-12-07 04:52:36,220 [INFO] src.fetcher - Inserted new ticker: SMAR.US (Software - Application)
+2025-12-07 04:52:36,222 [INFO] src.fetcher - Inserted new ticker: VERX.US (Software - Application)
+2025-12-07 04:52:36,224 [INFO] src.fetcher - Inserted new ticker: U.US (Software - Application)
+2025-12-07 04:52:36,226 [INFO] src.fetcher - Inserted new ticker: OTEX.US (Software - Application)
+2025-12-07 04:52:36,228 [INFO] src.fetcher - Inserted new ticker: ACC.L (Software - Application)
+2025-12-07 04:52:36,230 [INFO] src.fetcher - Inserted new ticker: APPF.US (Software - Application)
+2025-12-07 04:52:36,232 [INFO] src.fetcher - Inserted new ticker: WAND.L (Software - Application)
+2025-12-07 04:52:36,234 [INFO] src.fetcher - Inserted new ticker: AOM.L (Software - Application)
+2025-12-07 04:52:36,236 [INFO] src.fetcher - Inserted new ticker: SPA.L (Software - Application)
+2025-12-07 04:52:36,238 [INFO] src.fetcher - Inserted new ticker: D4T4.L (Software - Application)
+2025-12-07 04:52:36,240 [INFO] src.fetcher - Inserted new ticker: OMG.L (Software - Application)
+2025-12-07 04:52:36,242 [INFO] src.fetcher - Inserted new ticker: CWAN.US (Software - Application)
+2025-12-07 04:52:36,243 [INFO] src.fetcher - Inserted new ticker: BETCO.ST (Software - Application)
+2025-12-07 04:52:36,244 [INFO] src.fetcher - Inserted new ticker: NEMA.SW (Software - Application)
+2025-12-07 04:52:36,245 [INFO] src.fetcher - Inserted new ticker: SRAD.US (Software - Application)
+2025-12-07 04:52:36,247 [INFO] src.fetcher - Inserted new ticker: PULS.L (Software - Application)
+2025-12-07 04:52:36,248 [INFO] src.fetcher - Inserted new ticker: RUM.US (Software - Application)
+2025-12-07 04:52:36,249 [INFO] src.fetcher - Inserted new ticker: BILL.US (Software - Application)
+2025-12-07 04:52:36,251 [INFO] src.fetcher - Inserted new ticker: COUP.US (Software - Application)
+2025-12-07 04:52:36,253 [INFO] src.fetcher - Inserted new ticker: VOLUE.OL (Software - Application)
+2025-12-07 04:52:36,254 [INFO] src.fetcher - Inserted new ticker: TEMN.SW (Software - Application)
+2025-12-07 04:52:36,255 [INFO] src.fetcher - Inserted new ticker: INTA.US (Software - Application)
+2025-12-07 04:52:36,256 [INFO] src.fetcher - Inserted new ticker: QTWO.US (Software - Application)
+2025-12-07 04:52:36,258 [INFO] src.fetcher - Inserted new ticker: QXO.US (Software - Application)
+2025-12-07 04:52:36,260 [INFO] src.fetcher - Inserted new ticker: SOUN.US (Software - Application)
+2025-12-07 04:52:36,262 [INFO] src.fetcher - Inserted new ticker: FRSH.US (Software - Application)
+2025-12-07 04:52:36,263 [INFO] src.fetcher - Inserted new ticker: 0U3Q.L (Software - Application)
+2025-12-07 04:52:36,265 [INFO] src.fetcher - Inserted new ticker: IDCC.US (Software - Application)
+2025-12-07 04:52:36,267 [INFO] src.fetcher - Inserted new ticker: LYFT.US (Software - Application)
+2025-12-07 04:52:36,269 [INFO] src.fetcher - Inserted new ticker: ASAN.US (Software - Application)
+2025-12-07 04:52:36,271 [INFO] src.fetcher - Inserted new ticker: ZETA.US (Software - Application)
+2025-12-07 04:52:36,272 [INFO] src.fetcher - Inserted new ticker: LIME.ST (Software - Application)
+2025-12-07 04:52:36,274 [INFO] src.fetcher - Inserted new ticker: WK.US (Software - Application)
+2025-12-07 04:52:36,276 [INFO] src.fetcher - Inserted new ticker: ALTTU.PA (Software - Application)
+2025-12-07 04:52:36,277 [INFO] src.fetcher - Inserted new ticker: PEXIP.OL (Software - Application)
+2025-12-07 04:52:36,279 [INFO] src.fetcher - Inserted new ticker: SMCRT.OL (Software - Application)
+2025-12-07 04:52:36,281 [INFO] src.fetcher - Inserted new ticker: KC.US (Software - Application)
+2025-12-07 04:52:36,282 [INFO] src.fetcher - Inserted new ticker: BRZE.US (Software - Application)
+2025-12-07 04:52:36,284 [INFO] src.fetcher - Inserted new ticker: CVT.US (Software - Application)
+2025-12-07 04:52:36,286 [INFO] src.fetcher - Inserted new ticker: GBTG.US (Software - Application)
+2025-12-07 04:52:36,287 [INFO] src.fetcher - Inserted new ticker: PYCR.US (Software - Application)
+2025-12-07 04:52:36,288 [INFO] src.fetcher - Inserted new ticker: COMP.US (Software - Application)
+2025-12-07 04:52:36,290 [INFO] src.fetcher - Inserted new ticker: FROG.US (Software - Application)
+2025-12-07 04:52:36,291 [INFO] src.fetcher - Inserted new ticker: NCNO.US (Software - Application)
+2025-12-07 04:52:36,292 [INFO] src.fetcher - Inserted new ticker: BLKB.US (Software - Application)
+2025-12-07 04:52:36,294 [INFO] src.fetcher - Inserted new ticker: DV.US (Software - Application)
+2025-12-07 04:52:36,295 [INFO] src.fetcher - Inserted new ticker: LVC.WA (Software - Application)
+2025-12-07 04:52:36,296 [INFO] src.fetcher - Inserted new ticker: CBRAIN.CO (Software - Application)
+2025-12-07 04:52:36,297 [INFO] src.fetcher - Inserted new ticker: PWSC.US (Software - Application)
+2025-12-07 04:52:36,299 [INFO] src.fetcher - Inserted new ticker: 0DWV.L (Software - Application)
+2025-12-07 04:52:36,300 [INFO] src.fetcher - Inserted new ticker: UTDI.SW (Software - Application)
+2025-12-07 04:52:36,301 [INFO] src.fetcher - Inserted new ticker: SKL.L (Software - Application)
+2025-12-07 04:52:36,303 [INFO] src.fetcher - Inserted new ticker: ZI.US (Software - Application)
+2025-12-07 04:52:36,304 [INFO] src.fetcher - Inserted new ticker: ALIT.US (Software - Application)
+2025-12-07 04:52:36,305 [INFO] src.fetcher - Inserted new ticker: ENV.US (Software - Application)
+2025-12-07 04:52:36,306 [INFO] src.fetcher - Inserted new ticker: AYX.US (Software - Application)
+2025-12-07 04:52:36,308 [INFO] src.fetcher - Inserted new ticker: INST.US (Software - Application)
+2025-12-07 04:52:36,309 [INFO] src.fetcher - Inserted new ticker: ALKT.US (Software - Application)
+2025-12-07 04:52:36,310 [INFO] src.fetcher - Inserted new ticker: US44891N2080.SG (Software - Application)
+2025-12-07 04:52:36,311 [INFO] src.fetcher - Inserted new ticker: GRND.US (Software - Application)
+2025-12-07 04:52:36,313 [INFO] src.fetcher - Inserted new ticker: CHSS.L (Software - Application)
+2025-12-07 04:52:36,314 [INFO] src.fetcher - Inserted new ticker: BL.US (Software - Application)
+2025-12-07 04:52:36,315 [INFO] src.fetcher - Inserted new ticker: RNG.US (Software - Application)
+2025-12-07 04:52:36,317 [INFO] src.fetcher - Inserted new ticker: BTDR.US (Software - Application)
+2025-12-07 04:52:36,318 [INFO] src.fetcher - Inserted new ticker: ALRM.US (Software - Application)
+2025-12-07 04:52:36,319 [INFO] src.fetcher - Inserted new ticker: CLSK.US (Software - Application)
+2025-12-07 04:52:36,320 [INFO] src.fetcher - Inserted new ticker: M8G.ST (Software - Application)
+2025-12-07 04:52:36,322 [INFO] src.fetcher - Inserted new ticker: GETB.L (Software - Application)
+2025-12-07 04:52:36,323 [INFO] src.fetcher - Inserted new ticker: ZOO.L (Software - Application)
+2025-12-07 04:52:36,324 [INFO] src.fetcher - Inserted new ticker: CALX.US (Software - Application)
+2025-12-07 04:52:36,326 [INFO] src.fetcher - Inserted new ticker: 0OA4.L (Software - Application)
+2025-12-07 04:52:36,327 [INFO] src.fetcher - Inserted new ticker: VU.PA (Software - Application)
+2025-12-07 04:52:36,328 [INFO] src.fetcher - Inserted new ticker: ASE.WA (Software - Application)
+2025-12-07 04:52:36,329 [INFO] src.fetcher - Inserted new ticker: SMRT.L (Software - Application)
+2025-12-07 04:52:36,331 [INFO] src.fetcher - Inserted new ticker: SEMR.US (Software - Application)
+2025-12-07 04:52:36,332 [INFO] src.fetcher - Inserted new ticker: VRC.WA (Software - Application)
+2025-12-07 04:52:36,333 [INFO] src.fetcher - Inserted new ticker: CRTA.L (Software - Application)
+2025-12-07 04:52:36,334 [INFO] src.fetcher - Inserted new ticker: DCT.US (Software - Application)
+2025-12-07 04:52:36,336 [INFO] src.fetcher - Inserted new ticker: ESYS.L (Software - Application)
+2025-12-07 04:52:36,337 [INFO] src.fetcher - Inserted new ticker: PRGS.US (Software - Application)
+2025-12-07 04:52:36,338 [INFO] src.fetcher - Inserted new ticker: PAR.US (Software - Application)
+2025-12-07 04:52:36,339 [INFO] src.fetcher - Inserted new ticker: SIGNUP.ST (Software - Application)
+2025-12-07 04:52:36,342 [INFO] src.fetcher - Inserted new ticker: CXM.US (Software - Application)
+2025-12-07 04:52:36,347 [INFO] src.fetcher - Inserted new ticker: AGYS.US (Software - Application)
+2025-12-07 04:52:36,351 [INFO] src.fetcher - Inserted new ticker: YOU.US (Software - Application)
+2025-12-07 04:52:36,354 [INFO] src.fetcher - Inserted new ticker: QTCOM.HE (Software - Application)
+2025-12-07 04:52:36,356 [INFO] src.fetcher - Inserted new ticker: LSPD.US (Software - Application)
+2025-12-07 04:52:36,358 [INFO] src.fetcher - Inserted new ticker: ABS.WA (Software - Application)
+2025-12-07 04:52:36,360 [INFO] src.fetcher - Inserted new ticker: NATL.US (Software - Application)
+2025-12-07 04:52:36,361 [INFO] src.fetcher - Inserted new ticker: JAMF.US (Software - Application)
+2025-12-07 04:52:36,362 [INFO] src.fetcher - Inserted new ticker: PLNW.PA (Software - Application)
+2025-12-07 04:52:36,364 [INFO] src.fetcher - Inserted new ticker: IBTA.US (Software - Application)
+2025-12-07 04:52:36,365 [INFO] src.fetcher - Inserted new ticker: TEK.L (Software - Application)
+2025-12-07 04:52:36,366 [INFO] src.fetcher - Inserted new ticker: TMV.DE (Software - Application)
+2025-12-07 04:52:36,367 [INFO] src.fetcher - Inserted new ticker: ENEA.ST (Software - Application)
+2025-12-07 04:52:36,369 [INFO] src.fetcher - Inserted new ticker: SPT.US (Software - Application)
+2025-12-07 04:52:36,370 [INFO] src.fetcher - Inserted new ticker: BIRD.L (Software - Application)
+2025-12-07 04:52:36,371 [INFO] src.fetcher - Inserted new ticker: ALT.L (Software - Application)
+2025-12-07 04:52:36,373 [INFO] src.fetcher - Inserted new ticker: AOF.DE (Software - Application)
+2025-12-07 04:52:36,375 [INFO] src.fetcher - Inserted new ticker: IAR-B.ST (Software - Application)
+2025-12-07 04:52:36,376 [INFO] src.fetcher - Inserted new ticker: PLUS.US (Software - Application)
+2025-12-07 04:52:36,378 [INFO] src.fetcher - Inserted new ticker: DBD.US (Software - Application)
+2025-12-07 04:52:36,379 [INFO] src.fetcher - Inserted new ticker: CINT.ST (Software - Application)
+2025-12-07 04:52:36,380 [INFO] src.fetcher - Inserted new ticker: PD.US (Software - Application)
+2025-12-07 04:52:36,382 [INFO] src.fetcher - Inserted new ticker: SEYE.ST (Software - Application)
+2025-12-07 04:52:36,383 [INFO] src.fetcher - Inserted new ticker: UPBD.US (Software - Application)
+2025-12-07 04:52:36,384 [INFO] src.fetcher - Inserted new ticker: MTTR.US (Software - Application)
+2025-12-07 04:52:36,385 [INFO] src.fetcher - Inserted new ticker: CKT.L (Software - Application)
+2025-12-07 04:52:36,387 [INFO] src.fetcher - Inserted new ticker: ALESK.PA (Software - Application)
+2025-12-07 04:52:36,389 [INFO] src.fetcher - Inserted new ticker: AMPL.US (Software - Application)
+2025-12-07 04:52:36,391 [INFO] src.fetcher - Inserted new ticker: TXT.WA (Software - Application)
+2025-12-07 04:52:36,392 [INFO] src.fetcher - Inserted new ticker: CRDL.L (Software - Application)
+2025-12-07 04:52:36,393 [INFO] src.fetcher - Inserted new ticker: SPNS.US (Software - Application)
+2025-12-07 04:52:36,395 [INFO] src.fetcher - Inserted new ticker: KARO.US (Software - Application)
+2025-12-07 04:52:36,396 [INFO] src.fetcher - Inserted new ticker: ARC.L (Software - Application)
+2025-12-07 04:52:36,397 [INFO] src.fetcher - Inserted new ticker: EVBG.US (Software - Application)
+2025-12-07 04:52:36,399 [INFO] src.fetcher - Inserted new ticker: MLNK.US (Software - Application)
+2025-12-07 04:52:36,400 [INFO] src.fetcher - Inserted new ticker: MNTV.US (Software - Application)
+2025-12-07 04:52:36,401 [INFO] src.fetcher - Inserted new ticker: FSLY.US (Software - Application)
+2025-12-07 04:52:36,403 [INFO] src.fetcher - Inserted new ticker: WBTN.US (Software - Application)
+2025-12-07 04:52:36,405 [INFO] src.fetcher - Inserted new ticker: DAVE.US (Software - Application)
+2025-12-07 04:52:36,407 [INFO] src.fetcher - Inserted new ticker: ADEA.US (Software - Application)
+2025-12-07 04:52:36,409 [INFO] src.fetcher - Inserted new ticker: 0M2A.L (Software - Application)
+2025-12-07 04:52:36,411 [INFO] src.fetcher - Inserted new ticker: WKME.US (Software - Application)
+2025-12-07 04:52:36,412 [INFO] src.fetcher - Inserted new ticker: ITIM.L (Software - Application)
+2025-12-07 04:52:36,413 [INFO] src.fetcher - Inserted new ticker: PRO.US (Software - Application)
+2025-12-07 04:52:36,415 [INFO] src.fetcher - Inserted new ticker: WEAV.US (Software - Application)
+2025-12-07 04:52:36,416 [INFO] src.fetcher - Inserted new ticker: FPIP.ST (Software - Application)
+2025-12-07 04:52:36,417 [INFO] src.fetcher - Inserted new ticker: DCBO.US (Software - Application)
+2025-12-07 04:52:36,418 [INFO] src.fetcher - Inserted new ticker: OPFI.US (Software - Application)
+2025-12-07 04:52:36,420 [INFO] src.fetcher - Inserted new ticker: RKET.HM (Software - Application)
+2025-12-07 04:52:36,421 [INFO] src.fetcher - Inserted new ticker: PEN.L (Software - Application)
+2025-12-07 04:52:36,422 [INFO] src.fetcher - Inserted new ticker: MODN.US (Software - Application)
+2025-12-07 04:52:36,425 [INFO] src.fetcher - Inserted new ticker: VTEX.US (Software - Application)
+2025-12-07 04:52:36,428 [INFO] src.fetcher - Inserted new ticker: OLO.US (Software - Application)
+2025-12-07 04:52:36,429 [INFO] src.fetcher - Inserted new ticker: SHO.WA (Software - Application)
+2025-12-07 04:52:36,431 [INFO] src.fetcher - Inserted new ticker: 4GBL.L (Software - Application)
+2025-12-07 04:52:36,432 [INFO] src.fetcher - Inserted new ticker: VMEO.US (Software - Application)
+2025-12-07 04:52:36,433 [INFO] src.fetcher - Inserted new ticker: PDFS.US (Software - Application)
+2025-12-07 04:52:36,434 [INFO] src.fetcher - Inserted new ticker: LSS.PA (Software - Application)
+2025-12-07 04:52:36,435 [INFO] src.fetcher - Inserted new ticker: ENFN.US (Software - Application)
+2025-12-07 04:52:36,437 [INFO] src.fetcher - Inserted new ticker: MSAB-B.ST (Software - Application)
+2025-12-07 04:52:36,438 [INFO] src.fetcher - Inserted new ticker: AAPL.US (Consumer Electronics)
+2025-12-07 04:52:36,440 [INFO] src.fetcher - Inserted new ticker: 0QYR.L (Consumer Electronics)
+2025-12-07 04:52:36,441 [INFO] src.fetcher - Inserted new ticker: APC.F (Consumer Electronics)
+2025-12-07 04:52:36,443 [INFO] src.fetcher - Inserted new ticker: APC.DE (Consumer Electronics)
+2025-12-07 04:52:36,444 [INFO] src.fetcher - Inserted new ticker: SMSD.L (Consumer Electronics)
+2025-12-07 04:52:36,447 [INFO] src.fetcher - Inserted new ticker: BC94.L (Consumer Electronics)
+2025-12-07 04:52:36,449 [INFO] src.fetcher - Inserted new ticker: SMSN.L (Consumer Electronics)
+2025-12-07 04:52:36,450 [INFO] src.fetcher - Inserted new ticker: SSUN.VI (Consumer Electronics)
+2025-12-07 04:52:36,452 [INFO] src.fetcher - Inserted new ticker: SSUN.F (Consumer Electronics)
+2025-12-07 04:52:36,453 [INFO] src.fetcher - Inserted new ticker: SSU.VI (Consumer Electronics)
+2025-12-07 04:52:36,454 [INFO] src.fetcher - Inserted new ticker: SONY.US (Consumer Electronics)
+2025-12-07 04:52:36,456 [INFO] src.fetcher - Inserted new ticker: 3CP.F (Consumer Electronics)
+2025-12-07 04:52:36,457 [INFO] src.fetcher - Inserted new ticker: RWL.DE (Consumer Electronics)
+2025-12-07 04:52:36,458 [INFO] src.fetcher - Inserted new ticker: EMR.SW (Consumer Electronics)
+2025-12-07 04:52:36,460 [INFO] src.fetcher - Inserted new ticker: WIN.SW (Consumer Electronics)
+2025-12-07 04:52:36,461 [INFO] src.fetcher - Inserted new ticker: VID.L (Consumer Electronics)
+2025-12-07 04:52:36,462 [INFO] src.fetcher - Inserted new ticker: LPL.US (Consumer Electronics)
+2025-12-07 04:52:36,464 [INFO] src.fetcher - Inserted new ticker: VZIO.US (Consumer Electronics)
+2025-12-07 04:52:36,466 [INFO] src.fetcher - Inserted new ticker: BO.CO (Consumer Electronics)
+2025-12-07 04:52:36,468 [INFO] src.fetcher - Inserted new ticker: HTJ.F (Consumer Electronics)
+2025-12-07 04:52:36,470 [INFO] src.fetcher - Inserted new ticker: SONO.US (Consumer Electronics)
+2025-12-07 04:52:36,507 [WARNING] __main__ - Step 2 completed: 333 relevant symbols found.
+2025-12-07 04:52:36,508 [WARNING] __main__ - Step 3: Starting calculations for 333 symbols with up to 3 worker(s)...
+2025-12-07 04:52:36,508 [INFO] src.calculations - Starting calculations for HSBA.L
+2025-12-07 04:52:36,511 [INFO] src.calculations - Starting calculations for BNC.L
+2025-12-07 04:52:36,512 [INFO] src.calculations - Starting calculations for NWG.L
+2025-12-07 04:52:48,662 [INFO] src.calculations - Finished calculations for NWG.L
+2025-12-07 04:52:48,665 [INFO] src.calculations - Starting calculations for BARC.L
+2025-12-07 04:52:48,751 [INFO] src.calculations - Finished calculations for BNC.L
+2025-12-07 04:52:48,754 [INFO] src.calculations - Starting calculations for JPM.US
+2025-12-07 04:52:50,426 [INFO] src.calculations - Finished calculations for HSBA.L
+2025-12-07 04:52:50,428 [INFO] src.calculations - Starting calculations for STAN.L
+2025-12-07 04:53:01,272 [INFO] src.calculations - Finished calculations for BARC.L
+2025-12-07 04:53:01,274 [INFO] src.calculations - Starting calculations for SAN.WA
+2025-12-07 04:53:02,410 [INFO] src.calculations - Finished calculations for JPM.US
+2025-12-07 04:53:02,412 [INFO] src.calculations - Starting calculations for BAC.US
+2025-12-07 04:53:03,666 [INFO] src.calculations - Finished calculations for STAN.L
+2025-12-07 04:53:03,668 [INFO] src.calculations - Starting calculations for CMC.DE
+2025-12-07 04:53:13,677 [INFO] src.calculations - Finished calculations for SAN.WA
+2025-12-07 04:53:13,679 [INFO] src.calculations - Starting calculations for NCB.DE
+2025-12-07 04:53:14,842 [INFO] src.calculations - Finished calculations for BAC.US
+2025-12-07 04:53:14,844 [INFO] src.calculations - Starting calculations for 0Q1F.L
+2025-12-07 04:53:15,988 [INFO] src.calculations - Finished calculations for CMC.DE
+2025-12-07 04:53:15,990 [INFO] src.calculations - Starting calculations for WFC.US
+2025-12-07 04:53:25,110 [INFO] src.calculations - Finished calculations for NCB.DE
+2025-12-07 04:53:25,112 [INFO] src.calculations - Starting calculations for SHB-A.ST
+2025-12-07 04:53:27,786 [INFO] src.calculations - Finished calculations for 0Q1F.L
+2025-12-07 04:53:27,789 [INFO] src.calculations - Starting calculations for ICK.VI
+2025-12-07 04:53:29,459 [INFO] src.calculations - Finished calculations for WFC.US
+2025-12-07 04:53:29,462 [INFO] src.calculations - Starting calculations for NWT.DE
+2025-12-07 04:53:36,822 [INFO] src.calculations - Finished calculations for SHB-A.ST
+2025-12-07 04:53:36,825 [INFO] src.calculations - Starting calculations for SHB-B.ST
+2025-12-07 04:53:40,762 [INFO] src.calculations - Finished calculations for ICK.VI
+2025-12-07 04:53:40,764 [INFO] src.calculations - Starting calculations for EK7.VI
+2025-12-07 04:53:42,781 [INFO] src.calculations - Finished calculations for NWT.DE
+2025-12-07 04:53:42,783 [INFO] src.calculations - Starting calculations for BAC.SW
+2025-12-07 04:53:52,059 [INFO] src.calculations - Finished calculations for SHB-B.ST
+2025-12-07 04:53:52,061 [INFO] src.calculations - Starting calculations for HSBC.US
+2025-12-07 04:53:56,207 [INFO] src.calculations - Finished calculations for EK7.VI
+2025-12-07 04:53:56,208 [INFO] src.calculations - Starting calculations for HBC1.DE
+2025-12-07 04:53:59,504 [INFO] src.calculations - Finished calculations for BAC.SW
+2025-12-07 04:53:59,506 [INFO] src.calculations - Starting calculations for BOCN.VI
+2025-12-07 04:54:06,141 [INFO] src.calculations - Finished calculations for HSBC.US
+2025-12-07 04:54:06,143 [INFO] src.calculations - Starting calculations for CNCB.VI
+2025-12-07 04:54:07,782 [INFO] src.calculations - Finished calculations for HBC1.DE
+2025-12-07 04:54:07,783 [INFO] src.calculations - Starting calculations for WFC.SW
+2025-12-07 04:54:11,826 [WARNING] src.calculations - Not enough quarterly income data for WFC.SW
+2025-12-07 04:54:11,828 [INFO] src.calculations - Starting calculations for RY.US
+2025-12-07 04:54:11,828 [WARNING] __main__ - No metrics could be calculated for WFC.SW
+2025-12-07 04:54:12,496 [INFO] src.calculations - Finished calculations for BOCN.VI
+2025-12-07 04:54:12,497 [INFO] src.calculations - Starting calculations for 0QKU.L
+2025-12-07 04:54:17,150 [INFO] src.calculations - Finished calculations for CNCB.VI
+2025-12-07 04:54:17,151 [INFO] src.calculations - Starting calculations for C.US
+2025-12-07 04:54:22,668 [INFO] src.calculations - Finished calculations for 0QKU.L
+2025-12-07 04:54:22,669 [INFO] src.calculations - Starting calculations for TRVC.DE
+2025-12-07 04:54:23,990 [INFO] src.calculations - Finished calculations for RY.US
+2025-12-07 04:54:23,996 [INFO] src.calculations - Starting calculations for MUFG.US
+2025-12-07 04:54:28,383 [INFO] src.calculations - Finished calculations for C.US
+2025-12-07 04:54:28,385 [INFO] src.calculations - Starting calculations for UBS.US
+2025-12-07 04:54:36,205 [INFO] src.calculations - Finished calculations for TRVC.DE
+2025-12-07 04:54:36,207 [INFO] src.calculations - Starting calculations for TD.US
+2025-12-07 04:54:37,250 [INFO] src.calculations - Finished calculations for MUFG.US
+2025-12-07 04:54:37,252 [INFO] src.calculations - Starting calculations for 0R01.L
+2025-12-07 04:54:40,530 [INFO] src.calculations - Finished calculations for UBS.US
+2025-12-07 04:54:40,534 [INFO] src.calculations - Starting calculations for RY-PT.US
+2025-12-07 04:54:48,437 [INFO] src.calculations - Finished calculations for TD.US
+2025-12-07 04:54:48,441 [INFO] src.calculations - Starting calculations for UBSG.SW
+2025-12-07 04:54:49,685 [INFO] src.calculations - Finished calculations for 0R01.L
+2025-12-07 04:54:49,687 [INFO] src.calculations - Starting calculations for SMFG.US
+2025-12-07 04:54:52,087 [INFO] src.calculations - Finished calculations for RY-PT.US
+2025-12-07 04:54:52,089 [INFO] src.calculations - Starting calculations for SAN.US
+2025-12-07 04:55:03,035 [INFO] src.calculations - Finished calculations for UBSG.SW
+2025-12-07 04:55:03,038 [INFO] src.calculations - Starting calculations for SAN.MC
+2025-12-07 04:55:04,673 [INFO] src.calculations - Finished calculations for SMFG.US
+2025-12-07 04:55:04,679 [INFO] src.calculations - Starting calculations for CBA.SW
+2025-12-07 04:55:04,752 [INFO] src.calculations - Finished calculations for SAN.US
+2025-12-07 04:55:04,756 [INFO] src.calculations - Starting calculations for BSD2.DE
+2025-12-07 04:55:15,290 [INFO] src.calculations - Finished calculations for BSD2.DE
+2025-12-07 04:55:15,293 [INFO] src.calculations - Starting calculations for BMO.US
+2025-12-07 04:55:16,745 [INFO] src.calculations - Finished calculations for CBA.SW
+2025-12-07 04:55:16,748 [INFO] src.calculations - Starting calculations for BOY.DE
+2025-12-07 04:55:17,684 [INFO] src.calculations - Finished calculations for SAN.MC
+2025-12-07 04:55:17,687 [INFO] src.calculations - Starting calculations for BBVA.US
+2025-12-07 04:55:26,851 [INFO] src.calculations - Finished calculations for BOY.DE
+2025-12-07 04:55:26,853 [INFO] src.calculations - Starting calculations for BBVA.MC
+2025-12-07 04:55:29,221 [INFO] src.calculations - Finished calculations for BMO.US
+2025-12-07 04:55:29,224 [INFO] src.calculations - Starting calculations for BVA.L
+2025-12-07 04:55:30,381 [INFO] src.calculations - Finished calculations for BBVA.US
+2025-12-07 04:55:30,385 [INFO] src.calculations - Starting calculations for NU.US
+2025-12-07 04:55:38,694 [INFO] src.calculations - Finished calculations for BBVA.MC
+2025-12-07 04:55:38,697 [INFO] src.calculations - Starting calculations for BNS.US
+2025-12-07 04:55:39,655 [INFO] src.calculations - Finished calculations for BVA.L
+2025-12-07 04:55:39,659 [INFO] src.calculations - Starting calculations for 0R3T.L
+2025-12-07 04:55:43,024 [INFO] src.calculations - Finished calculations for NU.US
+2025-12-07 04:55:43,028 [INFO] src.calculations - Starting calculations for SANTA.BR
+2025-12-07 04:55:55,746 [INFO] src.calculations - Finished calculations for BNS.US
+2025-12-07 04:55:55,750 [INFO] src.calculations - Starting calculations for BCS.US
+2025-12-07 04:55:55,844 [INFO] src.calculations - Finished calculations for 0R3T.L
+2025-12-07 04:55:55,847 [INFO] src.calculations - Starting calculations for CM.US
+2025-12-07 04:55:57,599 [INFO] src.calculations - Finished calculations for SANTA.BR
+2025-12-07 04:55:57,602 [INFO] src.calculations - Starting calculations for ING.US
+2025-12-07 04:56:09,373 [INFO] src.calculations - Finished calculations for BCS.US
+2025-12-07 04:56:09,377 [INFO] src.calculations - Starting calculations for X5Z.F
+2025-12-07 04:56:09,464 [INFO] src.calculations - Finished calculations for CM.US
+2025-12-07 04:56:09,466 [INFO] src.calculations - Starting calculations for INGA.AS
+2025-12-07 04:56:11,514 [INFO] src.calculations - Finished calculations for ING.US
+2025-12-07 04:56:11,517 [INFO] src.calculations - Starting calculations for BCY.DE
+2025-12-07 04:56:13,055 [WARNING] src.calculations - Not enough quarterly income data for X5Z.F
+2025-12-07 04:56:13,057 [INFO] src.calculations - Starting calculations for INN1.DE
+2025-12-07 04:56:13,058 [WARNING] __main__ - No metrics could be calculated for X5Z.F
+2025-12-07 04:56:22,467 [INFO] src.calculations - Finished calculations for INGA.AS
+2025-12-07 04:56:22,469 [INFO] src.calculations - Starting calculations for INGA.SW
+2025-12-07 04:56:23,143 [INFO] src.calculations - Finished calculations for BCY.DE
+2025-12-07 04:56:23,147 [INFO] src.calculations - Starting calculations for BBV.BR
+2025-12-07 04:56:26,030 [INFO] src.calculations - Finished calculations for INN1.DE
+2025-12-07 04:56:26,033 [INFO] src.calculations - Starting calculations for ABN.AS
+2025-12-07 04:56:35,671 [INFO] src.calculations - Finished calculations for INGA.SW
+2025-12-07 04:56:35,678 [INFO] src.calculations - Starting calculations for NWG.US
+2025-12-07 04:56:36,519 [INFO] src.calculations - Finished calculations for BBV.BR
+2025-12-07 04:56:36,522 [INFO] src.calculations - Starting calculations for CABP.L
+2025-12-07 04:56:38,299 [INFO] src.calculations - Finished calculations for ABN.AS
+2025-12-07 04:56:38,301 [INFO] src.calculations - Starting calculations for EWBC.US
+2025-12-07 04:56:48,294 [INFO] src.calculations - Finished calculations for NWG.US
+2025-12-07 04:56:48,298 [INFO] src.calculations - Starting calculations for SAB.MC
+2025-12-07 04:56:48,364 [INFO] src.calculations - Finished calculations for CABP.L
+2025-12-07 04:56:48,365 [INFO] src.calculations - Starting calculations for EFGN.SW
+2025-12-07 04:56:50,033 [INFO] src.calculations - Finished calculations for EWBC.US
+2025-12-07 04:56:50,037 [INFO] src.calculations - Starting calculations for ALR.WA
+2025-12-07 04:56:59,111 [INFO] src.calculations - Finished calculations for SAB.MC
+2025-12-07 04:56:59,114 [INFO] src.calculations - Starting calculations for CSGN.SW
+2025-12-07 04:57:02,001 [INFO] src.calculations - Finished calculations for EFGN.SW
+2025-12-07 04:57:02,004 [INFO] src.calculations - Starting calculations for CS.US
+2025-12-07 04:57:03,200 [INFO] src.calculations - Finished calculations for ALR.WA
+2025-12-07 04:57:03,204 [INFO] src.calculations - Starting calculations for NTB.US
+2025-12-07 04:57:11,958 [INFO] src.calculations - Finished calculations for CSGN.SW
+2025-12-07 04:57:11,960 [INFO] src.calculations - Starting calculations for GOOGL.SW
+2025-12-07 04:57:11,985 [INFO] src.calculations - Finished calculations for CS.US
+2025-12-07 04:57:11,988 [INFO] src.calculations - Starting calculations for SGE.L
+2025-12-07 04:57:13,725 [INFO] src.calculations - Finished calculations for NTB.US
+2025-12-07 04:57:13,728 [INFO] src.calculations - Starting calculations for SAP.DE
+2025-12-07 04:57:22,665 [INFO] src.calculations - Finished calculations for GOOGL.SW
+2025-12-07 04:57:22,669 [INFO] src.calculations - Starting calculations for SAP.US
+2025-12-07 04:57:24,613 [INFO] src.calculations - Finished calculations for SGE.L
+2025-12-07 04:57:24,617 [INFO] src.calculations - Starting calculations for CRM.US
+2025-12-07 04:57:26,134 [INFO] src.calculations - Finished calculations for SAP.DE
+2025-12-07 04:57:26,137 [INFO] src.calculations - Starting calculations for FOO.DE
+2025-12-07 04:57:35,841 [INFO] src.calculations - Finished calculations for SAP.US
+2025-12-07 04:57:35,845 [INFO] src.calculations - Starting calculations for FOO.F
+2025-12-07 04:57:36,725 [INFO] src.calculations - Finished calculations for CRM.US
+2025-12-07 04:57:36,729 [INFO] src.calculations - Starting calculations for ADBE.SW
+2025-12-07 04:57:38,283 [INFO] src.calculations - Finished calculations for FOO.DE
+2025-12-07 04:57:38,291 [INFO] src.calculations - Starting calculations for NOW.US
+2025-12-07 04:57:47,536 [INFO] src.calculations - Finished calculations for FOO.F
+2025-12-07 04:57:47,539 [INFO] src.calculations - Starting calculations for UBER.US
+2025-12-07 04:57:51,079 [INFO] src.calculations - Finished calculations for ADBE.SW
+2025-12-07 04:57:51,081 [INFO] src.calculations - Starting calculations for INTU.US
+2025-12-07 04:57:51,668 [INFO] src.calculations - Finished calculations for NOW.US
+2025-12-07 04:57:51,670 [INFO] src.calculations - Starting calculations for 307.F
+2025-12-07 04:58:02,729 [INFO] src.calculations - Finished calculations for UBER.US
+2025-12-07 04:58:02,736 [INFO] src.calculations - Starting calculations for SHOP.US
+2025-12-07 04:58:07,228 [INFO] src.calculations - Finished calculations for 307.F
+2025-12-07 04:58:07,231 [INFO] src.calculations - Starting calculations for ITU.DE
+2025-12-07 04:58:07,807 [INFO] src.calculations - Finished calculations for INTU.US
+2025-12-07 04:58:07,810 [INFO] src.calculations - Starting calculations for APP.US
+2025-12-07 04:58:15,920 [INFO] src.calculations - Finished calculations for SHOP.US
+2025-12-07 04:58:15,923 [INFO] src.calculations - Starting calculations for TRST.L
+2025-12-07 04:58:19,169 [INFO] src.calculations - Finished calculations for ITU.DE
+2025-12-07 04:58:19,172 [INFO] src.calculations - Starting calculations for KNOS.L
+2025-12-07 04:58:21,178 [INFO] src.calculations - Finished calculations for APP.US
+2025-12-07 04:58:21,180 [INFO] src.calculations - Starting calculations for UBER.SW
+2025-12-07 04:58:25,992 [INFO] src.calculations - Finished calculations for TRST.L
+2025-12-07 04:58:25,996 [INFO] src.calculations - Starting calculations for GBG.L
+2025-12-07 04:58:29,094 [INFO] src.calculations - Finished calculations for KNOS.L
+2025-12-07 04:58:29,099 [INFO] src.calculations - Starting calculations for MSTR.US
+2025-12-07 04:58:32,057 [INFO] src.calculations - Finished calculations for UBER.SW
+2025-12-07 04:58:32,061 [INFO] src.calculations - Starting calculations for TEAM.US
+2025-12-07 04:58:36,603 [INFO] src.calculations - Finished calculations for GBG.L
+2025-12-07 04:58:36,606 [INFO] src.calculations - Starting calculations for 0A7O.L
+2025-12-07 04:58:40,060 [INFO] src.calculations - Finished calculations for MSTR.US
+2025-12-07 04:58:40,062 [INFO] src.calculations - Starting calculations for CDNS.US
+2025-12-07 04:58:45,391 [INFO] src.calculations - Finished calculations for TEAM.US
+2025-12-07 04:58:45,393 [INFO] src.calculations - Starting calculations for LTG.L
+2025-12-07 04:58:48,238 [INFO] src.calculations - Finished calculations for 0A7O.L
+2025-12-07 04:58:48,240 [INFO] src.calculations - Starting calculations for ATG.L
+2025-12-07 04:58:53,567 [INFO] src.calculations - Finished calculations for CDNS.US
+2025-12-07 04:58:53,569 [INFO] src.calculations - Starting calculations for ALFA.L
+2025-12-07 04:58:56,363 [INFO] src.calculations - Finished calculations for LTG.L
+2025-12-07 04:58:56,366 [INFO] src.calculations - Starting calculations for WDAY.US
+2025-12-07 04:58:59,887 [INFO] src.calculations - Finished calculations for ATG.L
+2025-12-07 04:58:59,889 [INFO] src.calculations - Starting calculations for ADSK.US
+2025-12-07 04:59:03,759 [INFO] src.calculations - Finished calculations for ALFA.L
+2025-12-07 04:59:03,760 [INFO] src.calculations - Starting calculations for SNOW.US
+2025-12-07 04:59:08,856 [INFO] src.calculations - Finished calculations for WDAY.US
+2025-12-07 04:59:08,859 [INFO] src.calculations - Starting calculations for AUD.DE
+2025-12-07 04:59:12,900 [INFO] src.calculations - Finished calculations for ADSK.US
+2025-12-07 04:59:12,902 [INFO] src.calculations - Starting calculations for DSY.PA
+2025-12-07 04:59:16,259 [INFO] src.calculations - Finished calculations for SNOW.US
+2025-12-07 04:59:16,263 [INFO] src.calculations - Starting calculations for TTD.US
+2025-12-07 04:59:20,116 [INFO] src.calculations - Finished calculations for AUD.DE
+2025-12-07 04:59:20,119 [INFO] src.calculations - Starting calculations for 0A3O.L
+2025-12-07 04:59:26,701 [INFO] src.calculations - Finished calculations for DSY.PA
+2025-12-07 04:59:26,704 [INFO] src.calculations - Starting calculations for DEV.L
+2025-12-07 04:59:28,354 [INFO] src.calculations - Finished calculations for TTD.US
+2025-12-07 04:59:28,356 [INFO] src.calculations - Starting calculations for CER.L
+2025-12-07 04:59:31,233 [INFO] src.calculations - Finished calculations for 0A3O.L
+2025-12-07 04:59:31,235 [INFO] src.calculations - Starting calculations for DDOG.US
+2025-12-07 04:59:40,227 [INFO] src.calculations - Finished calculations for DEV.L
+2025-12-07 04:59:40,229 [INFO] src.calculations - Starting calculations for NCC.L
+2025-12-07 04:59:41,407 [INFO] src.calculations - Finished calculations for CER.L
+2025-12-07 04:59:41,409 [INFO] src.calculations - Starting calculations for CDS.DE
+2025-12-07 04:59:43,127 [INFO] src.calculations - Finished calculations for DDOG.US
+2025-12-07 04:59:43,129 [INFO] src.calculations - Starting calculations for FNOX.ST
+2025-12-07 04:59:52,913 [INFO] src.calculations - Finished calculations for NCC.L
+2025-12-07 04:59:52,915 [INFO] src.calculations - Starting calculations for FICO.US
+2025-12-07 04:59:53,922 [INFO] src.calculations - Finished calculations for CDS.DE
+2025-12-07 04:59:53,925 [INFO] src.calculations - Starting calculations for HUBS.US
+2025-12-07 05:00:01,537 [INFO] src.calculations - Finished calculations for FNOX.ST
+2025-12-07 05:00:01,539 [INFO] src.calculations - Starting calculations for BIG.L
+2025-12-07 05:00:09,634 [INFO] src.calculations - Finished calculations for FICO.US
+2025-12-07 05:00:09,636 [INFO] src.calculations - Starting calculations for PBEE.L
+2025-12-07 05:00:10,084 [INFO] src.calculations - Finished calculations for HUBS.US
+2025-12-07 05:00:10,086 [INFO] src.calculations - Starting calculations for BIDU.SW
+2025-12-07 05:00:13,559 [INFO] src.calculations - Finished calculations for BIG.L
+2025-12-07 05:00:13,562 [INFO] src.calculations - Starting calculations for ANSS.US
+2025-12-07 05:00:21,538 [INFO] src.calculations - Finished calculations for PBEE.L
+2025-12-07 05:00:21,540 [INFO] src.calculations - Starting calculations for IQG.L
+2025-12-07 05:00:23,093 [INFO] src.calculations - Finished calculations for BIDU.SW
+2025-12-07 05:00:23,095 [INFO] src.calculations - Starting calculations for SIM.CO
+2025-12-07 05:00:24,356 [INFO] src.calculations - Finished calculations for ANSS.US
+2025-12-07 05:00:24,360 [INFO] src.calculations - Starting calculations for DOTD.L
+2025-12-07 05:00:33,285 [INFO] src.calculations - Finished calculations for IQG.L
+2025-12-07 05:00:33,288 [INFO] src.calculations - Starting calculations for TYL.US
+2025-12-07 05:00:35,608 [INFO] src.calculations - Finished calculations for SIM.CO
+2025-12-07 05:00:35,610 [INFO] src.calculations - Starting calculations for IDOX.L
+2025-12-07 05:00:36,176 [INFO] src.calculations - Finished calculations for DOTD.L
+2025-12-07 05:00:36,178 [INFO] src.calculations - Starting calculations for ZM.US
+2025-12-07 05:00:48,121 [INFO] src.calculations - Finished calculations for IDOX.L
+2025-12-07 05:00:48,124 [INFO] src.calculations - Starting calculations for VIT-B.ST
+2025-12-07 05:00:48,205 [INFO] src.calculations - Finished calculations for TYL.US
+2025-12-07 05:00:48,208 [INFO] src.calculations - Starting calculations for 5ZM.F
+2025-12-07 05:00:49,967 [INFO] src.calculations - Finished calculations for ZM.US
+2025-12-07 05:00:49,970 [INFO] src.calculations - Starting calculations for SSNC.US
+2025-12-07 05:00:58,230 [INFO] src.calculations - Finished calculations for 5ZM.F
+2025-12-07 05:00:58,232 [INFO] src.calculations - Starting calculations for WDI.SW
+2025-12-07 05:01:02,031 [INFO] src.calculations - Finished calculations for VIT-B.ST
+2025-12-07 05:01:02,034 [INFO] src.calculations - Starting calculations for PTC.US
+2025-12-07 05:01:03,014 [WARNING] src.api_client - 500 error for https://api.test.fiindo.com/api/v1/financials/WDI.SW/income_statement – retrying in 30.0s (attempt 1/3)
+2025-12-07 05:01:03,774 [INFO] src.calculations - Finished calculations for SSNC.US
+2025-12-07 05:01:03,777 [INFO] src.calculations - Starting calculations for TRUE-B.ST
+2025-12-07 05:01:14,320 [INFO] src.calculations - Finished calculations for PTC.US
+2025-12-07 05:01:14,323 [INFO] src.calculations - Starting calculations for GRAB.US
+2025-12-07 05:01:16,811 [INFO] src.calculations - Finished calculations for TRUE-B.ST
+2025-12-07 05:01:16,813 [INFO] src.calculations - Starting calculations for ACSO.L
+2025-12-07 05:01:26,543 [INFO] src.calculations - Finished calculations for GRAB.US
+2025-12-07 05:01:26,546 [INFO] src.calculations - Starting calculations for NET.L
+2025-12-07 05:01:27,535 [INFO] src.calculations - Finished calculations for ACSO.L
+2025-12-07 05:01:27,538 [INFO] src.calculations - Starting calculations for APTD.L
+2025-12-07 05:01:38,446 [WARNING] src.api_client - 500 error for https://api.test.fiindo.com/api/v1/financials/WDI.SW/income_statement – retrying in 30.0s (attempt 2/3)
+2025-12-07 05:01:38,567 [INFO] src.calculations - Finished calculations for NET.L
+2025-12-07 05:01:38,570 [INFO] src.calculations - Starting calculations for DT.US
+2025-12-07 05:01:38,657 [INFO] src.calculations - Finished calculations for APTD.L
+2025-12-07 05:01:38,659 [INFO] src.calculations - Starting calculations for GWRE.US
+2025-12-07 05:01:51,402 [INFO] src.calculations - Finished calculations for DT.US
+2025-12-07 05:01:51,404 [INFO] src.calculations - Starting calculations for DOCU.US
+2025-12-07 05:01:52,081 [INFO] src.calculations - Finished calculations for GWRE.US
+2025-12-07 05:01:52,084 [INFO] src.calculations - Starting calculations for DUOL.US
+2025-12-07 05:02:04,396 [INFO] src.calculations - Finished calculations for DOCU.US
+2025-12-07 05:02:04,398 [INFO] src.calculations - Starting calculations for FFV.DE
+2025-12-07 05:02:10,362 [INFO] src.calculations - Finished calculations for DUOL.US
+2025-12-07 05:02:10,364 [INFO] src.calculations - Starting calculations for 0IL6.L
+2025-12-07 05:02:14,452 [WARNING] src.api_client - 500 error for https://api.test.fiindo.com/api/v1/financials/WDI.SW/income_statement – retrying in 30.0s (attempt 3/3)
+2025-12-07 05:02:20,292 [INFO] src.calculations - Finished calculations for FFV.DE
+2025-12-07 05:02:20,295 [INFO] src.calculations - Starting calculations for AZPN.US
+2025-12-07 05:02:25,550 [INFO] src.calculations - Finished calculations for 0IL6.L
+2025-12-07 05:02:25,552 [INFO] src.calculations - Starting calculations for KAHOT.OL
+2025-12-07 05:02:31,861 [INFO] src.calculations - Finished calculations for AZPN.US
+2025-12-07 05:02:31,864 [INFO] src.calculations - Starting calculations for MNDY.US
+2025-12-07 05:02:36,991 [INFO] src.calculations - Finished calculations for KAHOT.OL
+2025-12-07 05:02:36,992 [INFO] src.calculations - Starting calculations for E3G1.SG
+2025-12-07 05:02:42,598 [INFO] src.calculations - Finished calculations for MNDY.US
+2025-12-07 05:02:42,599 [INFO] src.calculations - Starting calculations for NEM.DE
+2025-12-07 05:02:49,078 [INFO] src.calculations - Finished calculations for E3G1.SG
+2025-12-07 05:02:49,082 [INFO] src.calculations - Starting calculations for GHT.L
+2025-12-07 05:02:49,420 [ERROR] src.api_client - 500 errors too many times for https://api.test.fiindo.com/api/v1/financials/WDI.SW/income_statement – giving up.
+2025-12-07 05:02:49,420 [WARNING] src.calculations - No income_statement data for WDI.SW
+2025-12-07 05:02:49,422 [INFO] src.calculations - Starting calculations for CTX.DE
+2025-12-07 05:02:49,423 [WARNING] __main__ - No metrics could be calculated for WDI.SW
+2025-12-07 05:02:55,065 [INFO] src.calculations - Finished calculations for NEM.DE
+2025-12-07 05:02:55,068 [INFO] src.calculations - Starting calculations for SAAS.L
+2025-12-07 05:03:01,811 [INFO] src.calculations - Finished calculations for CTX.DE
+2025-12-07 05:03:01,812 [INFO] src.calculations - Starting calculations for BSY.US
+2025-12-07 05:03:01,893 [INFO] src.calculations - Finished calculations for GHT.L
+2025-12-07 05:03:01,896 [INFO] src.calculations - Starting calculations for YMM.US
+2025-12-07 05:03:06,504 [INFO] src.calculations - Finished calculations for SAAS.L
+2025-12-07 05:03:06,506 [INFO] src.calculations - Starting calculations for ESTC.US
+2025-12-07 05:03:13,826 [INFO] src.calculations - Finished calculations for YMM.US
+2025-12-07 05:03:13,828 [INFO] src.calculations - Starting calculations for ELCO.L
+2025-12-07 05:03:13,931 [INFO] src.calculations - Finished calculations for BSY.US
+2025-12-07 05:03:13,935 [INFO] src.calculations - Starting calculations for PAYC.US
+2025-12-07 05:03:18,643 [INFO] src.calculations - Finished calculations for ESTC.US
+2025-12-07 05:03:18,648 [INFO] src.calculations - Starting calculations for PCTY.US
+2025-12-07 05:03:25,769 [INFO] src.calculations - Finished calculations for PAYC.US
+2025-12-07 05:03:25,773 [INFO] src.calculations - Starting calculations for BKI.US
+2025-12-07 05:03:28,366 [INFO] src.calculations - Finished calculations for ELCO.L
+2025-12-07 05:03:28,369 [INFO] src.calculations - Starting calculations for TRCS.L
+2025-12-07 05:03:30,664 [INFO] src.calculations - Finished calculations for PCTY.US
+2025-12-07 05:03:30,666 [INFO] src.calculations - Starting calculations for GTLB.US
+2025-12-07 05:03:38,235 [INFO] src.calculations - Finished calculations for BKI.US
+2025-12-07 05:03:38,237 [INFO] src.calculations - Starting calculations for PCOR.US
+2025-12-07 05:03:40,286 [INFO] src.calculations - Finished calculations for TRCS.L
+2025-12-07 05:03:40,289 [INFO] src.calculations - Starting calculations for MANH.US
+2025-12-07 05:03:41,711 [INFO] src.calculations - Finished calculations for GTLB.US
+2025-12-07 05:03:41,713 [INFO] src.calculations - Starting calculations for XM.US
+2025-12-07 05:03:50,875 [INFO] src.calculations - Finished calculations for PCOR.US
+2025-12-07 05:03:50,877 [INFO] src.calculations - Starting calculations for EYE.L
+2025-12-07 05:03:52,226 [INFO] src.calculations - Finished calculations for XM.US
+2025-12-07 05:03:52,228 [INFO] src.calculations - Starting calculations for CDAY.US
+2025-12-07 05:03:54,378 [INFO] src.calculations - Finished calculations for MANH.US
+2025-12-07 05:03:54,380 [INFO] src.calculations - Starting calculations for NICE.US
+2025-12-07 05:04:06,311 [INFO] src.calculations - Finished calculations for CDAY.US
+2025-12-07 05:04:06,313 [INFO] src.calculations - Starting calculations for SPE.L
+2025-12-07 05:04:06,405 [INFO] src.calculations - Finished calculations for EYE.L
+2025-12-07 05:04:06,407 [INFO] src.calculations - Starting calculations for IGP.L
+2025-12-07 05:04:08,716 [INFO] src.calculations - Finished calculations for NICE.US
+2025-12-07 05:04:08,720 [INFO] src.calculations - Starting calculations for SPSY.L
+2025-12-07 05:04:21,801 [INFO] src.calculations - Finished calculations for IGP.L
+2025-12-07 05:04:21,805 [INFO] src.calculations - Starting calculations for SPSC.L
+2025-12-07 05:04:23,071 [INFO] src.calculations - Finished calculations for SPSY.L
+2025-12-07 05:04:23,075 [INFO] src.calculations - Starting calculations for DAY.US
+2025-12-07 05:04:23,362 [INFO] src.calculations - Finished calculations for SPE.L
+2025-12-07 05:04:23,365 [INFO] src.calculations - Starting calculations for TRB.L
+2025-12-07 05:04:32,937 [INFO] src.calculations - Finished calculations for SPSC.L
+2025-12-07 05:04:32,939 [INFO] src.calculations - Starting calculations for DSGX.US
+2025-12-07 05:04:34,755 [INFO] src.calculations - Finished calculations for DAY.US
+2025-12-07 05:04:34,758 [INFO] src.calculations - Starting calculations for ACP.WA
+2025-12-07 05:04:36,102 [INFO] src.calculations - Finished calculations for TRB.L
+2025-12-07 05:04:36,105 [INFO] src.calculations - Starting calculations for PEGA.US
+2025-12-07 05:04:44,559 [INFO] src.calculations - Finished calculations for DSGX.US
+2025-12-07 05:04:44,564 [INFO] src.calculations - Starting calculations for RM.L
+2025-12-07 05:04:46,876 [INFO] src.calculations - Finished calculations for ACP.WA
+2025-12-07 05:04:46,879 [INFO] src.calculations - Starting calculations for TTAN.US
+2025-12-07 05:04:50,113 [INFO] src.calculations - Finished calculations for PEGA.US
+2025-12-07 05:04:50,116 [INFO] src.calculations - Starting calculations for CLBS.L
+2025-12-07 05:04:56,762 [INFO] src.calculations - Finished calculations for RM.L
+2025-12-07 05:04:56,767 [INFO] src.calculations - Starting calculations for CVLT.US
+2025-12-07 05:04:57,849 [INFO] src.calculations - Finished calculations for TTAN.US
+2025-12-07 05:04:57,852 [INFO] src.calculations - Starting calculations for NATI.US
+2025-12-07 05:05:01,984 [INFO] src.calculations - Finished calculations for CLBS.L
+2025-12-07 05:05:01,987 [INFO] src.calculations - Starting calculations for SMAR.US
+2025-12-07 05:05:08,412 [INFO] src.calculations - Finished calculations for CVLT.US
+2025-12-07 05:05:08,415 [INFO] src.calculations - Starting calculations for VERX.US
+2025-12-07 05:05:11,284 [INFO] src.calculations - Finished calculations for NATI.US
+2025-12-07 05:05:11,287 [INFO] src.calculations - Starting calculations for U.US
+2025-12-07 05:05:14,660 [INFO] src.calculations - Finished calculations for SMAR.US
+2025-12-07 05:05:14,663 [INFO] src.calculations - Starting calculations for OTEX.US
+2025-12-07 05:05:21,111 [INFO] src.calculations - Finished calculations for VERX.US
+2025-12-07 05:05:21,114 [INFO] src.calculations - Starting calculations for ACC.L
+2025-12-07 05:05:23,314 [INFO] src.calculations - Finished calculations for U.US
+2025-12-07 05:05:23,316 [INFO] src.calculations - Starting calculations for APPF.US
+2025-12-07 05:05:24,719 [WARNING] src.api_client - 500 error for https://api.test.fiindo.com/api/v1/financials/ACC.L/income_statement – retrying in 30.0s (attempt 1/3)
+2025-12-07 05:05:29,485 [INFO] src.calculations - Finished calculations for OTEX.US
+2025-12-07 05:05:29,487 [INFO] src.calculations - Starting calculations for WAND.L
+2025-12-07 05:05:35,564 [INFO] src.calculations - Finished calculations for APPF.US
+2025-12-07 05:05:35,567 [INFO] src.calculations - Starting calculations for AOM.L
+2025-12-07 05:05:41,198 [INFO] src.calculations - Finished calculations for WAND.L
+2025-12-07 05:05:41,201 [INFO] src.calculations - Starting calculations for SPA.L
+2025-12-07 05:05:46,468 [INFO] src.calculations - Finished calculations for AOM.L
+2025-12-07 05:05:46,470 [INFO] src.calculations - Starting calculations for D4T4.L
+2025-12-07 05:05:53,476 [INFO] src.calculations - Finished calculations for SPA.L
+2025-12-07 05:05:53,478 [INFO] src.calculations - Starting calculations for OMG.L
+2025-12-07 05:05:58,658 [WARNING] src.api_client - 500 error for https://api.test.fiindo.com/api/v1/financials/ACC.L/income_statement – retrying in 30.0s (attempt 2/3)
+2025-12-07 05:05:59,347 [INFO] src.calculations - Finished calculations for D4T4.L
+2025-12-07 05:05:59,348 [INFO] src.calculations - Starting calculations for CWAN.US
+2025-12-07 05:06:03,179 [INFO] src.calculations - Finished calculations for OMG.L
+2025-12-07 05:06:03,181 [INFO] src.calculations - Starting calculations for BETCO.ST
+2025-12-07 05:06:08,775 [WARNING] src.calculations - No full-year balance sheet data for CWAN.US
+2025-12-07 05:06:08,776 [INFO] src.calculations - Starting calculations for NEMA.SW
+2025-12-07 05:06:08,776 [WARNING] __main__ - No metrics could be calculated for CWAN.US
+2025-12-07 05:06:19,162 [INFO] src.calculations - Finished calculations for BETCO.ST
+2025-12-07 05:06:19,163 [INFO] src.calculations - Starting calculations for SRAD.US
+2025-12-07 05:06:23,615 [INFO] src.calculations - Finished calculations for NEMA.SW
+2025-12-07 05:06:23,617 [INFO] src.calculations - Starting calculations for PULS.L
+2025-12-07 05:06:32,757 [WARNING] src.api_client - 500 error for https://api.test.fiindo.com/api/v1/financials/ACC.L/income_statement – retrying in 30.0s (attempt 3/3)
+2025-12-07 05:06:33,213 [INFO] src.calculations - Finished calculations for SRAD.US
+2025-12-07 05:06:33,217 [INFO] src.calculations - Starting calculations for RUM.US
+2025-12-07 05:06:37,584 [INFO] src.calculations - Finished calculations for PULS.L
+2025-12-07 05:06:37,587 [INFO] src.calculations - Starting calculations for BILL.US
+2025-12-07 05:06:42,421 [INFO] src.calculations - Finished calculations for RUM.US
+2025-12-07 05:06:42,423 [INFO] src.calculations - Starting calculations for COUP.US
+2025-12-07 05:06:49,057 [INFO] src.calculations - Finished calculations for BILL.US
+2025-12-07 05:06:49,059 [INFO] src.calculations - Starting calculations for VOLUE.OL
+2025-12-07 05:06:56,268 [INFO] src.calculations - Finished calculations for COUP.US
+2025-12-07 05:06:56,271 [INFO] src.calculations - Starting calculations for TEMN.SW
+2025-12-07 05:07:00,296 [INFO] src.calculations - Finished calculations for VOLUE.OL
+2025-12-07 05:07:00,298 [INFO] src.calculations - Starting calculations for INTA.US
+2025-12-07 05:07:04,790 [WARNING] src.calculations - No full-year balance sheet data for TEMN.SW
+2025-12-07 05:07:04,793 [INFO] src.calculations - Starting calculations for QTWO.US
+2025-12-07 05:07:04,793 [WARNING] __main__ - No metrics could be calculated for TEMN.SW
+2025-12-07 05:07:08,003 [ERROR] src.api_client - 500 errors too many times for https://api.test.fiindo.com/api/v1/financials/ACC.L/income_statement – giving up.
+2025-12-07 05:07:08,003 [WARNING] src.calculations - No income_statement data for ACC.L
+2025-12-07 05:07:08,005 [INFO] src.calculations - Starting calculations for QXO.US
+2025-12-07 05:07:08,005 [WARNING] __main__ - No metrics could be calculated for ACC.L
+2025-12-07 05:07:11,286 [INFO] src.calculations - Finished calculations for INTA.US
+2025-12-07 05:07:11,288 [INFO] src.calculations - Starting calculations for SOUN.US
+2025-12-07 05:07:13,500 [WARNING] src.calculations - No full-year balance sheet data for QTWO.US
+2025-12-07 05:07:13,502 [INFO] src.calculations - Starting calculations for FRSH.US
+2025-12-07 05:07:13,502 [WARNING] __main__ - No metrics could be calculated for QTWO.US
+2025-12-07 05:07:20,948 [INFO] src.calculations - Finished calculations for QXO.US
+2025-12-07 05:07:20,951 [INFO] src.calculations - Starting calculations for 0U3Q.L
+2025-12-07 05:07:23,009 [INFO] src.calculations - Finished calculations for SOUN.US
+2025-12-07 05:07:23,011 [INFO] src.calculations - Starting calculations for IDCC.US
+2025-12-07 05:07:25,984 [INFO] src.calculations - Finished calculations for FRSH.US
+2025-12-07 05:07:25,985 [INFO] src.calculations - Starting calculations for LYFT.US
+2025-12-07 05:07:32,689 [INFO] src.calculations - Finished calculations for 0U3Q.L
+2025-12-07 05:07:32,691 [INFO] src.calculations - Starting calculations for ASAN.US
+2025-12-07 05:07:34,768 [INFO] src.calculations - Finished calculations for IDCC.US
+2025-12-07 05:07:34,772 [INFO] src.calculations - Starting calculations for ZETA.US
+2025-12-07 05:07:36,410 [INFO] src.calculations - Finished calculations for LYFT.US
+2025-12-07 05:07:36,412 [INFO] src.calculations - Starting calculations for LIME.ST
+2025-12-07 05:07:42,544 [INFO] src.calculations - Finished calculations for ASAN.US
+2025-12-07 05:07:42,546 [INFO] src.calculations - Starting calculations for WK.US
+2025-12-07 05:07:43,650 [WARNING] src.calculations - No full-year balance sheet data for ZETA.US
+2025-12-07 05:07:43,653 [INFO] src.calculations - Starting calculations for ALTTU.PA
+2025-12-07 05:07:43,654 [WARNING] __main__ - No metrics could be calculated for ZETA.US
+2025-12-07 05:07:47,448 [INFO] src.calculations - Finished calculations for LIME.ST
+2025-12-07 05:07:47,450 [INFO] src.calculations - Starting calculations for PEXIP.OL
+2025-12-07 05:07:47,718 [WARNING] src.calculations - Not enough quarterly income data for ALTTU.PA
+2025-12-07 05:07:47,721 [INFO] src.calculations - Starting calculations for SMCRT.OL
+2025-12-07 05:07:47,721 [WARNING] __main__ - No metrics could be calculated for ALTTU.PA
+2025-12-07 05:07:54,789 [INFO] src.calculations - Finished calculations for WK.US
+2025-12-07 05:07:54,791 [INFO] src.calculations - Starting calculations for KC.US
+2025-12-07 05:07:59,619 [INFO] src.calculations - Finished calculations for SMCRT.OL
+2025-12-07 05:07:59,621 [INFO] src.calculations - Starting calculations for BRZE.US
+2025-12-07 05:08:01,050 [INFO] src.calculations - Finished calculations for PEXIP.OL
+2025-12-07 05:08:01,053 [INFO] src.calculations - Starting calculations for CVT.US
+2025-12-07 05:08:03,919 [WARNING] src.calculations - Not enough quarterly income data for CVT.US
+2025-12-07 05:08:03,920 [INFO] src.calculations - Starting calculations for GBTG.US
+2025-12-07 05:08:03,920 [WARNING] __main__ - No metrics could be calculated for CVT.US
+2025-12-07 05:08:06,686 [WARNING] src.calculations - Not enough quarterly income data for GBTG.US
+2025-12-07 05:08:06,688 [INFO] src.calculations - Starting calculations for PYCR.US
+2025-12-07 05:08:06,688 [WARNING] __main__ - No metrics could be calculated for GBTG.US
+2025-12-07 05:08:08,132 [INFO] src.calculations - Finished calculations for KC.US
+2025-12-07 05:08:08,136 [INFO] src.calculations - Starting calculations for COMP.US
+2025-12-07 05:08:11,850 [INFO] src.calculations - Finished calculations for BRZE.US
+2025-12-07 05:08:11,852 [INFO] src.calculations - Starting calculations for FROG.US
+2025-12-07 05:08:19,253 [INFO] src.calculations - Finished calculations for COMP.US
+2025-12-07 05:08:19,255 [INFO] src.calculations - Starting calculations for NCNO.US
+2025-12-07 05:08:20,113 [INFO] src.calculations - Finished calculations for PYCR.US
+2025-12-07 05:08:20,114 [INFO] src.calculations - Starting calculations for BLKB.US
+2025-12-07 05:08:22,352 [INFO] src.calculations - Finished calculations for FROG.US
+2025-12-07 05:08:22,355 [INFO] src.calculations - Starting calculations for DV.US
+2025-12-07 05:08:35,082 [INFO] src.calculations - Finished calculations for BLKB.US
+2025-12-07 05:08:35,085 [INFO] src.calculations - Starting calculations for LVC.WA
+2025-12-07 05:08:37,588 [INFO] src.calculations - Finished calculations for NCNO.US
+2025-12-07 05:08:37,590 [INFO] src.calculations - Starting calculations for CBRAIN.CO
+2025-12-07 05:08:38,244 [INFO] src.calculations - Finished calculations for DV.US
+2025-12-07 05:08:38,247 [INFO] src.calculations - Starting calculations for PWSC.US
+2025-12-07 05:08:48,163 [INFO] src.calculations - Finished calculations for LVC.WA
+2025-12-07 05:08:48,166 [INFO] src.calculations - Starting calculations for 0DWV.L
+2025-12-07 05:08:48,689 [INFO] src.calculations - Finished calculations for PWSC.US
+2025-12-07 05:08:48,692 [INFO] src.calculations - Starting calculations for UTDI.SW
+2025-12-07 05:08:49,903 [INFO] src.calculations - Finished calculations for CBRAIN.CO
+2025-12-07 05:08:49,908 [INFO] src.calculations - Starting calculations for SKL.L
+2025-12-07 05:08:59,802 [INFO] src.calculations - Finished calculations for SKL.L
+2025-12-07 05:08:59,805 [INFO] src.calculations - Starting calculations for ZI.US
+2025-12-07 05:09:00,957 [INFO] src.calculations - Finished calculations for 0DWV.L
+2025-12-07 05:09:00,960 [INFO] src.calculations - Starting calculations for ALIT.US
+2025-12-07 05:09:01,373 [INFO] src.calculations - Finished calculations for UTDI.SW
+2025-12-07 05:09:01,375 [INFO] src.calculations - Starting calculations for ENV.US
+2025-12-07 05:09:11,157 [INFO] src.calculations - Finished calculations for ZI.US
+2025-12-07 05:09:11,160 [INFO] src.calculations - Starting calculations for AYX.US
+2025-12-07 05:09:12,318 [INFO] src.calculations - Finished calculations for ALIT.US
+2025-12-07 05:09:12,321 [INFO] src.calculations - Starting calculations for INST.US
+2025-12-07 05:09:13,679 [INFO] src.calculations - Finished calculations for ENV.US
+2025-12-07 05:09:13,682 [INFO] src.calculations - Starting calculations for ALKT.US
+2025-12-07 05:09:22,168 [INFO] src.calculations - Finished calculations for AYX.US
+2025-12-07 05:09:22,172 [INFO] src.calculations - Starting calculations for US44891N2080.SG
+2025-12-07 05:09:23,850 [INFO] src.calculations - Finished calculations for ALKT.US
+2025-12-07 05:09:23,852 [INFO] src.calculations - Starting calculations for GRND.US
+2025-12-07 05:09:23,936 [INFO] src.calculations - Finished calculations for INST.US
+2025-12-07 05:09:23,939 [INFO] src.calculations - Starting calculations for CHSS.L
+2025-12-07 05:09:27,955 [WARNING] src.calculations - Not enough quarterly income data for CHSS.L
+2025-12-07 05:09:27,957 [INFO] src.calculations - Starting calculations for BL.US
+2025-12-07 05:09:27,958 [WARNING] __main__ - No metrics could be calculated for CHSS.L
+2025-12-07 05:09:34,050 [INFO] src.calculations - Finished calculations for US44891N2080.SG
+2025-12-07 05:09:34,052 [INFO] src.calculations - Starting calculations for RNG.US
+2025-12-07 05:09:35,436 [INFO] src.calculations - Finished calculations for GRND.US
+2025-12-07 05:09:35,439 [INFO] src.calculations - Starting calculations for BTDR.US
+2025-12-07 05:09:41,213 [INFO] src.calculations - Finished calculations for BL.US
+2025-12-07 05:09:41,215 [INFO] src.calculations - Starting calculations for ALRM.US
+2025-12-07 05:09:45,443 [INFO] src.calculations - Finished calculations for RNG.US
+2025-12-07 05:09:45,447 [INFO] src.calculations - Starting calculations for CLSK.US
+2025-12-07 05:09:47,906 [INFO] src.calculations - Finished calculations for BTDR.US
+2025-12-07 05:09:47,909 [INFO] src.calculations - Starting calculations for M8G.ST
+2025-12-07 05:09:51,198 [INFO] src.calculations - Finished calculations for ALRM.US
+2025-12-07 05:09:51,201 [INFO] src.calculations - Starting calculations for GETB.L
+2025-12-07 05:09:55,274 [WARNING] src.calculations - Failed to compute debt_ratio for M8G.ST: float() argument must be a string or a real number, not 'NoneType'
+2025-12-07 05:09:58,113 [INFO] src.calculations - Finished calculations for CLSK.US
+2025-12-07 05:09:58,117 [INFO] src.calculations - Starting calculations for ZOO.L
+2025-12-07 05:10:02,065 [INFO] src.calculations - Finished calculations for M8G.ST
+2025-12-07 05:10:02,067 [INFO] src.calculations - Starting calculations for CALX.US
+2025-12-07 05:10:05,964 [INFO] src.calculations - Finished calculations for GETB.L
+2025-12-07 05:10:05,966 [INFO] src.calculations - Starting calculations for 0OA4.L
+2025-12-07 05:10:11,919 [INFO] src.calculations - Finished calculations for ZOO.L
+2025-12-07 05:10:11,922 [INFO] src.calculations - Starting calculations for VU.PA
+2025-12-07 05:10:16,406 [WARNING] src.calculations - Failed to compute debt_ratio for 0OA4.L: float() argument must be a string or a real number, not 'NoneType'
+2025-12-07 05:10:16,869 [INFO] src.calculations - Finished calculations for CALX.US
+2025-12-07 05:10:16,873 [INFO] src.calculations - Starting calculations for ASE.WA
+2025-12-07 05:10:21,782 [INFO] src.calculations - Finished calculations for VU.PA
+2025-12-07 05:10:21,785 [INFO] src.calculations - Starting calculations for SMRT.L
+2025-12-07 05:10:22,239 [INFO] src.calculations - Finished calculations for 0OA4.L
+2025-12-07 05:10:22,242 [INFO] src.calculations - Starting calculations for SEMR.US
+2025-12-07 05:10:28,939 [INFO] src.calculations - Finished calculations for ASE.WA
+2025-12-07 05:10:28,941 [INFO] src.calculations - Starting calculations for VRC.WA
+2025-12-07 05:10:36,542 [INFO] src.calculations - Finished calculations for SMRT.L
+2025-12-07 05:10:36,544 [INFO] src.calculations - Starting calculations for CRTA.L
+2025-12-07 05:10:38,960 [INFO] src.calculations - Finished calculations for SEMR.US
+2025-12-07 05:10:38,963 [INFO] src.calculations - Starting calculations for DCT.US
+2025-12-07 05:10:43,667 [INFO] src.calculations - Finished calculations for VRC.WA
+2025-12-07 05:10:43,670 [INFO] src.calculations - Starting calculations for ESYS.L
+2025-12-07 05:10:47,966 [INFO] src.calculations - Finished calculations for CRTA.L
+2025-12-07 05:10:47,969 [INFO] src.calculations - Starting calculations for PRGS.US
+2025-12-07 05:10:50,283 [INFO] src.calculations - Finished calculations for DCT.US
+2025-12-07 05:10:50,284 [INFO] src.calculations - Starting calculations for PAR.US
+2025-12-07 05:10:56,095 [INFO] src.calculations - Finished calculations for ESYS.L
+2025-12-07 05:10:56,098 [INFO] src.calculations - Starting calculations for SIGNUP.ST
+2025-12-07 05:10:58,641 [WARNING] src.calculations - Not enough quarterly income data for SIGNUP.ST
+2025-12-07 05:10:58,643 [INFO] src.calculations - Starting calculations for CXM.US
+2025-12-07 05:10:58,643 [WARNING] __main__ - No metrics could be calculated for SIGNUP.ST
+2025-12-07 05:11:00,133 [INFO] src.calculations - Finished calculations for PRGS.US
+2025-12-07 05:11:00,136 [INFO] src.calculations - Starting calculations for AGYS.US
+2025-12-07 05:11:01,385 [INFO] src.calculations - Finished calculations for PAR.US
+2025-12-07 05:11:01,390 [INFO] src.calculations - Starting calculations for YOU.US
+2025-12-07 05:11:09,720 [INFO] src.calculations - Finished calculations for CXM.US
+2025-12-07 05:11:09,722 [INFO] src.calculations - Starting calculations for QTCOM.HE
+2025-12-07 05:11:13,659 [INFO] src.calculations - Finished calculations for YOU.US
+2025-12-07 05:11:13,661 [INFO] src.calculations - Starting calculations for LSPD.US
+2025-12-07 05:11:14,843 [INFO] src.calculations - Finished calculations for AGYS.US
+2025-12-07 05:11:14,847 [INFO] src.calculations - Starting calculations for ABS.WA
+2025-12-07 05:11:20,987 [INFO] src.calculations - Finished calculations for QTCOM.HE
+2025-12-07 05:11:20,989 [INFO] src.calculations - Starting calculations for NATL.US
+2025-12-07 05:11:26,459 [INFO] src.calculations - Finished calculations for LSPD.US
+2025-12-07 05:11:26,461 [INFO] src.calculations - Starting calculations for JAMF.US
+2025-12-07 05:11:28,189 [INFO] src.calculations - Finished calculations for ABS.WA
+2025-12-07 05:11:28,191 [INFO] src.calculations - Starting calculations for PLNW.PA
+2025-12-07 05:11:30,746 [INFO] src.calculations - Finished calculations for NATL.US
+2025-12-07 05:11:30,748 [INFO] src.calculations - Starting calculations for IBTA.US
+2025-12-07 05:11:31,300 [WARNING] src.calculations - Not enough quarterly income data for PLNW.PA
+2025-12-07 05:11:31,303 [INFO] src.calculations - Starting calculations for TEK.L
+2025-12-07 05:11:31,303 [WARNING] __main__ - No metrics could be calculated for PLNW.PA
+2025-12-07 05:11:38,712 [INFO] src.calculations - Finished calculations for JAMF.US
+2025-12-07 05:11:38,714 [INFO] src.calculations - Starting calculations for TMV.DE
+2025-12-07 05:11:41,984 [INFO] src.calculations - Finished calculations for IBTA.US
+2025-12-07 05:11:41,986 [INFO] src.calculations - Starting calculations for ENEA.ST
+2025-12-07 05:11:43,338 [INFO] src.calculations - Finished calculations for TEK.L
+2025-12-07 05:11:43,341 [INFO] src.calculations - Starting calculations for SPT.US
+2025-12-07 05:11:49,651 [INFO] src.calculations - Finished calculations for TMV.DE
+2025-12-07 05:11:49,653 [INFO] src.calculations - Starting calculations for BIRD.L
+2025-12-07 05:11:53,983 [INFO] src.calculations - Finished calculations for ENEA.ST
+2025-12-07 05:11:53,984 [INFO] src.calculations - Starting calculations for ALT.L
+2025-12-07 05:11:55,111 [INFO] src.calculations - Finished calculations for SPT.US
+2025-12-07 05:11:55,114 [INFO] src.calculations - Starting calculations for AOF.DE
+2025-12-07 05:11:59,914 [INFO] src.calculations - Finished calculations for BIRD.L
+2025-12-07 05:11:59,919 [INFO] src.calculations - Starting calculations for IAR-B.ST
+2025-12-07 05:12:08,093 [INFO] src.calculations - Finished calculations for AOF.DE
+2025-12-07 05:12:08,095 [INFO] src.calculations - Starting calculations for PLUS.US
+2025-12-07 05:12:09,929 [INFO] src.calculations - Finished calculations for ALT.L
+2025-12-07 05:12:09,933 [INFO] src.calculations - Starting calculations for DBD.US
+2025-12-07 05:12:13,489 [INFO] src.calculations - Finished calculations for IAR-B.ST
+2025-12-07 05:12:13,491 [INFO] src.calculations - Starting calculations for CINT.ST
+2025-12-07 05:12:20,641 [INFO] src.calculations - Finished calculations for PLUS.US
+2025-12-07 05:12:20,643 [INFO] src.calculations - Starting calculations for PD.US
+2025-12-07 05:12:22,868 [INFO] src.calculations - Finished calculations for DBD.US
+2025-12-07 05:12:22,869 [INFO] src.calculations - Starting calculations for SEYE.ST
+2025-12-07 05:12:25,211 [INFO] src.calculations - Finished calculations for CINT.ST
+2025-12-07 05:12:25,212 [INFO] src.calculations - Starting calculations for UPBD.US
+2025-12-07 05:12:33,646 [INFO] src.calculations - Finished calculations for PD.US
+2025-12-07 05:12:33,648 [INFO] src.calculations - Starting calculations for MTTR.US
+2025-12-07 05:12:36,623 [INFO] src.calculations - Finished calculations for SEYE.ST
+2025-12-07 05:12:36,624 [INFO] src.calculations - Starting calculations for CKT.L
+2025-12-07 05:12:44,409 [INFO] src.calculations - Finished calculations for UPBD.US
+2025-12-07 05:12:44,411 [INFO] src.calculations - Starting calculations for ALESK.PA
+2025-12-07 05:12:46,984 [INFO] src.calculations - Finished calculations for MTTR.US
+2025-12-07 05:12:46,985 [INFO] src.calculations - Starting calculations for AMPL.US
+2025-12-07 05:12:49,647 [INFO] src.calculations - Finished calculations for CKT.L
+2025-12-07 05:12:49,649 [INFO] src.calculations - Starting calculations for TXT.WA
+2025-12-07 05:12:56,889 [INFO] src.calculations - Finished calculations for ALESK.PA
+2025-12-07 05:12:56,892 [INFO] src.calculations - Starting calculations for CRDL.L
+2025-12-07 05:12:57,633 [INFO] src.calculations - Finished calculations for AMPL.US
+2025-12-07 05:12:57,634 [INFO] src.calculations - Starting calculations for SPNS.US
+2025-12-07 05:13:02,467 [INFO] src.calculations - Finished calculations for TXT.WA
+2025-12-07 05:13:02,470 [INFO] src.calculations - Starting calculations for KARO.US
+2025-12-07 05:13:10,031 [INFO] src.calculations - Finished calculations for CRDL.L
+2025-12-07 05:13:10,034 [INFO] src.calculations - Starting calculations for ARC.L
+2025-12-07 05:13:10,978 [INFO] src.calculations - Finished calculations for SPNS.US
+2025-12-07 05:13:10,979 [INFO] src.calculations - Starting calculations for EVBG.US
+2025-12-07 05:13:16,001 [INFO] src.calculations - Finished calculations for KARO.US
+2025-12-07 05:13:16,004 [INFO] src.calculations - Starting calculations for MLNK.US
+2025-12-07 05:13:21,489 [INFO] src.calculations - Finished calculations for ARC.L
+2025-12-07 05:13:21,491 [INFO] src.calculations - Starting calculations for MNTV.US
+2025-12-07 05:13:22,723 [INFO] src.calculations - Finished calculations for EVBG.US
+2025-12-07 05:13:22,725 [INFO] src.calculations - Starting calculations for FSLY.US
+2025-12-07 05:13:28,368 [INFO] src.calculations - Finished calculations for MLNK.US
+2025-12-07 05:13:28,370 [INFO] src.calculations - Starting calculations for WBTN.US
+2025-12-07 05:13:32,291 [INFO] src.calculations - Finished calculations for MNTV.US
+2025-12-07 05:13:32,292 [INFO] src.calculations - Starting calculations for DAVE.US
+2025-12-07 05:13:34,811 [INFO] src.calculations - Finished calculations for FSLY.US
+2025-12-07 05:13:34,814 [INFO] src.calculations - Starting calculations for ADEA.US
+2025-12-07 05:13:39,331 [INFO] src.calculations - Finished calculations for WBTN.US
+2025-12-07 05:13:39,332 [INFO] src.calculations - Starting calculations for 0M2A.L
+2025-12-07 05:13:44,950 [INFO] src.calculations - Finished calculations for DAVE.US
+2025-12-07 05:13:44,951 [INFO] src.calculations - Starting calculations for WKME.US
+2025-12-07 05:13:46,967 [INFO] src.calculations - Finished calculations for ADEA.US
+2025-12-07 05:13:46,970 [INFO] src.calculations - Starting calculations for ITIM.L
+2025-12-07 05:13:51,686 [INFO] src.calculations - Finished calculations for 0M2A.L
+2025-12-07 05:13:51,688 [INFO] src.calculations - Starting calculations for PRO.US
+2025-12-07 05:13:55,717 [INFO] src.calculations - Finished calculations for WKME.US
+2025-12-07 05:13:55,719 [INFO] src.calculations - Starting calculations for WEAV.US
+2025-12-07 05:13:57,620 [INFO] src.calculations - Finished calculations for ITIM.L
+2025-12-07 05:13:57,622 [INFO] src.calculations - Starting calculations for FPIP.ST
+2025-12-07 05:14:03,002 [INFO] src.calculations - Finished calculations for PRO.US
+2025-12-07 05:14:03,005 [INFO] src.calculations - Starting calculations for DCBO.US
+2025-12-07 05:14:06,629 [INFO] src.calculations - Finished calculations for WEAV.US
+2025-12-07 05:14:06,631 [INFO] src.calculations - Starting calculations for OPFI.US
+2025-12-07 05:14:08,178 [INFO] src.calculations - Finished calculations for FPIP.ST
+2025-12-07 05:14:08,181 [INFO] src.calculations - Starting calculations for RKET.HM
+2025-12-07 05:14:13,334 [WARNING] src.calculations - Not enough quarterly income data for RKET.HM
+2025-12-07 05:14:13,337 [INFO] src.calculations - Starting calculations for PEN.L
+2025-12-07 05:14:13,337 [WARNING] __main__ - No metrics could be calculated for RKET.HM
+2025-12-07 05:14:14,529 [INFO] src.calculations - Finished calculations for DCBO.US
+2025-12-07 05:14:14,531 [INFO] src.calculations - Starting calculations for MODN.US
+2025-12-07 05:14:19,351 [INFO] src.calculations - Finished calculations for OPFI.US
+2025-12-07 05:14:19,353 [INFO] src.calculations - Starting calculations for VTEX.US
+2025-12-07 05:14:25,450 [INFO] src.calculations - Finished calculations for PEN.L
+2025-12-07 05:14:25,456 [INFO] src.calculations - Starting calculations for OLO.US
+2025-12-07 05:14:27,389 [INFO] src.calculations - Finished calculations for MODN.US
+2025-12-07 05:14:27,392 [INFO] src.calculations - Starting calculations for SHO.WA
+2025-12-07 05:14:32,128 [INFO] src.calculations - Finished calculations for VTEX.US
+2025-12-07 05:14:32,130 [INFO] src.calculations - Starting calculations for 4GBL.L
+2025-12-07 05:14:40,777 [INFO] src.calculations - Finished calculations for OLO.US
+2025-12-07 05:14:40,779 [INFO] src.calculations - Starting calculations for VMEO.US
+2025-12-07 05:14:44,863 [INFO] src.calculations - Finished calculations for SHO.WA
+2025-12-07 05:14:44,866 [INFO] src.calculations - Starting calculations for PDFS.US
+2025-12-07 05:14:45,120 [INFO] src.calculations - Finished calculations for 4GBL.L
+2025-12-07 05:14:45,123 [INFO] src.calculations - Starting calculations for LSS.PA
+2025-12-07 05:14:54,751 [INFO] src.calculations - Finished calculations for VMEO.US
+2025-12-07 05:14:54,753 [INFO] src.calculations - Starting calculations for ENFN.US
+2025-12-07 05:14:55,503 [INFO] src.calculations - Finished calculations for PDFS.US
+2025-12-07 05:14:55,506 [INFO] src.calculations - Starting calculations for MSAB-B.ST
+2025-12-07 05:14:57,505 [INFO] src.calculations - Finished calculations for LSS.PA
+2025-12-07 05:14:57,508 [INFO] src.calculations - Starting calculations for AAPL.US
+2025-12-07 05:15:05,622 [INFO] src.calculations - Finished calculations for ENFN.US
+2025-12-07 05:15:05,625 [INFO] src.calculations - Starting calculations for 0QYR.L
+2025-12-07 05:15:07,366 [INFO] src.calculations - Finished calculations for MSAB-B.ST
+2025-12-07 05:15:07,368 [INFO] src.calculations - Starting calculations for APC.F
+2025-12-07 05:15:11,977 [INFO] src.calculations - Finished calculations for AAPL.US
+2025-12-07 05:15:11,980 [INFO] src.calculations - Starting calculations for APC.DE
+2025-12-07 05:15:19,161 [INFO] src.calculations - Finished calculations for 0QYR.L
+2025-12-07 05:15:19,163 [INFO] src.calculations - Starting calculations for SMSD.L
+2025-12-07 05:15:22,999 [INFO] src.calculations - Finished calculations for APC.F
+2025-12-07 05:15:23,003 [INFO] src.calculations - Starting calculations for BC94.L
+2025-12-07 05:15:27,033 [INFO] src.calculations - Finished calculations for APC.DE
+2025-12-07 05:15:27,037 [INFO] src.calculations - Starting calculations for SMSN.L
+2025-12-07 05:15:32,118 [INFO] src.calculations - Finished calculations for SMSD.L
+2025-12-07 05:15:32,122 [INFO] src.calculations - Starting calculations for SSUN.VI
+2025-12-07 05:15:34,134 [INFO] src.calculations - Finished calculations for BC94.L
+2025-12-07 05:15:34,136 [INFO] src.calculations - Starting calculations for SSUN.F
+2025-12-07 05:15:36,910 [INFO] src.calculations - Finished calculations for SMSN.L
+2025-12-07 05:15:36,913 [INFO] src.calculations - Starting calculations for SSU.VI
+2025-12-07 05:15:44,108 [INFO] src.calculations - Finished calculations for SSUN.VI
+2025-12-07 05:15:44,110 [INFO] src.calculations - Starting calculations for SONY.US
+2025-12-07 05:15:47,673 [INFO] src.calculations - Finished calculations for SSUN.F
+2025-12-07 05:15:47,676 [INFO] src.calculations - Starting calculations for 3CP.F
+2025-12-07 05:15:50,838 [INFO] src.calculations - Finished calculations for SSU.VI
+2025-12-07 05:15:50,841 [INFO] src.calculations - Starting calculations for RWL.DE
+2025-12-07 05:15:56,309 [INFO] src.calculations - Finished calculations for SONY.US
+2025-12-07 05:15:56,311 [INFO] src.calculations - Starting calculations for EMR.SW
+2025-12-07 05:15:58,804 [INFO] src.calculations - Finished calculations for 3CP.F
+2025-12-07 05:15:58,807 [INFO] src.calculations - Starting calculations for WIN.SW
+2025-12-07 05:16:02,088 [INFO] src.calculations - Finished calculations for RWL.DE
+2025-12-07 05:16:02,090 [INFO] src.calculations - Starting calculations for VID.L
+2025-12-07 05:16:08,469 [INFO] src.calculations - Finished calculations for EMR.SW
+2025-12-07 05:16:08,472 [INFO] src.calculations - Starting calculations for LPL.US
+2025-12-07 05:16:10,576 [INFO] src.calculations - Finished calculations for WIN.SW
+2025-12-07 05:16:10,579 [INFO] src.calculations - Starting calculations for VZIO.US
+2025-12-07 05:16:17,343 [INFO] src.calculations - Finished calculations for VID.L
+2025-12-07 05:16:17,346 [INFO] src.calculations - Starting calculations for BO.CO
+2025-12-07 05:16:21,657 [INFO] src.calculations - Finished calculations for LPL.US
+2025-12-07 05:16:21,660 [INFO] src.calculations - Starting calculations for HTJ.F
+2025-12-07 05:16:24,052 [INFO] src.calculations - Finished calculations for VZIO.US
+2025-12-07 05:16:24,054 [INFO] src.calculations - Starting calculations for SONO.US
+2025-12-07 05:16:30,562 [INFO] src.calculations - Finished calculations for BO.CO
+2025-12-07 05:16:36,501 [INFO] src.calculations - Finished calculations for HTJ.F
+2025-12-07 05:16:37,457 [INFO] src.calculations - Finished calculations for SONO.US
+2025-12-07 05:16:37,460 [WARNING] __main__ - Step 3 completed: metrics successfully calculated for 318 ticker(s).
+2025-12-07 05:16:37,460 [WARNING] __main__ - Step 4: Persisting ticker metrics to the database...
+2025-12-07 05:16:37,486 [INFO] src.db_writer - Saved stats for NWG.L (ticker_id=3)
+2025-12-07 05:16:37,505 [INFO] src.db_writer - Saved stats for BNC.L (ticker_id=2)
+2025-12-07 05:16:37,522 [INFO] src.db_writer - Saved stats for HSBA.L (ticker_id=1)
+2025-12-07 05:16:37,539 [INFO] src.db_writer - Saved stats for BARC.L (ticker_id=4)
+2025-12-07 05:16:37,555 [INFO] src.db_writer - Saved stats for JPM.US (ticker_id=5)
+2025-12-07 05:16:37,571 [INFO] src.db_writer - Saved stats for STAN.L (ticker_id=6)
+2025-12-07 05:16:37,590 [INFO] src.db_writer - Saved stats for SAN.WA (ticker_id=7)
+2025-12-07 05:16:37,606 [INFO] src.db_writer - Saved stats for BAC.US (ticker_id=8)
+2025-12-07 05:16:37,621 [INFO] src.db_writer - Saved stats for CMC.DE (ticker_id=9)
+2025-12-07 05:16:37,639 [INFO] src.db_writer - Saved stats for NCB.DE (ticker_id=10)
+2025-12-07 05:16:37,655 [INFO] src.db_writer - Saved stats for 0Q1F.L (ticker_id=11)
+2025-12-07 05:16:37,671 [INFO] src.db_writer - Saved stats for WFC.US (ticker_id=12)
+2025-12-07 05:16:37,687 [INFO] src.db_writer - Saved stats for SHB-A.ST (ticker_id=13)
+2025-12-07 05:16:37,702 [INFO] src.db_writer - Saved stats for ICK.VI (ticker_id=14)
+2025-12-07 05:16:37,718 [INFO] src.db_writer - Saved stats for NWT.DE (ticker_id=15)
+2025-12-07 05:16:37,734 [INFO] src.db_writer - Saved stats for SHB-B.ST (ticker_id=16)
+2025-12-07 05:16:37,753 [INFO] src.db_writer - Saved stats for EK7.VI (ticker_id=17)
+2025-12-07 05:16:37,769 [INFO] src.db_writer - Saved stats for BAC.SW (ticker_id=18)
+2025-12-07 05:16:37,789 [INFO] src.db_writer - Saved stats for HSBC.US (ticker_id=19)
+2025-12-07 05:16:37,808 [INFO] src.db_writer - Saved stats for HBC1.DE (ticker_id=20)
+2025-12-07 05:16:37,825 [INFO] src.db_writer - Saved stats for BOCN.VI (ticker_id=21)
+2025-12-07 05:16:37,841 [INFO] src.db_writer - Saved stats for CNCB.VI (ticker_id=22)
+2025-12-07 05:16:37,860 [INFO] src.db_writer - Saved stats for 0QKU.L (ticker_id=25)
+2025-12-07 05:16:37,877 [INFO] src.db_writer - Saved stats for RY.US (ticker_id=24)
+2025-12-07 05:16:37,894 [INFO] src.db_writer - Saved stats for C.US (ticker_id=26)
+2025-12-07 05:16:37,912 [INFO] src.db_writer - Saved stats for TRVC.DE (ticker_id=27)
+2025-12-07 05:16:37,934 [INFO] src.db_writer - Saved stats for MUFG.US (ticker_id=28)
+2025-12-07 05:16:37,957 [INFO] src.db_writer - Saved stats for UBS.US (ticker_id=29)
+2025-12-07 05:16:37,979 [INFO] src.db_writer - Saved stats for TD.US (ticker_id=30)
+2025-12-07 05:16:37,999 [INFO] src.db_writer - Saved stats for 0R01.L (ticker_id=31)
+2025-12-07 05:16:38,019 [INFO] src.db_writer - Saved stats for RY-PT.US (ticker_id=32)
+2025-12-07 05:16:38,034 [INFO] src.db_writer - Saved stats for UBSG.SW (ticker_id=33)
+2025-12-07 05:16:38,050 [INFO] src.db_writer - Saved stats for SMFG.US (ticker_id=34)
+2025-12-07 05:16:38,066 [INFO] src.db_writer - Saved stats for SAN.US (ticker_id=35)
+2025-12-07 05:16:38,083 [INFO] src.db_writer - Saved stats for BSD2.DE (ticker_id=38)
+2025-12-07 05:16:38,099 [INFO] src.db_writer - Saved stats for CBA.SW (ticker_id=37)
+2025-12-07 05:16:38,116 [INFO] src.db_writer - Saved stats for SAN.MC (ticker_id=36)
+2025-12-07 05:16:38,133 [INFO] src.db_writer - Saved stats for BOY.DE (ticker_id=40)
+2025-12-07 05:16:38,150 [INFO] src.db_writer - Saved stats for BMO.US (ticker_id=39)
+2025-12-07 05:16:38,165 [INFO] src.db_writer - Saved stats for BBVA.US (ticker_id=41)
+2025-12-07 05:16:38,182 [INFO] src.db_writer - Saved stats for BBVA.MC (ticker_id=42)
+2025-12-07 05:16:38,197 [INFO] src.db_writer - Saved stats for BVA.L (ticker_id=43)
+2025-12-07 05:16:38,212 [INFO] src.db_writer - Saved stats for NU.US (ticker_id=44)
+2025-12-07 05:16:38,227 [INFO] src.db_writer - Saved stats for BNS.US (ticker_id=45)
+2025-12-07 05:16:38,247 [INFO] src.db_writer - Saved stats for 0R3T.L (ticker_id=46)
+2025-12-07 05:16:38,267 [INFO] src.db_writer - Saved stats for SANTA.BR (ticker_id=47)
+2025-12-07 05:16:38,284 [INFO] src.db_writer - Saved stats for BCS.US (ticker_id=48)
+2025-12-07 05:16:38,302 [INFO] src.db_writer - Saved stats for CM.US (ticker_id=49)
+2025-12-07 05:16:38,316 [INFO] src.db_writer - Saved stats for ING.US (ticker_id=50)
+2025-12-07 05:16:38,333 [INFO] src.db_writer - Saved stats for INGA.AS (ticker_id=52)
+2025-12-07 05:16:38,352 [INFO] src.db_writer - Saved stats for BCY.DE (ticker_id=53)
+2025-12-07 05:16:38,371 [INFO] src.db_writer - Saved stats for INN1.DE (ticker_id=54)
+2025-12-07 05:16:38,389 [INFO] src.db_writer - Saved stats for INGA.SW (ticker_id=55)
+2025-12-07 05:16:38,405 [INFO] src.db_writer - Saved stats for BBV.BR (ticker_id=56)
+2025-12-07 05:16:38,421 [INFO] src.db_writer - Saved stats for ABN.AS (ticker_id=57)
+2025-12-07 05:16:38,440 [INFO] src.db_writer - Saved stats for NWG.US (ticker_id=58)
+2025-12-07 05:16:38,462 [INFO] src.db_writer - Saved stats for CABP.L (ticker_id=59)
+2025-12-07 05:16:38,481 [INFO] src.db_writer - Saved stats for EWBC.US (ticker_id=60)
+2025-12-07 05:16:38,496 [INFO] src.db_writer - Saved stats for SAB.MC (ticker_id=61)
+2025-12-07 05:16:38,515 [INFO] src.db_writer - Saved stats for EFGN.SW (ticker_id=62)
+2025-12-07 05:16:38,532 [INFO] src.db_writer - Saved stats for ALR.WA (ticker_id=63)
+2025-12-07 05:16:38,546 [INFO] src.db_writer - Saved stats for CSGN.SW (ticker_id=64)
+2025-12-07 05:16:38,561 [INFO] src.db_writer - Saved stats for CS.US (ticker_id=65)
+2025-12-07 05:16:38,576 [INFO] src.db_writer - Saved stats for NTB.US (ticker_id=66)
+2025-12-07 05:16:38,591 [INFO] src.db_writer - Saved stats for GOOGL.SW (ticker_id=67)
+2025-12-07 05:16:38,608 [INFO] src.db_writer - Saved stats for SGE.L (ticker_id=68)
+2025-12-07 05:16:38,624 [INFO] src.db_writer - Saved stats for SAP.DE (ticker_id=69)
+2025-12-07 05:16:38,640 [INFO] src.db_writer - Saved stats for SAP.US (ticker_id=70)
+2025-12-07 05:16:38,655 [INFO] src.db_writer - Saved stats for CRM.US (ticker_id=71)
+2025-12-07 05:16:38,670 [INFO] src.db_writer - Saved stats for FOO.DE (ticker_id=72)
+2025-12-07 05:16:38,685 [INFO] src.db_writer - Saved stats for FOO.F (ticker_id=73)
+2025-12-07 05:16:38,700 [INFO] src.db_writer - Saved stats for ADBE.SW (ticker_id=74)
+2025-12-07 05:16:38,718 [INFO] src.db_writer - Saved stats for NOW.US (ticker_id=75)
+2025-12-07 05:16:38,734 [INFO] src.db_writer - Saved stats for UBER.US (ticker_id=76)
+2025-12-07 05:16:38,751 [INFO] src.db_writer - Saved stats for 307.F (ticker_id=78)
+2025-12-07 05:16:38,768 [INFO] src.db_writer - Saved stats for INTU.US (ticker_id=77)
+2025-12-07 05:16:38,782 [INFO] src.db_writer - Saved stats for SHOP.US (ticker_id=79)
+2025-12-07 05:16:38,800 [INFO] src.db_writer - Saved stats for ITU.DE (ticker_id=80)
+2025-12-07 05:16:38,820 [INFO] src.db_writer - Saved stats for APP.US (ticker_id=81)
+2025-12-07 05:16:38,839 [INFO] src.db_writer - Saved stats for TRST.L (ticker_id=82)
+2025-12-07 05:16:38,860 [INFO] src.db_writer - Saved stats for KNOS.L (ticker_id=83)
+2025-12-07 05:16:38,877 [INFO] src.db_writer - Saved stats for UBER.SW (ticker_id=84)
+2025-12-07 05:16:38,892 [INFO] src.db_writer - Saved stats for GBG.L (ticker_id=85)
+2025-12-07 05:16:38,912 [INFO] src.db_writer - Saved stats for MSTR.US (ticker_id=86)
+2025-12-07 05:16:38,931 [INFO] src.db_writer - Saved stats for TEAM.US (ticker_id=87)
+2025-12-07 05:16:38,949 [INFO] src.db_writer - Saved stats for 0A7O.L (ticker_id=88)
+2025-12-07 05:16:38,967 [INFO] src.db_writer - Saved stats for CDNS.US (ticker_id=89)
+2025-12-07 05:16:38,983 [INFO] src.db_writer - Saved stats for LTG.L (ticker_id=90)
+2025-12-07 05:16:39,001 [INFO] src.db_writer - Saved stats for ATG.L (ticker_id=91)
+2025-12-07 05:16:39,020 [INFO] src.db_writer - Saved stats for ALFA.L (ticker_id=92)
+2025-12-07 05:16:39,036 [INFO] src.db_writer - Saved stats for WDAY.US (ticker_id=93)
+2025-12-07 05:16:39,052 [INFO] src.db_writer - Saved stats for ADSK.US (ticker_id=94)
+2025-12-07 05:16:39,067 [INFO] src.db_writer - Saved stats for SNOW.US (ticker_id=95)
+2025-12-07 05:16:39,085 [INFO] src.db_writer - Saved stats for AUD.DE (ticker_id=96)
+2025-12-07 05:16:39,102 [INFO] src.db_writer - Saved stats for DSY.PA (ticker_id=97)
+2025-12-07 05:16:39,117 [INFO] src.db_writer - Saved stats for TTD.US (ticker_id=98)
+2025-12-07 05:16:39,135 [INFO] src.db_writer - Saved stats for 0A3O.L (ticker_id=99)
+2025-12-07 05:16:39,153 [INFO] src.db_writer - Saved stats for DEV.L (ticker_id=100)
+2025-12-07 05:16:39,169 [INFO] src.db_writer - Saved stats for CER.L (ticker_id=101)
+2025-12-07 05:16:39,188 [INFO] src.db_writer - Saved stats for DDOG.US (ticker_id=102)
+2025-12-07 05:16:39,209 [INFO] src.db_writer - Saved stats for NCC.L (ticker_id=103)
+2025-12-07 05:16:39,227 [INFO] src.db_writer - Saved stats for CDS.DE (ticker_id=104)
+2025-12-07 05:16:39,245 [INFO] src.db_writer - Saved stats for FNOX.ST (ticker_id=105)
+2025-12-07 05:16:39,261 [INFO] src.db_writer - Saved stats for FICO.US (ticker_id=106)
+2025-12-07 05:16:39,275 [INFO] src.db_writer - Saved stats for HUBS.US (ticker_id=107)
+2025-12-07 05:16:39,291 [INFO] src.db_writer - Saved stats for BIG.L (ticker_id=108)
+2025-12-07 05:16:39,306 [INFO] src.db_writer - Saved stats for PBEE.L (ticker_id=109)
+2025-12-07 05:16:39,322 [INFO] src.db_writer - Saved stats for BIDU.SW (ticker_id=110)
+2025-12-07 05:16:39,339 [INFO] src.db_writer - Saved stats for ANSS.US (ticker_id=111)
+2025-12-07 05:16:39,355 [INFO] src.db_writer - Saved stats for IQG.L (ticker_id=112)
+2025-12-07 05:16:39,370 [INFO] src.db_writer - Saved stats for SIM.CO (ticker_id=113)
+2025-12-07 05:16:39,387 [INFO] src.db_writer - Saved stats for DOTD.L (ticker_id=114)
+2025-12-07 05:16:39,403 [INFO] src.db_writer - Saved stats for IDOX.L (ticker_id=116)
+2025-12-07 05:16:39,423 [INFO] src.db_writer - Saved stats for TYL.US (ticker_id=115)
+2025-12-07 05:16:39,442 [INFO] src.db_writer - Saved stats for ZM.US (ticker_id=117)
+2025-12-07 05:16:39,461 [INFO] src.db_writer - Saved stats for 5ZM.F (ticker_id=119)
+2025-12-07 05:16:39,478 [INFO] src.db_writer - Saved stats for VIT-B.ST (ticker_id=118)
+2025-12-07 05:16:39,495 [INFO] src.db_writer - Saved stats for SSNC.US (ticker_id=120)
+2025-12-07 05:16:39,512 [INFO] src.db_writer - Saved stats for PTC.US (ticker_id=122)
+2025-12-07 05:16:39,528 [INFO] src.db_writer - Saved stats for TRUE-B.ST (ticker_id=123)
+2025-12-07 05:16:39,544 [INFO] src.db_writer - Saved stats for GRAB.US (ticker_id=124)
+2025-12-07 05:16:39,562 [INFO] src.db_writer - Saved stats for ACSO.L (ticker_id=125)
+2025-12-07 05:16:39,579 [INFO] src.db_writer - Saved stats for NET.L (ticker_id=126)
+2025-12-07 05:16:39,596 [INFO] src.db_writer - Saved stats for APTD.L (ticker_id=127)
+2025-12-07 05:16:39,613 [INFO] src.db_writer - Saved stats for DT.US (ticker_id=128)
+2025-12-07 05:16:39,631 [INFO] src.db_writer - Saved stats for GWRE.US (ticker_id=129)
+2025-12-07 05:16:39,648 [INFO] src.db_writer - Saved stats for DOCU.US (ticker_id=130)
+2025-12-07 05:16:39,666 [INFO] src.db_writer - Saved stats for DUOL.US (ticker_id=131)
+2025-12-07 05:16:39,684 [INFO] src.db_writer - Saved stats for FFV.DE (ticker_id=132)
+2025-12-07 05:16:39,700 [INFO] src.db_writer - Saved stats for 0IL6.L (ticker_id=133)
+2025-12-07 05:16:39,716 [INFO] src.db_writer - Saved stats for AZPN.US (ticker_id=134)
+2025-12-07 05:16:39,734 [INFO] src.db_writer - Saved stats for KAHOT.OL (ticker_id=135)
+2025-12-07 05:16:39,751 [INFO] src.db_writer - Saved stats for MNDY.US (ticker_id=136)
+2025-12-07 05:16:39,770 [INFO] src.db_writer - Saved stats for E3G1.SG (ticker_id=137)
+2025-12-07 05:16:39,788 [INFO] src.db_writer - Saved stats for NEM.DE (ticker_id=138)
+2025-12-07 05:16:39,807 [INFO] src.db_writer - Saved stats for CTX.DE (ticker_id=140)
+2025-12-07 05:16:39,825 [INFO] src.db_writer - Saved stats for GHT.L (ticker_id=139)
+2025-12-07 05:16:39,843 [INFO] src.db_writer - Saved stats for SAAS.L (ticker_id=141)
+2025-12-07 05:16:39,863 [INFO] src.db_writer - Saved stats for YMM.US (ticker_id=143)
+2025-12-07 05:16:39,883 [INFO] src.db_writer - Saved stats for BSY.US (ticker_id=142)
+2025-12-07 05:16:39,903 [INFO] src.db_writer - Saved stats for ESTC.US (ticker_id=144)
+2025-12-07 05:16:39,920 [INFO] src.db_writer - Saved stats for PAYC.US (ticker_id=146)
+2025-12-07 05:16:39,939 [INFO] src.db_writer - Saved stats for ELCO.L (ticker_id=145)
+2025-12-07 05:16:39,958 [INFO] src.db_writer - Saved stats for PCTY.US (ticker_id=147)
+2025-12-07 05:16:39,982 [INFO] src.db_writer - Saved stats for BKI.US (ticker_id=148)
+2025-12-07 05:16:40,003 [INFO] src.db_writer - Saved stats for TRCS.L (ticker_id=149)
+2025-12-07 05:16:40,024 [INFO] src.db_writer - Saved stats for GTLB.US (ticker_id=150)
+2025-12-07 05:16:40,045 [INFO] src.db_writer - Saved stats for PCOR.US (ticker_id=151)
+2025-12-07 05:16:40,062 [INFO] src.db_writer - Saved stats for XM.US (ticker_id=153)
+2025-12-07 05:16:40,079 [INFO] src.db_writer - Saved stats for MANH.US (ticker_id=152)
+2025-12-07 05:16:40,099 [INFO] src.db_writer - Saved stats for CDAY.US (ticker_id=155)
+2025-12-07 05:16:40,115 [INFO] src.db_writer - Saved stats for EYE.L (ticker_id=154)
+2025-12-07 05:16:40,131 [INFO] src.db_writer - Saved stats for NICE.US (ticker_id=156)
+2025-12-07 05:16:40,147 [INFO] src.db_writer - Saved stats for IGP.L (ticker_id=158)
+2025-12-07 05:16:40,166 [INFO] src.db_writer - Saved stats for SPSY.L (ticker_id=159)
+2025-12-07 05:16:40,182 [INFO] src.db_writer - Saved stats for SPE.L (ticker_id=157)
+2025-12-07 05:16:40,200 [INFO] src.db_writer - Saved stats for SPSC.L (ticker_id=160)
+2025-12-07 05:16:40,221 [INFO] src.db_writer - Saved stats for DAY.US (ticker_id=161)
+2025-12-07 05:16:40,239 [INFO] src.db_writer - Saved stats for TRB.L (ticker_id=162)
+2025-12-07 05:16:40,257 [INFO] src.db_writer - Saved stats for DSGX.US (ticker_id=163)
+2025-12-07 05:16:40,277 [INFO] src.db_writer - Saved stats for ACP.WA (ticker_id=164)
+2025-12-07 05:16:40,295 [INFO] src.db_writer - Saved stats for PEGA.US (ticker_id=165)
+2025-12-07 05:16:40,311 [INFO] src.db_writer - Saved stats for RM.L (ticker_id=166)
+2025-12-07 05:16:40,327 [INFO] src.db_writer - Saved stats for TTAN.US (ticker_id=167)
+2025-12-07 05:16:40,343 [INFO] src.db_writer - Saved stats for CLBS.L (ticker_id=168)
+2025-12-07 05:16:40,359 [INFO] src.db_writer - Saved stats for CVLT.US (ticker_id=169)
+2025-12-07 05:16:40,377 [INFO] src.db_writer - Saved stats for NATI.US (ticker_id=170)
+2025-12-07 05:16:40,396 [INFO] src.db_writer - Saved stats for SMAR.US (ticker_id=171)
+2025-12-07 05:16:40,412 [INFO] src.db_writer - Saved stats for VERX.US (ticker_id=172)
+2025-12-07 05:16:40,430 [INFO] src.db_writer - Saved stats for U.US (ticker_id=173)
+2025-12-07 05:16:40,450 [INFO] src.db_writer - Saved stats for OTEX.US (ticker_id=174)
+2025-12-07 05:16:40,468 [INFO] src.db_writer - Saved stats for APPF.US (ticker_id=176)
+2025-12-07 05:16:40,491 [INFO] src.db_writer - Saved stats for WAND.L (ticker_id=177)
+2025-12-07 05:16:40,512 [INFO] src.db_writer - Saved stats for AOM.L (ticker_id=178)
+2025-12-07 05:16:40,530 [INFO] src.db_writer - Saved stats for SPA.L (ticker_id=179)
+2025-12-07 05:16:40,549 [INFO] src.db_writer - Saved stats for D4T4.L (ticker_id=180)
+2025-12-07 05:16:40,568 [INFO] src.db_writer - Saved stats for OMG.L (ticker_id=181)
+2025-12-07 05:16:40,586 [INFO] src.db_writer - Saved stats for BETCO.ST (ticker_id=183)
+2025-12-07 05:16:40,605 [INFO] src.db_writer - Saved stats for NEMA.SW (ticker_id=184)
+2025-12-07 05:16:40,622 [INFO] src.db_writer - Saved stats for SRAD.US (ticker_id=185)
+2025-12-07 05:16:40,640 [INFO] src.db_writer - Saved stats for PULS.L (ticker_id=186)
+2025-12-07 05:16:40,657 [INFO] src.db_writer - Saved stats for RUM.US (ticker_id=187)
+2025-12-07 05:16:40,675 [INFO] src.db_writer - Saved stats for BILL.US (ticker_id=188)
+2025-12-07 05:16:40,696 [INFO] src.db_writer - Saved stats for COUP.US (ticker_id=189)
+2025-12-07 05:16:40,719 [INFO] src.db_writer - Saved stats for VOLUE.OL (ticker_id=190)
+2025-12-07 05:16:40,745 [INFO] src.db_writer - Saved stats for INTA.US (ticker_id=192)
+2025-12-07 05:16:40,769 [INFO] src.db_writer - Saved stats for QXO.US (ticker_id=194)
+2025-12-07 05:16:40,790 [INFO] src.db_writer - Saved stats for SOUN.US (ticker_id=195)
+2025-12-07 05:16:40,811 [INFO] src.db_writer - Saved stats for FRSH.US (ticker_id=196)
+2025-12-07 05:16:40,833 [INFO] src.db_writer - Saved stats for 0U3Q.L (ticker_id=197)
+2025-12-07 05:16:40,857 [INFO] src.db_writer - Saved stats for IDCC.US (ticker_id=198)
+2025-12-07 05:16:40,880 [INFO] src.db_writer - Saved stats for LYFT.US (ticker_id=199)
+2025-12-07 05:16:40,901 [INFO] src.db_writer - Saved stats for ASAN.US (ticker_id=200)
+2025-12-07 05:16:40,925 [INFO] src.db_writer - Saved stats for LIME.ST (ticker_id=202)
+2025-12-07 05:16:40,944 [INFO] src.db_writer - Saved stats for WK.US (ticker_id=203)
+2025-12-07 05:16:40,968 [INFO] src.db_writer - Saved stats for SMCRT.OL (ticker_id=206)
+2025-12-07 05:16:40,985 [INFO] src.db_writer - Saved stats for PEXIP.OL (ticker_id=205)
+2025-12-07 05:16:41,001 [INFO] src.db_writer - Saved stats for KC.US (ticker_id=207)
+2025-12-07 05:16:41,017 [INFO] src.db_writer - Saved stats for BRZE.US (ticker_id=208)
+2025-12-07 05:16:41,032 [INFO] src.db_writer - Saved stats for COMP.US (ticker_id=212)
+2025-12-07 05:16:41,048 [INFO] src.db_writer - Saved stats for PYCR.US (ticker_id=211)
+2025-12-07 05:16:41,066 [INFO] src.db_writer - Saved stats for FROG.US (ticker_id=213)
+2025-12-07 05:16:41,081 [INFO] src.db_writer - Saved stats for BLKB.US (ticker_id=215)
+2025-12-07 05:16:41,099 [INFO] src.db_writer - Saved stats for NCNO.US (ticker_id=214)
+2025-12-07 05:16:41,114 [INFO] src.db_writer - Saved stats for DV.US (ticker_id=216)
+2025-12-07 05:16:41,130 [INFO] src.db_writer - Saved stats for LVC.WA (ticker_id=217)
+2025-12-07 05:16:41,149 [INFO] src.db_writer - Saved stats for PWSC.US (ticker_id=219)
+2025-12-07 05:16:41,168 [INFO] src.db_writer - Saved stats for CBRAIN.CO (ticker_id=218)
+2025-12-07 05:16:41,187 [INFO] src.db_writer - Saved stats for SKL.L (ticker_id=222)
+2025-12-07 05:16:41,204 [INFO] src.db_writer - Saved stats for 0DWV.L (ticker_id=220)
+2025-12-07 05:16:41,220 [INFO] src.db_writer - Saved stats for UTDI.SW (ticker_id=221)
+2025-12-07 05:16:41,239 [INFO] src.db_writer - Saved stats for ZI.US (ticker_id=223)
+2025-12-07 05:16:41,256 [INFO] src.db_writer - Saved stats for ALIT.US (ticker_id=224)
+2025-12-07 05:16:41,273 [INFO] src.db_writer - Saved stats for ENV.US (ticker_id=225)
+2025-12-07 05:16:41,290 [INFO] src.db_writer - Saved stats for AYX.US (ticker_id=226)
+2025-12-07 05:16:41,307 [INFO] src.db_writer - Saved stats for ALKT.US (ticker_id=228)
+2025-12-07 05:16:41,324 [INFO] src.db_writer - Saved stats for INST.US (ticker_id=227)
+2025-12-07 05:16:41,344 [INFO] src.db_writer - Saved stats for US44891N2080.SG (ticker_id=229)
+2025-12-07 05:16:41,361 [INFO] src.db_writer - Saved stats for GRND.US (ticker_id=230)
+2025-12-07 05:16:41,379 [INFO] src.db_writer - Saved stats for BL.US (ticker_id=232)
+2025-12-07 05:16:41,395 [INFO] src.db_writer - Saved stats for RNG.US (ticker_id=233)
+2025-12-07 05:16:41,416 [INFO] src.db_writer - Saved stats for BTDR.US (ticker_id=234)
+2025-12-07 05:16:41,433 [INFO] src.db_writer - Saved stats for ALRM.US (ticker_id=235)
+2025-12-07 05:16:41,449 [INFO] src.db_writer - Saved stats for CLSK.US (ticker_id=236)
+2025-12-07 05:16:41,465 [INFO] src.db_writer - Saved stats for M8G.ST (ticker_id=237)
+2025-12-07 05:16:41,480 [INFO] src.db_writer - Saved stats for GETB.L (ticker_id=238)
+2025-12-07 05:16:41,494 [INFO] src.db_writer - Saved stats for ZOO.L (ticker_id=239)
+2025-12-07 05:16:41,512 [INFO] src.db_writer - Saved stats for CALX.US (ticker_id=240)
+2025-12-07 05:16:41,529 [INFO] src.db_writer - Saved stats for VU.PA (ticker_id=242)
+2025-12-07 05:16:41,546 [INFO] src.db_writer - Saved stats for 0OA4.L (ticker_id=241)
+2025-12-07 05:16:41,561 [INFO] src.db_writer - Saved stats for ASE.WA (ticker_id=243)
+2025-12-07 05:16:41,577 [INFO] src.db_writer - Saved stats for SMRT.L (ticker_id=244)
+2025-12-07 05:16:41,592 [INFO] src.db_writer - Saved stats for SEMR.US (ticker_id=245)
+2025-12-07 05:16:41,609 [INFO] src.db_writer - Saved stats for VRC.WA (ticker_id=246)
+2025-12-07 05:16:41,629 [INFO] src.db_writer - Saved stats for CRTA.L (ticker_id=247)
+2025-12-07 05:16:41,648 [INFO] src.db_writer - Saved stats for DCT.US (ticker_id=248)
+2025-12-07 05:16:41,668 [INFO] src.db_writer - Saved stats for ESYS.L (ticker_id=249)
+2025-12-07 05:16:41,686 [INFO] src.db_writer - Saved stats for PRGS.US (ticker_id=250)
+2025-12-07 05:16:41,704 [INFO] src.db_writer - Saved stats for PAR.US (ticker_id=251)
+2025-12-07 05:16:41,720 [INFO] src.db_writer - Saved stats for CXM.US (ticker_id=253)
+2025-12-07 05:16:41,736 [INFO] src.db_writer - Saved stats for YOU.US (ticker_id=255)
+2025-12-07 05:16:41,753 [INFO] src.db_writer - Saved stats for AGYS.US (ticker_id=254)
+2025-12-07 05:16:41,771 [INFO] src.db_writer - Saved stats for QTCOM.HE (ticker_id=256)
+2025-12-07 05:16:41,791 [INFO] src.db_writer - Saved stats for LSPD.US (ticker_id=257)
+2025-12-07 05:16:41,809 [INFO] src.db_writer - Saved stats for ABS.WA (ticker_id=258)
+2025-12-07 05:16:41,829 [INFO] src.db_writer - Saved stats for NATL.US (ticker_id=259)
+2025-12-07 05:16:41,844 [INFO] src.db_writer - Saved stats for JAMF.US (ticker_id=260)
+2025-12-07 05:16:41,860 [INFO] src.db_writer - Saved stats for IBTA.US (ticker_id=262)
+2025-12-07 05:16:41,879 [INFO] src.db_writer - Saved stats for TEK.L (ticker_id=263)
+2025-12-07 05:16:41,896 [INFO] src.db_writer - Saved stats for TMV.DE (ticker_id=264)
+2025-12-07 05:16:41,911 [INFO] src.db_writer - Saved stats for ENEA.ST (ticker_id=265)
+2025-12-07 05:16:41,928 [INFO] src.db_writer - Saved stats for SPT.US (ticker_id=266)
+2025-12-07 05:16:41,947 [INFO] src.db_writer - Saved stats for BIRD.L (ticker_id=267)
+2025-12-07 05:16:41,965 [INFO] src.db_writer - Saved stats for AOF.DE (ticker_id=269)
+2025-12-07 05:16:41,984 [INFO] src.db_writer - Saved stats for ALT.L (ticker_id=268)
+2025-12-07 05:16:42,005 [INFO] src.db_writer - Saved stats for IAR-B.ST (ticker_id=270)
+2025-12-07 05:16:42,025 [INFO] src.db_writer - Saved stats for PLUS.US (ticker_id=271)
+2025-12-07 05:16:42,045 [INFO] src.db_writer - Saved stats for DBD.US (ticker_id=272)
+2025-12-07 05:16:42,067 [INFO] src.db_writer - Saved stats for CINT.ST (ticker_id=273)
+2025-12-07 05:16:42,086 [INFO] src.db_writer - Saved stats for PD.US (ticker_id=274)
+2025-12-07 05:16:42,104 [INFO] src.db_writer - Saved stats for SEYE.ST (ticker_id=275)
+2025-12-07 05:16:42,120 [INFO] src.db_writer - Saved stats for UPBD.US (ticker_id=276)
+2025-12-07 05:16:42,138 [INFO] src.db_writer - Saved stats for MTTR.US (ticker_id=277)
+2025-12-07 05:16:42,155 [INFO] src.db_writer - Saved stats for CKT.L (ticker_id=278)
+2025-12-07 05:16:42,172 [INFO] src.db_writer - Saved stats for ALESK.PA (ticker_id=279)
+2025-12-07 05:16:42,187 [INFO] src.db_writer - Saved stats for AMPL.US (ticker_id=280)
+2025-12-07 05:16:42,204 [INFO] src.db_writer - Saved stats for TXT.WA (ticker_id=281)
+2025-12-07 05:16:42,221 [INFO] src.db_writer - Saved stats for CRDL.L (ticker_id=282)
+2025-12-07 05:16:42,236 [INFO] src.db_writer - Saved stats for SPNS.US (ticker_id=283)
+2025-12-07 05:16:42,258 [INFO] src.db_writer - Saved stats for KARO.US (ticker_id=284)
+2025-12-07 05:16:42,275 [INFO] src.db_writer - Saved stats for ARC.L (ticker_id=285)
+2025-12-07 05:16:42,292 [INFO] src.db_writer - Saved stats for EVBG.US (ticker_id=286)
+2025-12-07 05:16:42,308 [INFO] src.db_writer - Saved stats for MLNK.US (ticker_id=287)
+2025-12-07 05:16:42,326 [INFO] src.db_writer - Saved stats for MNTV.US (ticker_id=288)
+2025-12-07 05:16:42,343 [INFO] src.db_writer - Saved stats for FSLY.US (ticker_id=289)
+2025-12-07 05:16:42,361 [INFO] src.db_writer - Saved stats for WBTN.US (ticker_id=290)
+2025-12-07 05:16:42,378 [INFO] src.db_writer - Saved stats for DAVE.US (ticker_id=291)
+2025-12-07 05:16:42,398 [INFO] src.db_writer - Saved stats for ADEA.US (ticker_id=292)
+2025-12-07 05:16:42,424 [INFO] src.db_writer - Saved stats for 0M2A.L (ticker_id=293)
+2025-12-07 05:16:42,447 [INFO] src.db_writer - Saved stats for WKME.US (ticker_id=294)
+2025-12-07 05:16:42,465 [INFO] src.db_writer - Saved stats for ITIM.L (ticker_id=295)
+2025-12-07 05:16:42,482 [INFO] src.db_writer - Saved stats for PRO.US (ticker_id=296)
+2025-12-07 05:16:42,501 [INFO] src.db_writer - Saved stats for WEAV.US (ticker_id=297)
+2025-12-07 05:16:42,517 [INFO] src.db_writer - Saved stats for FPIP.ST (ticker_id=298)
+2025-12-07 05:16:42,533 [INFO] src.db_writer - Saved stats for DCBO.US (ticker_id=299)
+2025-12-07 05:16:42,549 [INFO] src.db_writer - Saved stats for OPFI.US (ticker_id=300)
+2025-12-07 05:16:42,568 [INFO] src.db_writer - Saved stats for PEN.L (ticker_id=302)
+2025-12-07 05:16:42,585 [INFO] src.db_writer - Saved stats for MODN.US (ticker_id=303)
+2025-12-07 05:16:42,601 [INFO] src.db_writer - Saved stats for VTEX.US (ticker_id=304)
+2025-12-07 05:16:42,618 [INFO] src.db_writer - Saved stats for OLO.US (ticker_id=305)
+2025-12-07 05:16:42,636 [INFO] src.db_writer - Saved stats for SHO.WA (ticker_id=306)
+2025-12-07 05:16:42,653 [INFO] src.db_writer - Saved stats for 4GBL.L (ticker_id=307)
+2025-12-07 05:16:42,674 [INFO] src.db_writer - Saved stats for VMEO.US (ticker_id=308)
+2025-12-07 05:16:42,692 [INFO] src.db_writer - Saved stats for PDFS.US (ticker_id=309)
+2025-12-07 05:16:42,709 [INFO] src.db_writer - Saved stats for LSS.PA (ticker_id=310)
+2025-12-07 05:16:42,725 [INFO] src.db_writer - Saved stats for ENFN.US (ticker_id=311)
+2025-12-07 05:16:42,740 [INFO] src.db_writer - Saved stats for MSAB-B.ST (ticker_id=312)
+2025-12-07 05:16:42,757 [INFO] src.db_writer - Saved stats for AAPL.US (ticker_id=313)
+2025-12-07 05:16:42,772 [INFO] src.db_writer - Saved stats for 0QYR.L (ticker_id=314)
+2025-12-07 05:16:42,790 [INFO] src.db_writer - Saved stats for APC.F (ticker_id=315)
+2025-12-07 05:16:42,804 [INFO] src.db_writer - Saved stats for APC.DE (ticker_id=316)
+2025-12-07 05:16:42,819 [INFO] src.db_writer - Saved stats for SMSD.L (ticker_id=317)
+2025-12-07 05:16:42,834 [INFO] src.db_writer - Saved stats for BC94.L (ticker_id=318)
+2025-12-07 05:16:42,851 [INFO] src.db_writer - Saved stats for SMSN.L (ticker_id=319)
+2025-12-07 05:16:42,866 [INFO] src.db_writer - Saved stats for SSUN.VI (ticker_id=320)
+2025-12-07 05:16:42,881 [INFO] src.db_writer - Saved stats for SSUN.F (ticker_id=321)
+2025-12-07 05:16:42,896 [INFO] src.db_writer - Saved stats for SSU.VI (ticker_id=322)
+2025-12-07 05:16:42,914 [INFO] src.db_writer - Saved stats for SONY.US (ticker_id=323)
+2025-12-07 05:16:42,930 [INFO] src.db_writer - Saved stats for 3CP.F (ticker_id=324)
+2025-12-07 05:16:42,946 [INFO] src.db_writer - Saved stats for RWL.DE (ticker_id=325)
+2025-12-07 05:16:42,962 [INFO] src.db_writer - Saved stats for EMR.SW (ticker_id=326)
+2025-12-07 05:16:42,983 [INFO] src.db_writer - Saved stats for WIN.SW (ticker_id=327)
+2025-12-07 05:16:43,000 [INFO] src.db_writer - Saved stats for VID.L (ticker_id=328)
+2025-12-07 05:16:43,017 [INFO] src.db_writer - Saved stats for LPL.US (ticker_id=329)
+2025-12-07 05:16:43,031 [INFO] src.db_writer - Saved stats for VZIO.US (ticker_id=330)
+2025-12-07 05:16:43,046 [INFO] src.db_writer - Saved stats for BO.CO (ticker_id=331)
+2025-12-07 05:16:43,062 [INFO] src.db_writer - Saved stats for HTJ.F (ticker_id=332)
+2025-12-07 05:16:43,076 [INFO] src.db_writer - Saved stats for SONO.US (ticker_id=333)
+2025-12-07 05:16:43,076 [WARNING] __main__ - Step 4 completed: persisted metrics for 318 ticker(s).
+2025-12-07 05:16:43,076 [WARNING] __main__ - Step 5: Aggregating industry-level metrics...
+2025-12-07 05:16:43,078 [INFO] src.db_writer - Aggregating industry stats for 3 industries
+2025-12-07 05:16:43,082 [INFO] src.db_writer - Aggregated industry Banks - Diversified: avg_pe=264.77019345628986, avg_rg=0.4093679922144052, sum_rev=1325442010092.8398
+2025-12-07 05:16:43,083 [INFO] src.db_writer - Aggregated industry Consumer Electronics: avg_pe=431.08292338491236, avg_rg=-0.0047060572817552845, sum_rev=649672479568.444
+2025-12-07 05:16:43,087 [INFO] src.db_writer - Aggregated industry Software - Application: avg_pe=1102.036364059564, avg_rg=0.6461755671064922, sum_rev=271464275877.50232
+2025-12-07 05:16:43,105 [INFO] src.db_writer - Industry aggregation completed.
+2025-12-07 05:16:43,106 [WARNING] __main__ - Step 5 completed: industry metrics aggregation finished.
+2025-12-07 05:16:43,106 [WARNING] __main__ - ETL PIPELINE COMPLETED (symbols=333, successful_tickers=318).

@@ -93,6 +93,19 @@ def run_checks() -> None:
     else:
         print("All target industries present in IndustryStats")
 
+    # 5.3 No duplicate tickers (same symbol in master table)
+    duplicate_tickers = (
+        session.query(Ticker.symbol)
+        .group_by(Ticker.symbol)
+        .having(func.count() > 1)
+        .all()
+    )
+    if duplicate_tickers:
+        print("Duplicate Ticker symbols found in master table:", duplicate_tickers)
+    else:
+        print("No duplicate Ticker symbols in master table")
+
+
     session.close()
     print("DB check completed!")
 
