@@ -54,6 +54,7 @@ Running `docker compose up` will automatically:
 │  ├─ check_db.py          # CLI tool to inspect DB contents
 │  └─ analyze_logs.py      # Summaries of ETL log output
 │
+├─ fiindo_challenge.db
 ├─ tests/
 │  ├─ conftest.py
 │  ├─ test_calculations.py
