@@ -15,20 +15,26 @@ The codebase is structured, testable, and built around clean separation of conce
 > All commands in this README assume you run them from the **project root directory**  
 > (the folder containing `README.md`, `docker-compose.yml`, etc.).
 
+---
 
 ### Recommended: Run the Project via Docker
 
-The easiest and fully reproducible way to run the ETL pipeline is through the
-provided **Docker setup**.    
+The easiest and fully reproducible way to run the ETL pipeline is through the  
+provided **Docker setup**.
+
 Running `docker compose up` will automatically:
 - install all dependencies  
 - run Alembic migrations  
-- create the SQLite database (`fiindo_challenge.db`)  
+- create or update the SQLite database (`fiindo_challenge.db`)  
 - create the `logs/` directory with timestamped log files  
 - execute the full ETL pipeline  
-No database or log files are included in the repository on purpose
-(they are created dynamically at runtime).  
-Just ensure your `.env` is filled in before starting Docker.
+
+> **Note:**  
+> This repository *includes* a pre-generated `fiindo_challenge.db` and example  
+> log files inside `logs/` so that reviewers can directly inspect the final ETL  
+> output (ticker metrics, industry aggregations, history tables, and error logs).  
+> When running via Docker, these files will be automatically updated or overwritten.
+> Just ensure your `.env` file is filled in before starting Docker.
 
 
 ---
